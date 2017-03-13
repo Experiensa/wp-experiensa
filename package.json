@@ -1,0 +1,37 @@
+{
+  "name": "wp-experiensa",
+  "version": "0.0.1",
+  "description": "WP plugin to add tourist information to your website",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --config assets/build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Experiensa/wp-experiensa.git"
+  },
+  "author": "Experiensa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Experiensa/wp-experiensa/issues"
+  },
+  "homepage": "https://github.com/Experiensa/wp-experiensa#readme",
+  "engines": {
+    "node": ">= 6.9.4"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.4.0",
+    "eslint": "^3.17.1",
+    "eslint-loader": "^1.6.3",
+    "eslint-plugin-react": "^6.10.0",
+    "webpack": "^2.2.1"
+  }
+}
