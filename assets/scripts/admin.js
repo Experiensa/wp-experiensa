@@ -1,0 +1,1 @@
+console.log('this is showing only on admin.php');

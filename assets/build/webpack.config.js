@@ -1,21 +1,20 @@
 const path = require('path');
 const webpack = require('webpack');
-const env = process.env.NODE_ENV
-var paths = require('../../paths');
+const env = process.env.NODE_ENV;
+const paths = require('../../paths');
 
 function entry() {
     return {
-        "main": [
-            paths.EXPERIENSA_ASSETS + '/scripts/main.js'
-        ],
-        "vendor": [
+        main: paths.EXPERIENSA_ASSETS + '/scripts/main.js',
+        admin: paths.EXPERIENSA_ASSETS + '/scripts/admin.js',
+        vendor: [
             'jquery'
         ]
     }
 }
 function output() {
     return {
-        filename: 'bundle.js',
+        filename: '[name].js',
         path: paths.EXPERIENSA_DIST
     }
 }
@@ -41,7 +40,7 @@ function plugins() {
 
     ]
 }
-var devtool = 'inline-source-map'
+let devtool = 'inline-source-map';
 if(env === 'production'){ devtool = 'hidden-sourcemap' }
 const webpackConfig = {
     devtool: devtool,
@@ -51,7 +50,7 @@ const webpackConfig = {
         rules: rules()
     },
     plugins: plugins()
-}
+};
 
 // console.log(webpackConfig)
-module.exports = webpackConfig
+module.exports = webpackConfig;

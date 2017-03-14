@@ -22,15 +22,18 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         define('EXPERIENSA_DIR_NAME', dirname(plugin_basename(__FILE__)));
         define('EXPERIENSA_ABS', dirname(__FILE__));
         define('EXPERIENSA_DIST', dirname(__FILE__) . '/dist');
+        define('EXPERIENSA_TEMPLATES', dirname(__FILE__) . '/templates/');
         define('EXPERIENSA_REDUX_OPT_NAME','experiensa_redux');
         $expsa_active_ctp = array();
 
-        include EXPERIENSA_ABS . '/includes/requires.php';
-        include EXPERIENSA_ABS . '/includes/Assets.php';
+        include EXPERIENSA_ABS . '/includes/Requires.php';
+        include EXPERIENSA_ABS . '/includes/Asset.php';
         include EXPERIENSA_ABS . '/models/register.php';
         include EXPERIENSA_ABS . '/modules/loader.php';
         include EXPERIENSA_ABS . '/includes/setting-pages.php';
         include EXPERIENSA_ABS . '/includes/customizer.php';
+
+        include EXPERIENSA_ABS . '/modules/extensions/live-composer/modules/Example_LC_Module.php';
     }
     add_action('plugins_loaded','init_experiensa');
 }

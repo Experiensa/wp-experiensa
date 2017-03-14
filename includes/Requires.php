@@ -1,6 +1,19 @@
-<?php
+<?php namespace Experiensa\Includes;
 
-    function requiredPlugins(){
+/**
+ * Class Requires
+ * @package Experiensa\Includes
+ */
+class Requires
+{
+    public static function init(){
+        add_action('admin_notices', array( __CLASS__, 'requiredPlugins' ));
+    }
+
+    /**
+     * Notify if a required plugin is missing
+     */
+    public static function requiredPlugins(){
         include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         $plugin_messages = array();
         $msg = __('This theme requires you to install the ');
@@ -72,4 +85,11 @@
             echo '</div>';
         }
     }
-    add_action('admin_notices', 'requiredPlugins');
+    public static function experiensaLoadTemplate($filename = false){
+        if($filename){
+            $template = EXPERIENSA_TEMPLATES . $filename;
+            load_template( $template, false );
+        }
+    }
+}
+Requires::init();
