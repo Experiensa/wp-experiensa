@@ -5,7 +5,8 @@ Post Type: exp_estimate
 Meta box: true
 order:1
 */
-
+use \Experiensa\Plugin\Modules\Common;
+use \Experiensa\Plugin\Modules\Settings;
 /**
  * Estimate Voyage General Information
  */
@@ -17,10 +18,9 @@ $title = array(
 );
 
 $people = array(
-    'type'  => 'text',
+    'type'  => 'number',
     'field' => 'estimate_people',
     'label' => __('Number of people','sage'),
-    'validate'      => [ ['type' => 'number'] ],
     'columns' => 2,
 );
 
@@ -29,7 +29,6 @@ $number_days = array(
     'field'         => 'estimate_days',
     'label'         => __('Days','sage'),
     'columns'       => 1,
-    'validate'      => [ ['type' => 'number'] ]
 );
 
 $number_nights = array(
@@ -37,7 +36,6 @@ $number_nights = array(
     'field'         => 'estimate_nights',
     'label'         => __('Nights','sage'),
     'columns'       => 1,
-    'validate'      => array( array( 'type' => 'number' ) )
 );
 
 $price = array(
@@ -47,13 +45,12 @@ $price = array(
     'attributes'    => array( 'step' => 'any' ),
     'columns'       => 3
 );
-
 $currency = array(
     'type'      => 'select',
     'field'     => 'estimate_currency',
     'label'     => __('Currency','sage'),
-    'value'     => \Experiensa\Modules\Common::get_settled_currency(),
-    'choices'   => \Experiensa\Modules\Common::currency_name_description_list(),
+    'value'     => Settings::getCurrency(),
+    'choices'   => Common::currency_name_description_list(),
     'columns'   => 5
 );
 

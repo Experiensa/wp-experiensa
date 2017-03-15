@@ -9,28 +9,29 @@
 piklist('field',array(
     'type'      => 'select',
     'field'     => 'website_use',
-    'label'     => __('This website will be used as:','sage'),
+    'label'     => __('This website will be used as:','experiensa'),
     'columns'   => 3,
     'value'     => 'travel',
     'choices'   => array(
-        'travel'         => __('Travel Agency','sage'),
-        'hotel'          => __('Hotel','sage'),
-        'tourist'        => __('Tourist Office','sage')
+        'travel'         => __('Travel Agency','experiensa'),
+        'hotel'          => __('Hotel','experiensa'),
+        'tourist'        => __('Tourist Office','experiensa')
     ),
 ));
 //Travel Agency Post Types
 piklist('field',array(
     'type' => 'checkbox',
     'field' => 'travel_agency_posttypes',
-    'label' => __('Travel Agency Modules','sage'),
+    'label' => __('Travel Agency Modules','experiensa'),
     'choices' => array(
-        'host'      => __('Hosts','sage'),
-        'estimate'  => __('Estimates','sage'),
-        'brochure'  => __('Brochure','sage'),
-        'partner'   => __('Partners','sage'),
-        'feedback'  => __('Feedback','sage'),
-        'voyage'    => __('Voyages','sage'),
-        'service'   => __('Services','sage')
+        'exp_host'      => __('Hosts','experiensa'),
+        'exp_estimate'  => __('Estimates','experiensa'),
+        'exp_brochure'  => __('Brochure','experiensa'),
+        'exp_partner'   => __('Partners','experiensa'),
+        'exp_place'     => __('Place','experiensa'),
+        'exp_feedback'  => __('Feedback','experiensa'),
+        'exp_voyage'    => __('Voyages','experiensa'),
+        'exp_service'   => __('Services','experiensa')
     ),
     'conditions' => array(
         array(
@@ -43,13 +44,14 @@ piklist('field',array(
 piklist('field',array(
     'type' => 'checkbox',
     'field' => 'hotel_posttypes',
-    'label' => __('Hotel Modules','sage'),
+    'label' => __('Hotel Modules','experiensa'),
     'choices' => array(
-        'host'      => __('Hosts','sage'),
-        'estimate'  => __('Estiamtes','sage'),
-        'feedback'  => __('Feedback','sage'),
-        'services'  => __('Services','sage'),
-        'facility'      => __('Facilities','sage')
+        'exp_host'      => __('Hosts','experiensa'),
+        'exp_estimate'  => __('Estiamtes','experiensa'),
+        'exp_feedback'  => __('Feedback','experiensa'),
+        'exp_place'     => __('Place','experiensa'),
+        'exp_services'  => __('Services','experiensa'),
+        'exp_facility'      => __('Facilities','experiensa')
     ),
     'conditions' => array(
         array(
@@ -62,12 +64,13 @@ piklist('field',array(
 piklist('field',array(
     'type' => 'checkbox',
     'field' => 'tourist_office_posttypes',
-    'label' => __('Tourist Office Modules','sage'),
+    'label' => __('Tourist Office Modules','experiensa'),
     'choices' => array(
-        'host' => __('Hosts','sage'),
-        'voyage' => __('Voyages','sage'),
-        'sites' => __('Sites','sage'),
-        'festivals' => __('Festivals','sage')
+        'exp_host' => __('Hosts','experiensa'),
+        'exp_place'     => __('Place','experiensa'),
+        'exp_voyage' => __('Voyages','experiensa'),
+        'exp_sites' => __('Sites','experiensa'),
+//        'exp_festivals' => __('Festivals','experiensa')
     ),
     'conditions' => array(
         array(
@@ -80,10 +83,10 @@ piklist('field', array(
     'type'      => 'file',
     'field'     => 'agency_logo',
     'scope'     => 'post_meta',
-    'label'     => __('Logo','sage'),
+    'label'     => __('Logo','experiensa'),
     'options'   => array(
-        'modal_title'   => __('Add Logo','sage'),
-        'button'        => __('Add Logo','sage')
+        'modal_title'   => __('Add Logo','experiensa'),
+        'button'        => __('Add Logo','experiensa')
     ),
     'validate' => array(
         array(
@@ -100,7 +103,7 @@ piklist('field', array(
     'type'      => 'textarea',
     'field'     => 'agency_description',
     'scope'     => 'post_meta',
-    'label'     => __('Agency Description','sage'),
+    'label'     => __('Agency Description','experiensa'),
     'attributes' => array(
         'rows' => 5,
         'cols' => 50,
@@ -113,10 +116,10 @@ piklist('field', array(
     'type' => 'text',
     'field' => 'agency_address',
     'scope' => 'post_meta',
-    'label' => __('Address','sage'),
+    'label' => __('Address','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency address','sage')
+        'placeholder' => __('Enter the agency address','experiensa')
     )
 ));
 
@@ -127,7 +130,7 @@ piklist('field', array(
     'label' => __('Postal Code'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency postal code','sage')
+        'placeholder' => __('Enter the agency postal code','experiensa')
     )
 ));
 
@@ -138,7 +141,7 @@ piklist('field', array(
     'label' => __('City'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency city','sage')
+        'placeholder' => __('Enter the agency city','experiensa')
     )
 ));
 
@@ -149,7 +152,7 @@ piklist('field', array(
     'label' => __('Country'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency country','sage')
+        'placeholder' => __('Enter the agency country','experiensa')
     )
 ));
 
@@ -160,7 +163,7 @@ piklist('field', array(
     'label' => __('Email'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency email','sage')
+        'placeholder' => __('Enter the agency email','experiensa')
     )
 ));
 
@@ -171,7 +174,7 @@ piklist('field', array(
     'label' => __('Phone'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency phone','sage')
+        'placeholder' => __('Enter the agency phone','experiensa')
     )
 ));
 
@@ -179,10 +182,10 @@ piklist('field', array(
     'type' => 'tel',
     'field' => 'agency_fax',
     'scope' => 'post_meta',
-    'label' => __('Fax','sage'),
+    'label' => __('Fax','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency fax','sage')
+        'placeholder' => __('Enter the agency fax','experiensa')
     )
 ));
 
@@ -190,12 +193,12 @@ piklist('field', array(
     'type' => 'textarea',
     'field' => 'agency_schedule',
     'scope' => 'post_meta',
-    'label' => __('Schedule','sage'),
+    'label' => __('Schedule','experiensa'),
     'attributes' => array(
         'rows' => 5,
         'cols' => 50,
         'class' => 'regular-text',
-        'placeholder' => __('Enter the agency schedule','sage')
+        'placeholder' => __('Enter the agency schedule','experiensa')
     )
 ));
 
@@ -204,7 +207,7 @@ piklist('field', array(
     'field' => 'agency_google_map',
     'scope' => 'post_meta',
     'columns'=> 12,
-    'label' => __('Agency Map','sage'),
+    'label' => __('Agency Map','experiensa'),
 ));
 
 piklist('field', array(
@@ -222,30 +225,30 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'recaptcha_site_key',
-    'label' => __('reCAPTCHA Site Key','sage'),
+    'label' => __('reCAPTCHA Site Key','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the reCAPTCHA site key','sage')
+        'placeholder' => __('Enter the reCAPTCHA site key','experiensa')
     )
 ));
 
 piklist('field', array(
     'type' => 'text',
     'field' => 'recaptcha_secret_key',
-    'label' => __('reCAPTCHA Secret Key','sage'),
+    'label' => __('reCAPTCHA Secret Key','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the reCAPTCHA secret key','sage')
+        'placeholder' => __('Enter the reCAPTCHA secret key','experiensa')
     )
 ));
 
 piklist('field', array(
     'type' => 'text',
-    'description' => __('If you don\'t have, get one here: ','sage').'<a href="https://developers.google.com/" target="_blank">Google Developers</a>',
+    'description' => __('If you don\'t have, get one here: ','experiensa').'<a href="https://developers.google.com/" target="_blank">Google Developers</a>',
     'field' => 'gmaps_api_key',
-    'label' => __('Google Maps API Key','sage'),
+    'label' => __('Google Maps API Key','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
-        'placeholder' => __('Enter the Google Maps API key','sage')
+        'placeholder' => __('Enter the Google Maps API key','experiensa')
     )
 ));
