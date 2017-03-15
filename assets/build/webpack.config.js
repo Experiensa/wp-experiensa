@@ -7,8 +7,17 @@ function entry() {
     return {
         main: paths.EXPERIENSA_ASSETS + '/scripts/main.js',
         admin: paths.EXPERIENSA_ASSETS + '/scripts/admin.js',
+        catalog: paths.EXPERIENSA_ASSETS + '/scripts/modules/catalog/index.jsx',
         vendor: [
             'jquery'
+        ],
+        react: [
+            'react',
+            'react-dom',
+            'react-redux',
+            'react-router',
+            'react-router-redux',
+            'redux'
         ]
     }
 }
@@ -22,22 +31,49 @@ function rules(){
     return [
         {
             test: /\.js$/,
-            loaders: ['babel-loader'],
-            exclude: [paths.NODEMOUDLES_PATH]
+            exclude: [paths.NODEMOUDLES_PATH],
+            use: [
+                {
+                    loader: 'babel-loader'
+                }
+            ]
+        },
+        {
+            test: /\.jsx?$/,
+            exclude: [paths.NODEMOUDLES_PATH],
+            use: [
+                {
+                    loader: 'babel-loader',
+                    options: {
+                        babelrc: false,
+                        presets: ['es2015', 'react', 'stage-2'],
+                        plugins: ['transform-decorators-legacy']
+                    }
+                }
+            ]
+            /*loaders: ['babel-loader'],
+            query: {
+                presets: ['es2015', 'react', 'stage-2'],
+                plugins: ['transform-decorators-legacy']
+            }*/
         },
     ]
 }
 function plugins() {
     return [
         // new webpack.optimize.UglifyJsPlugin({
-        //     minimize: true,
-        //     compress: { warnings: false }
+        //     sourceMap: true,
+        //     compress: {
+        //         warnings: true
+        //     }
+        // }),
+        // new webpack.LoaderOptionsPlugin({
+        //     minimize: true
         // }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.js'
-        }),
-
+            names: ['vendor', 'react_libs'],
+            minChunks: Infinity
+        })
     ]
 }
 let devtool = 'inline-source-map';
@@ -49,7 +85,10 @@ const webpackConfig = {
     module: {
         rules: rules()
     },
-    plugins: plugins()
+    plugins: plugins(),
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    }
 };
 
 // console.log(webpackConfig)

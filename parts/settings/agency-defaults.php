@@ -5,9 +5,9 @@
  Tab: Defaults
  Flow: Options
  */
+use \Experiensa\Plugin\Modules\Common;
 
-
-$currency_list = \Experiensa\Modules\Common::currency_name_description_list();
+$currency_list = Common::currency_name_description_list();
 
 piklist('field',array(
     'type'      => 'select',
@@ -20,7 +20,7 @@ piklist('field',array(
 
 
 
-$timezone_list = \Experiensa\Modules\Common::get_timezone_array();
+$timezone_list = Common::get_timezone_array();
 
 piklist('field', array(
     'type' => 'select',

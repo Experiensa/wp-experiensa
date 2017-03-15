@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 if ( ! defined( 'EXPERIENSA_VER' )){
-    function init_experiensa()
-    {
+//    function init_experiensa()
+//    {
         define('EXPERIENSA_VER', '0.0.1');
         define('EXPERIENSA_BASENAME', plugin_basename(__FILE__));
         define('EXPERIENSA_URL', plugin_dir_url(__FILE__));
@@ -26,14 +26,13 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         define('EXPERIENSA_REDUX_OPT_NAME','experiensa_redux');
         $expsa_active_ctp = array();
 
-        include EXPERIENSA_ABS . '/includes/Requires.php';
-        include EXPERIENSA_ABS . '/includes/Asset.php';
-        include EXPERIENSA_ABS . '/models/register.php';
-        include EXPERIENSA_ABS . '/modules/loader.php';
-        include EXPERIENSA_ABS . '/includes/setting-pages.php';
-        include EXPERIENSA_ABS . '/includes/customizer.php';
-
-        include EXPERIENSA_ABS . '/modules/extensions/live-composer/modules/Example_LC_Module.php';
-    }
-    add_action('plugins_loaded','init_experiensa');
+        include EXPERIENSA_ABS . '/autoloader.php';
+        Experiensa\Plugin\Includes\Requires::init();
+        Experiensa\Plugin\Includes\Asset::init();
+        Experiensa\Plugin\Models\Register::init();
+        Experiensa\Plugin\Modules\Settings::addSettingPages();
+//        include EXPERIENSA_ABS . '/includes/customizer.php';
+//        include EXPERIENSA_ABS . '/modules/extensions/live-composer/modules/Example_LC_Module.php';
+//    }
+//    add_action('plugins_loaded','init_experiensa');
 }
