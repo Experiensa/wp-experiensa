@@ -1,11 +1,10 @@
 <?php namespace Experiensa\Plugin\Models\PostType;
 
 class Brochure{
-    public function __construct(){
-        add_action( 'init' , array($this,'addCustomPostType'), 10, 1 );
-        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+    public static function init(){
+        add_action( 'init' , array(__CLASS__,'addCustomPostType'), 10, 1 );
     }
-    public function addCustomPostType(){
+    public static function addCustomPostType(){
 
         $labels = array(
             'name'                  => _x( 'Brochures', 'Post Type General Name', 'experiensa' ),

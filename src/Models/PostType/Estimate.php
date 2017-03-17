@@ -1,11 +1,10 @@
 <?php namespace Experiensa\Plugin\Models\PostType;
 
 class Estimate{
-    public function __construct(){
-        add_action( 'init' , array($this,'addCustomPostType'), 10, 1 );
-        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+    public static function init(){
+        add_action( 'init' , array(__CLASS__,'addCustomPostType'), 10, 1 );
     }
-    public function addCustomPostType(){
+    public static function addCustomPostType(){
         $labels = array(
             'name'                  => _x( 'Estimate', 'Post Type General Name', 'experiensa' ),
             'singular_name'         => _x( 'Estimate', 'Post Type Singular Name', 'experiensa' ),

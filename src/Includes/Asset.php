@@ -57,7 +57,6 @@ final class Asset{
          */
         $api_key = Settings::getGoogleMapsAPIKey();
         $lang = Helpers::getSiteLanguageCode();
-        var_dump($api_key);
         if($hook == 'post-new.php' && $cpt == 'exp_place'){
             wp_enqueue_script('gplace_api/js', 'https://maps.googleapis.com/maps/api/js?libraries=places&key='.$api_key.'&language='.$lang);
         }

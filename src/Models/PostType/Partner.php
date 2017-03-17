@@ -1,11 +1,10 @@
 <?php namespace Experiensa\Plugin\Models\PostType;
 
 class Partner{
-    public function __construct(){
-        add_action( 'init' , array($this,'addCustomPostType'), 10, 1 );
-        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+    public static function init(){
+        add_action( 'init' , array(__CLASS__,'addCustomPostType'), 10, 1 );
     }
-    public function addCustomPostType(){
+    public static function addCustomPostType(){
         $labels = array(
             'name'                  => _x( 'Partners', 'Post Type General Name', 'experiensa' ),
             'singular_name'         => _x( 'Partner', 'Post Type Singular Name', 'experiensa' ),

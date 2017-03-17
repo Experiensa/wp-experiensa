@@ -1,11 +1,11 @@
 <?php namespace Experiensa\Plugin\Models\Taxonomy;
 
 class FacilityType{
-    public function __construct(){
-        add_action( 'init' , array($this,'addTaxonomy'), 0 );
-        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+    public static function init(){
+        add_action( 'init' , array(__CLASS__,'addTaxonomy'), 0 );
+//        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
     }
-    public function addTaxonomy(){  
+    public static function addTaxonomy(){
 
         $labels = array(
             'name'                       => _x( 'Facility Types', 'Taxonomy General Name', 'experiensa' ),

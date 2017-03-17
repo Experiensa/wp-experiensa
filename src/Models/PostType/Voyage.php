@@ -1,11 +1,10 @@
 <?php namespace Experiensa\Plugin\Models\PostType;
 
 class Voyage{
-    public function __construct(){
-        add_action( 'init' , array($this,'addCustomPostType'), 10, 1 );
-        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+    public static function init(){
+        add_action( 'init' , array(__CLASS__,'addCustomPostType'), 10, 1 );
     }
-    public function addCustomPostType(){
+    public static function addCustomPostType(){
         $labels = array(
             'name'                  => _x( 'Voyage', 'Post Type General Name', 'experiensa'),
             'singular_name'         => _x( 'Voyage', 'Post Type Singular Name', 'experiensa'),
@@ -29,8 +28,8 @@ class Voyage{
         $rewrite = array(
             'slug'                  => 'exp_voyage',
             'with_front'            => true,
-            'pages'                 => true,
             'feeds'                 => true,
+            'public'      => true,
         );
 
         $options = array(
@@ -55,6 +54,7 @@ class Voyage{
             'rewrite'               => $rewrite,
             'capability_type'       => 'post',
         );
+//        return $options;
         register_post_type( 'exp_voyage', $options );
     }
 }
