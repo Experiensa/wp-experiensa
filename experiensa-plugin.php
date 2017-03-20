@@ -46,7 +46,8 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         //$s = Experiensa\Plugin\Modules\Settings::getSeasonDates();
         //var_dump($s);
 //        include EXPERIENSA_ABS . '/includes/customizer.php';
-//        include EXPERIENSA_ABS . '/modules/extensions/live-composer/modules/Example_LC_Module.php';
+        include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/Modules/Catalog_LC_Module.php';
+        include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/Modules/Example_LC_Module.php';
 //    }
 //    add_action('plugins_loaded','init_experiensa');
 }

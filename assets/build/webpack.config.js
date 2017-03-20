@@ -8,7 +8,7 @@ function entry() {
         main: paths.EXPERIENSA_ASSETS + '/scripts/main.js',
         admin: paths.EXPERIENSA_ASSETS + '/scripts/admin.js',
         catalog: paths.EXPERIENSA_ASSETS + '/scripts/modules/catalog/index.jsx',
-        vendor: [
+        common: [
             'jquery'
         ],
         react: [
@@ -51,28 +51,38 @@ function rules(){
                     }
                 }
             ]
-            /*loaders: ['babel-loader'],
-            query: {
-                presets: ['es2015', 'react', 'stage-2'],
-                plugins: ['transform-decorators-legacy']
-            }*/
         },
     ]
 }
 function plugins() {
     return [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: true,
-        //     compress: {
-        //         warnings: true
-        //     }
-        // }),
-        // new webpack.LoaderOptionsPlugin({
-        //     minimize: true
-        // }),
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'react_libs'],
+            names: ['common', 'react'],
             minChunks: Infinity
+        }),
+        // new webpack.LoaderOptionsPlugin({
+        //     minimize: true,
+        //     debug: false
+        // }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false,
+        //         screw_ie8: true,
+        //         conditionals: true,
+        //         unused: true,
+        //         comparisons: true,
+        //         sequences: true,
+        //         dead_code: true,
+        //         evaluate: true,
+        //         if_return: true,
+        //         join_vars: true,
+        //     },
+        //     output: {
+        //         comments: false,
+        //     },
+        // }),
+        new webpack.ProvidePlugin({
+            $: "jquery"
         })
     ]
 }
@@ -88,6 +98,10 @@ const webpackConfig = {
     plugins: plugins(),
     resolve: {
         extensions: ['.js', '.jsx'],
+        modules: [
+            paths.NODEMOUDLES_PATH,
+            paths.EXPERIENSA_ASSETS + '/scripts/modules/catalog'
+        ]
     }
 };
 

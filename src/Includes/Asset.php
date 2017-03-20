@@ -25,8 +25,10 @@ final class Asset{
             'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
             'siteurl'=>get_bloginfo('url')
         );
-        wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/vendor.js');
+        wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
+        wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js');
+        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js');
         wp_localize_script('experiensa/js', 'experiensa_vars', $localized_array);
         /**
          * Estimate enqueues
@@ -49,7 +51,10 @@ final class Asset{
             'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
             'siteurl'=>get_bloginfo('url')
         );
-        wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/vendor.js');
+        wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
+        wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/common.js');
+        wp_enqueue_script('experiensa/main_js', EXPERIENSA_URL . 'dist/main.js');
+        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js');
         wp_enqueue_script('experiensa/admin_js', EXPERIENSA_URL . 'dist/admin.js');
         wp_localize_script('experiensa/admin_js', 'experiensa_vars', $localized_array);
         /**

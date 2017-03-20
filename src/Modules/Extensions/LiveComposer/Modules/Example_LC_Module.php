@@ -1,6 +1,6 @@
 <?php
 
-use Experiensa\Includes\Requires;
+use Experiensa\PLugin\Includes\Requires;
 
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
     class Example_LC_Module extends DSLC_Module{
