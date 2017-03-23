@@ -25,6 +25,7 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         define('EXPERIENSA_DIST', dirname(__FILE__) . '/dist');
         define('EXPERIENSA_TEMPLATES', dirname(__FILE__) . '/templates/');
         define('EXPERIENSA_REDUX_OPT_NAME','experiensa_redux');
+        define('EXPERIENSA_MAIN_API_URL',get_bloginfo('url') . '/wp-json/wp/v2');
         $expsa_active_ctp = array();
 //        var_dump(EXPERIENSA_FILE);
 //    var_dump(EXPERIENSA_ABS);
@@ -48,6 +49,19 @@ if ( ! defined( 'EXPERIENSA_VER' )){
 //        include EXPERIENSA_ABS . '/includes/customizer.php';
         include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/Modules/Catalog_LC_Module.php';
         include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/Modules/Example_LC_Module.php';
+        new Experiensa\Plugin\Modules\Api\RegisterApi();
+        //172.24.12.182/experiensa
+//        $asd = Experiensa\Plugin\Modules\Request\Http::getApiResponse('http://fiestatravel.ch/wp-json/wp/v2/voyage');
+//        var_dump($asd);
+//        $asd = Experiensa\Plugin\Modules\Request\Http::getUrlHeaders('http://fiestatravel.ch/wp-json/wp/v2/voyage');
+//        var_dump($asd);
+//        $asd = Experiensa\Plugin\Modules\Request\Http::isPage404('http://fiestatravel.ch/wp-json/wp/v2/voyage');
+//        var_dump($asd);
+//        var_dump(@get_headers('http://fiestatravel.ch/wp-json/wp/v2/voyage'));
+//        var_dump(wp_http_validate_url('http://fiestatravel.ch/wp-json/wp/v2/voyage'));
+//        var_dump(EXPERIENSA_MAIN_API_URL.'/exp_partner');
+//        print_r(\Experiensa\Plugin\Modules\Request\Partner::getPartners());
+//        die();
 //    }
 //    add_action('plugins_loaded','init_experiensa');
 }
