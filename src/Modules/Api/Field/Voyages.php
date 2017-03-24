@@ -247,60 +247,9 @@ class Voyages{
         }
         return $duration;
     }
-    public function get_voyage_country( $object, $field_name, $request ) {
-        $country = "";
-        $terms = get_the_terms($object[ 'id' ],'exp_country');
-        if(!empty($terms)){
-            if(count($terms) < 2){
-                $country = $terms[0]->name;
-            }else {
-                foreach ($terms as $term) {
-                    if (!empty($term->name)){
-                        $country .= $term->name.", ";
-                    }
-                }
-            }
-        }
-        $country = rtrim(rtrim($country),',');
-        return $country;
-    }
-    public function get_voyage_location( $object, $field_name, $request ) {
-        $location = "";
-        $terms = get_the_terms($object[ 'id' ],'exp_location');
-        if(!empty($terms)){
-            if(count($terms) < 2){
-                $location = $terms[0]->name;
-            }else {
-                foreach ($terms as $term) {
-                    if (!empty($term->name)){
-                        $location .= $term->name.", ";
-                    }
-                }
-            }
-        }
-        $location = rtrim(rtrim($location),',');
-        return $location;
-    }
-    public function get_voyage_theme( $object, $field_name, $request ) {
-        $themes = "";
-        $terms = get_the_terms($object[ 'id' ],'exp_theme');
-        if(!empty($terms)){
-            if(count($terms) < 2){
-                $themes = $terms[0]->name;
-            }else {
-                foreach ($terms as $term) {
-                    if (!empty($term->name)){
-                        $themes .= $term->name.", ";
-                    }
-                }
-            }
-        }
-        $themes = rtrim(rtrim($themes),',');
-        return $themes;
-    }
-    public function get_voyage_category( $object, $field_name, $request ) {
+    private function createTermsObject($post_id,$taxonomy){
         $row = [];
-        $terms = get_the_terms($object[ 'id' ],'category');
+        $terms = get_the_terms($post_id,$taxonomy);
         if(!empty($terms)){
             if(count($terms) < 2){
                 $row['array'][]= ucfirst($terms[0]->name);
@@ -316,52 +265,32 @@ class Voyages{
                 }
                 $row['text'] = rtrim(rtrim($text),',');
             }
+        }
+        if(empty($row)){
+            return array(
+                'array' => [],
+                'text'  => ''
+            );
         }
         $categories = $row;
         return $categories;
     }
+    public function get_voyage_country( $object, $field_name, $request ) {
+        return $this->createTermsObject($object[ 'id' ],'exp_country');
+    }
+    public function get_voyage_location( $object, $field_name, $request ) {
+        return $this->createTermsObject($object[ 'id' ],'exp_location');
+    }
+    public function get_voyage_theme( $object, $field_name, $request ) {
+        return $this->createTermsObject($object[ 'id' ],'exp_theme');
+    }
+    public function get_voyage_category( $object, $field_name, $request ) {
+        return $this->createTermsObject($object[ 'id' ],'category');
+    }
     public function get_voyage_included( $object, $field_name, $request ) {
-        $row = [];
-        $terms = get_the_terms($object[ 'id' ],'exp_included');
-        if(!empty($terms)){
-            if(count($terms) < 2){
-                $row['array'][]= ucfirst($terms[0]->name);
-                $row['text'] = ucfirst($terms[0]->name);
-            }else {
-                $text = "";
-                foreach ($terms as $term) {
-                    if (!empty($term->name)){
-                        $name = ucfirst($term->name);
-                        $text .= $name.", ";
-                        $row['array'][] = $name;
-                    }
-                }
-                $row['text'] = rtrim(rtrim($text),',');
-            }
-        }
-        $includes = $row;
-        return $includes;
+        return $this->createTermsObject($object[ 'id' ],'exp_included');
     }
     public function get_voyage_excluded( $object, $field_name, $request ) {
-        $row = [];
-        $terms = get_the_terms($object[ 'id' ],'exp_excluded');
-        if(!empty($terms)){
-            if(count($terms) < 2){
-                $row['array'][]= ucfirst($terms[0]->name);
-                $row['text'] = ucfirst($terms[0]->name);
-            }else {
-                $text = "";
-                foreach ($terms as $term) {
-                    if (!empty($term->name)){
-                        $name = ucfirst($term->name);
-                        $text .= $name.", ";
-                        $row['array'][] = $name;
-                    }
-                }
-                $row['text'] = rtrim(rtrim($text),',');
-            }
-        }
-        $excludes = $row;
-        return $excludes;
+        return $this->createTermsObject($object[ 'id' ],'exp_excluded');
     }
 }

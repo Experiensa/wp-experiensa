@@ -46,18 +46,30 @@ class Catalog {
                 ),
             ),
         ));
-//        register_rest_route($this->namespace, '/' . $this->name. '/locations', array(
-//            'methods'         => \WP_REST_Server::READABLE,
-//            'callback'        => array( $this, 'response_location_filter' ),
-//        ));
-//        register_rest_route($this->namespace, '/' . $this->name. '/themes', array(
-//            'methods'         => \WP_REST_Server::READABLE,
-//            'callback'        => array( $this, 'response_theme_filter' ),
-//        ));
-//        register_rest_route($this->namespace, '/' . $this->name. '/country', array(
-//            'methods'         => \WP_REST_Server::READABLE,
-//            'callback'        => array( $this, 'response_country_filter' ),
-//        ));
+        register_rest_route($this->namespace, '/' . $this->name. '/countries', array(
+            'methods'         => \WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_country_filter' ),
+        ));
+        register_rest_route($this->namespace, '/' . $this->name. '/locations', array(
+            'methods'         => \WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_location_filter' ),
+        ));
+        register_rest_route($this->namespace, '/' . $this->name. '/themes', array(
+            'methods'         => \WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_theme_filter' ),
+        ));
+        register_rest_route($this->namespace, '/' . $this->name. '/includes', array(
+            'methods'         => \WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_included_filter' ),
+        ));
+        register_rest_route($this->namespace, '/' . $this->name. '/excludes', array(
+            'methods'         => \WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_excluded_filter' ),
+        ));
+        register_rest_route($this->namespace, '/' . $this->name. '/categories', array(
+            'methods'         => \WP_REST_Server::READABLE,
+            'callback'        => array( $this, 'response_category_filter' ),
+        ));
     }
     public function set_catalog() {
         $catalog = CatalogRequest::getCatalog();
@@ -72,7 +84,7 @@ class Catalog {
         }
         return $catalog;
     }
-    public function get_unique_array_filter($filters){
+    private function get_unique_array_filter($filters){
         if(!empty($filters)) {
             $aux = [];
             $out = [];
@@ -89,88 +101,25 @@ class Catalog {
         }
         return [];
     }
-    public function get_location_filter($new = false){
+    private function createFilterObject($filter_name,$new = false){
         $catalog = $this->getCatalog($new);
         $filters = [];
         if(!empty($catalog)){
             $items = $catalog;
-            $location_string = '';
             foreach ($items as $item){
-                if(!empty($item['location']))
-                    $location_string .= $item['location'].',';
+                $item_filters = isset($item[$filter_name]['array'])?$item[$filter_name]['array']:[];
+                if(!empty($item_filters)){
+                    $row = [];
+                    foreach ($item_filters as $ifilter){
+                        $row['name'] = $ifilter;
+                        $row['active'] = false;
+                        $filters[] = $row;
+                    }
+                }
             }
-            if($location_string != '') {
-                $location_string = ltrim($location_string,' ');
-                $location_string = rtrim($location_string,',');
-                $filters = explode(',', $location_string);
-            }
+            $filters = $this->get_unique_array_filter($filters);
         }
-        if(!empty($filters)){
-            $filters_aux = $filters;
-            $filters = [];
-            foreach ($filters_aux as $filter_name){
-                $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
-                $filter['active'] = false;
-                $filters[] = $filter;
-            }
-        }
-        return $this->get_unique_array_filter($filters);
-    }
-    public function get_country_filter($new = false){
-        $catalog = $this->getCatalog($new);
-        $filters = [];
-        if(!empty($catalog)){
-            $items = $catalog;
-            $country_string = '';
-            foreach ($items as $item){
-                if(!empty($item['country']))
-                    $country_string .= $item['country'].',';
-            }
-            if($country_string != '') {
-                $country_string = ltrim($country_string,' ');
-                $country_string = rtrim($country_string,',');
-                $filters = explode(',', $country_string);
-            }
-        }
-        if(!empty($filters)){
-            $filters_aux = $filters;
-            $filters = [];
-            foreach ($filters_aux as $filter_name){
-                $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
-                $filter['active'] = false;
-                $filters[] = $filter;
-            }
-        }
-        return $this->get_unique_array_filter($filters);
-    }
-
-    public function get_theme_filter($new = false){
-        $catalog = $this->getCatalog($new);
-        $filters = [];
-        if(!empty($catalog)){
-            $items = $catalog;
-            $theme_string = '';
-            foreach ($items as $item){
-                if(!empty($item['theme']))
-                    $theme_string .= $item['theme'].',';
-            }
-            if($theme_string != '') {
-                $theme_string = ltrim($theme_string,' ');
-                $theme_string = rtrim($theme_string,',');
-                $filters = explode(',', $theme_string);
-            }
-        }
-        if(!empty($filters)){
-            $filters_aux = $filters;
-            $filters = [];
-            foreach ($filters_aux as $filter_name){
-                $filter['name'] = rtrim(ltrim($filter_name.' '),' ');
-                $filter['active'] = false;
-                $filters[] = $filter;
-            }
-        }
-        return $this->get_unique_array_filter($filters);
-
+        return $filters;
     }
     ////////////////////////////////
     //  Create API response section
@@ -181,24 +130,37 @@ class Catalog {
         $catalog = $this->catalog;
         if(!empty($catalog)){
             $data['catalog'] = $catalog;
-            $data['theme_filter'] = $this->get_theme_filter();
-            $data['location_filter'] = $this->get_location_filter();
-            $data['country_filter'] = $this->get_country_filter();
+            $data['country_filter'] = $this->createFilterObject('country');
+            $data['location_filter'] = $this->createFilterObject('location');
+            $data['theme_filter'] = $this->createFilterObject('theme');
+            $data['included_filter'] = $this->createFilterObject('included');
+            $data['excluded_filter'] = $this->createFilterObject('excluded');
+            $data['category_filter'] = $this->createFilterObject('category');
         }
         return new \WP_REST_Response( $data, 200 );
     }
-
-    public function response_location_filter($request){
-        $data = $this->get_location_filter(true);
-        return new \WP_REST_Response( $data, 200 );
-    }
-
-    public function response_theme_filter($request){
-        $data = $this->get_theme_filter(true);
-        return new \WP_REST_Response( $data, 200 );
-    }
     public function response_country_filter($request){
-        $data = $this->get_country_filter(true);
+        $data = $this->createFilterObject('country',true);
+        return new \WP_REST_Response( $data, 200 );
+    }
+    public function response_location_filter($request){
+        $data = $this->createFilterObject('location',true);
+        return new \WP_REST_Response( $data, 200 );
+    }
+    public function response_theme_filter($request){
+        $data = $this->createFilterObject('theme',true);
+        return new \WP_REST_Response( $data, 200 );
+    }
+    public function response_included_filter($request){
+        $data = $this->createFilterObject('included',true);
+        return new \WP_REST_Response( $data, 200 );
+    }
+    public function response_excluded_filter($request){
+        $data = $this->createFilterObject('excluded',true);
+        return new \WP_REST_Response( $data, 200 );
+    }
+    public function response_category_filter($request){
+        $data = $this->createFilterObject('category',true);
         return new \WP_REST_Response( $data, 200 );
     }
     /**
