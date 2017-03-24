@@ -14,8 +14,6 @@ class Catalog {
         $this->namespace = 'wp/v' . $this->version;
         $this->name = 'catalog';
         $this->catalog = array();
-        $this->location_filter = array();
-        $this->theme_filter = array();
         $this->register_end_point();
     }
     public function register_end_point(){
