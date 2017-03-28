@@ -15,12 +15,22 @@ class Catalog extends React.Component {
     }
     render() {
         // console.log('voy a mostrar',this.props.catalog)
+        let filterOptions = {
+            categories: this.props.categories,
+            includes: this.props.includes,
+            excludes: this.props.excludes,
+            themes: this.props.themes,
+            locations: this.props.locations,
+            countries: this.props.countries
+        }
+        // console.log('filterOptions',filterOptions)
+        // console.log('mis options son',this.props.options)
         return (
             <div className="ui container">
-                <br/><br/><br/><br/>
-                <CatalogFilterLayout themes={this.props.theme_filters} locations={this.props.location_filters} countries={this.props.country_filters} options={this.props.options}/>
                 <br/><br/>
-                <CatalogLayout voyages={this.props.catalog} options={this.props.options}/>
+                <CatalogFilterLayout filterOptions={filterOptions} options={this.props.options}/>
+                <br/><br/>
+                {/*<CatalogLayout voyages={this.props.catalog} options={this.props.options}/>*/}
                 <br/><br/>
             </div>
         );
@@ -30,9 +40,12 @@ class Catalog extends React.Component {
 function mapStateToProps(state){
     return {
         catalog: state.catalog.catalog,
-        theme_filters: state.catalog.theme_filters,
-        location_filters: state.catalog.location_filters,
-        country_filters: state.catalog.country_filters
+        categories: state.catalog.categories,
+        includes: state.catalog.includes,
+        excludes: state.catalog.excludes,
+        themes: state.catalog.themes,
+        locations: state.catalog.locations,
+        countries: state.catalog.countries
     }
 }
 

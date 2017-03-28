@@ -14,11 +14,12 @@ class QueryBuilder
         foreach ($cpt_list as $cpt){
             if($cpt === 'jetpack-testimonial')
                 $post_types[$cpt] = 'Testimonial';
-            else
-                $post_types[$cpt] = ucwords(str_replace('_',' ',$cpt));
+            else {
+                $post_types[$cpt] = ucwords(str_replace('_', ' ', $cpt));
+            }
         }
-        $post_types['none'] = __('None','sage');
-        $post_types['team'] = __('Team','sage');
+        $post_types['none'] = __('None','experiensa');
+        $post_types['team'] = __('Team','experiensa');
         return $post_types;
     }
     /**
@@ -30,6 +31,21 @@ class QueryBuilder
         return post_type_exists($cpt_name);
     }
 
+    /**
+     * Check if a meta-field exist
+     * @param $id
+     * @param $key
+     * @param bool $single
+     * @return bool
+     */
+    public static function checkMetaFieldExist($id,$key,$single=true){
+        $meta = get_post_meta($id,$key,$single);
+        if($single){
+            return ($meta != '');
+        }else{
+            return (!empty($meta));
+        }
+    }
     /**
      * @param array $args
      * @param string $output
@@ -61,7 +77,6 @@ class QueryBuilder
                 'slug'       => $terms,
                 'hide_empty' => true,
             );
-
         }else {
             $args = array(
                 'taxonomy'   => $taxonomy,
@@ -72,7 +87,22 @@ class QueryBuilder
         $terms = get_terms($args);
         return $terms;
     }
-
+    /**
+     * Get posts by arguments
+     * @param int $limit
+     * @param string $order
+     * @param string $order_by
+     * @return mixed
+     */
+    public static function getPosts($limit = 4, $order = 'ASC', $order_by = 'title'){
+        $args = array(
+            'numberposts' => $limit,
+            'order'=> $order,
+            'orderby' => $order_by
+        );
+        $posts = get_posts($args);
+        return $posts;
+    }
     /**
      * Get all posts by arguments
      * @param $post_type
@@ -82,10 +112,6 @@ class QueryBuilder
      * @return WP_Query
      */
     public static function getPostByArguments($post_type,$taxonomy,$terms = [],$limit=-1){
-//        echo "<h3>getPostByArguments </h3>";
-//        var_dump($post_type);
-//        var_dump($taxonomy);
-//        var_dump($terms);
         if(empty($terms)) {
             $terms = self::getTermsByTaxonomy($taxonomy);
         }else {
@@ -107,8 +133,57 @@ class QueryBuilder
                 )
             )
         );
-        $query = new WP_Query($args);
-//        var_dump($query);
+        $query = get_posts($args);
         return $query;
     }
+
+    public static function getPostByPostType($post_type = 'exp_voyage',$limit = -1,$order = 'DESC'){
+        $pt = (is_array($post_type)?$post_type:array($post_type));
+        $args = [
+            'posts_per_page' => $limit,
+            'post_type'      => $pt,
+            'post_status'    => ['publish', 'inherit'],
+            'order' => $order,
+        ];
+        $query = get_posts($args);
+        return $query;
+    }
+
+    /**
+     * @param $post_type
+     * @param $category
+     * @param string $order
+     * @return mixed
+     */
+    public static function getPostByPostTypeAndCategoryName($post_type,$category,$order = 'DESC'){
+        $args = array(
+            'post_type' => $post_type,
+            'category_name' => $category,
+            'order' => $order,
+        );
+        $posts = get_posts($args);
+        return $posts;
+    }
+    public static function getPostByPostTypeTaxonomyAndTerm($post_type,$taxonomy,$terms = [],$limit = -1){
+        if($taxonomy=='all'){
+            return self::getPostByPostType($post_type,$limit);
+        }else {
+            $args = array(
+                'post_type'      => $post_type,
+                'posts_per_page' => $limit,
+                'post_status'    => array('publish', 'inherit'),
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field'    => 'slug',
+                        'terms'    => $terms
+                    )
+                )
+            );
+            return($args);
+            $query = get_posts($args);
+            return $query;
+        }
+    }
+
 }

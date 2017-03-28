@@ -20,12 +20,12 @@ export default class VoyageImage extends React.Component {
                     imgSrc = imageGallery[0]
                     voyageImage = <img src={imgSrc}/>
                 }else{
-                    imgSrc = sage_vars.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
+                    imgSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
                     voyageImage = <img src={imgSrc}/>
                 }
             }
         }else{
-            imgSrc = sage_vars.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
+            imgSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
             voyageImage = <img src={imgSrc}/>
         }
 

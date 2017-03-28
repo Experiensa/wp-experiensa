@@ -14,19 +14,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 if ( ! defined( 'EXPERIENSA_VER' )){
-//    function init_experiensa()
-//    {
+    function init_experiensa()
+    {
         define('EXPERIENSA_VER', '0.0.1');
         define('EXPERIENSA_FILE', __FILE__);
         define('EXPERIENSA_BASENAME', plugin_basename(__FILE__));
         define('EXPERIENSA_URL', plugin_dir_url(__FILE__));
+        define('EXPERIENSA_ASSETS_URL', plugin_dir_url(__FILE__) . 'assets/');
+        define('EXPERIENSA_DIST_URL', plugin_dir_url(__FILE__) . 'dist/');
         define('EXPERIENSA_DIR_NAME', dirname(plugin_basename(__FILE__)));
         define('EXPERIENSA_ABS', dirname(__FILE__));
         define('EXPERIENSA_DIST', dirname(__FILE__) . '/dist');
         define('EXPERIENSA_TEMPLATES', dirname(__FILE__) . '/templates/');
         define('EXPERIENSA_REDUX_OPT_NAME','experiensa_redux');
         define('EXPERIENSA_MAIN_API_URL',get_bloginfo('url') . '/wp-json/wp/v2');
-        $expsa_active_ctp = array();
+        $exp_active_ctp = array();
 //        var_dump(EXPERIENSA_FILE);
 //    var_dump(EXPERIENSA_ABS);
         include EXPERIENSA_ABS . '/autoloader.php';
@@ -47,8 +49,7 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         //$s = Experiensa\Plugin\Modules\Settings::getSeasonDates();
         //var_dump($s);
 //        include EXPERIENSA_ABS . '/includes/customizer.php';
-        include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/Modules/Catalog_LC_Module.php';
-        include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/Modules/Example_LC_Module.php';
+        include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/live-composer-loader.php';
         new Experiensa\Plugin\Modules\Api\RegisterApi();
         //172.24.12.182/experiensa
 //        $asd = Experiensa\Plugin\Modules\Request\Http::getApiResponse('http://fiestatravel.ch/wp-json/wp/v2/voyage');
@@ -62,6 +63,10 @@ if ( ! defined( 'EXPERIENSA_VER' )){
 //        var_dump(EXPERIENSA_MAIN_API_URL.'/exp_partner');
 //        print_r(\Experiensa\Plugin\Modules\Request\Partner::getPartners());
 //        die();
-//    }
-//    add_action('plugins_loaded','init_experiensa');
+//        var_dump(\Experiensa\Plugin\Modules\QueryBuilder::getTermsByTaxonomy('exp_location'));
+//        var_dump(\Experiensa\Plugin\Modules\QueryBuilder::getTaxonomies());
+//        die();
+    }
+    add_action('plugins_loaded','init_experiensa');
+//    add_action('init','init_experiensa');
 }

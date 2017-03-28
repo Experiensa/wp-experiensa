@@ -15,9 +15,9 @@ if(isset($elements)):
     $duration = (strpos($elements,'duration')!==false?'duration':'');
     $themes = (strpos($elements,'themes')!==false?'themes':'');
     $country = (strpos($elements,'country')!==false?'country':'');
-
+    $filters = json_encode(explode(' ',$filters));
     ?>
-    <div id="catalog-props"
+    <div id="catalogProps"
          style="display: none"
          data-type="<?=$type?>"
          data-title="<?= $title?>"
@@ -30,9 +30,9 @@ if(isset($elements)):
          data-button_bg_color="<?=$button_bg_color?>"
          data-button_bg_hover_color="<?=$button_bg_hover_color?>"
          data-button_bg_active_color="<?=$button_bg_active_color?>"
+         data-filters=<?=$filters?>
     ></div>
     <?php
 endif;
 ?>
-<div id="catalog-app"></div>
-<h1>Holaaaaaa</h1>
+<div id="catalogApp"></div>

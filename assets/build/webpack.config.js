@@ -12,6 +12,7 @@ function entry() {
             'jquery'
         ],
         react: [
+            'lodash',
             'react',
             'react-dom',
             'react-redux',

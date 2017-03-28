@@ -17,6 +17,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             $options = array(
                 CatalogOpt::type(),
                 CatalogOpt::elements(),
+                CatalogOpt::filters(),
                 Font::fontFamily('title_font','Source Sans Pro','Title','.catalog-title'),
                 Color::colorField('title_text_color','Content Color','#000','.catalog-title','styling','Title'),
                 Font::fontFamily('content_font','Source Sans Pro','Content','.catalog-content'),
@@ -52,6 +53,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         function output( $options ) {
             $type = $options['type'];
             $elements = $options['elements'];
+            $filters = $options['filters'];
             $button_bg_color = $options['button_bg_color'];
             $button_bg_hover_color = $options['button_bg_hover_color'];
             $button_bg_active_color = $options['button_bg_active_color'];
@@ -59,6 +61,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
 
             set_query_var('type',$type);
             set_query_var('elements',$elements);
+            set_query_var('filters',$filters);
             set_query_var('button_bg_color',$button_bg_color);
             set_query_var('button_bg_hover_color',$button_bg_hover_color);
             set_query_var('button_bg_active_color',$button_bg_active_color);

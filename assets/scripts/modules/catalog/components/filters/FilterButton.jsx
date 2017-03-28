@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {filterThemeCatalog, filterLocationCatalog, filterCountryCatalog} from '../../actions'
+import {filterCatalog} from '../../actions'
 import { Button } from 'semantic-ui-react'
-import $ from 'jquery';
 
-class CatalogFilterButton extends React.Component {
+class FilterButton extends React.Component {
     constructor(){
         super()
         this.state = {
@@ -15,7 +14,7 @@ class CatalogFilterButton extends React.Component {
         // this.getStyles = /this.getStyles.bind(this)
     }
     handleClick(e,filter_type){
-        console.log('handleCLick',e.currentTarget.style)
+        // console.log('handleCLick',e.currentTarget.style)
         // e.currentTarget.style.backgroundColor = '#ccc';
         const active = !this.state.isActive
         const value = active?'active catalog-button': 'catalog-button'
@@ -23,17 +22,7 @@ class CatalogFilterButton extends React.Component {
             isActive: active,
             classValue: value
         })
-        switch(filter_type){
-            case 'FILTER_THEME':
-                this.props.filterThemeCatalog(this.props.name,!this.state.isActive)
-                break
-            case 'FILTER_LOCATION':
-                this.props.filterLocationCatalog(this.props.name,!this.state.isActive)
-                break
-            default:
-                this.props.filterCountryCatalog(this.props.name,!this.state.isActive)
-                break
-        }
+        this.props.filterCatalog(filter_type,this.props.name,!this.state.isActive)
     }
     getStyles(){
         // console.log('mis props',this.props)
@@ -72,9 +61,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,
-    {
-        filterThemeCatalog,
-        filterLocationCatalog,
-        filterCountryCatalog
-    })(CatalogFilterButton)
+export default connect(mapStateToProps,{filterCatalog})(FilterButton)

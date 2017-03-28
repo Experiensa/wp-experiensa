@@ -2,7 +2,7 @@
 
 class Location{
     public static function init(){
-        add_action( 'init' , array(__CLASS__,'addTaxonomy'), 0 );
+        add_action( 'init' , array(__CLASS__,'addTaxonomy') );
 //        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
     }
     public static function addTaxonomy(){
@@ -39,9 +39,20 @@ class Location{
 			'show_ui'                    => true,
 			'show_admin_column'          => true,
 			'show_in_nav_menus'          => true,
+            'show_in_rest'               => true,
 			'show_tagcloud'              => true,
+            'query_var'                  => true,
 			'rewrite'                    => $rewrite,
 		);
 		register_taxonomy( 'exp_location', array( 'post', 'attachment', 'exp_voyage', 'exp_estimate', 'exp_service', 'exp_host', 'exp_partner', 'exp_place' ), $args );
 	}
+	public static function getLocationTerms(){
+        $args = array(
+            'taxonomy'   => 'exp_location',
+            'orderby'    => 'none',
+            'hide_empty' => true,
+        );
+        $terms = get_terms($args);
+        return $terms;
+    }
 }

@@ -11,9 +11,9 @@ import reducers from './reducers';
 import Catalog from './components/Catalog'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-let catalog_app = document.getElementById('catalog-app')
+let catalog_app = document.getElementById('catalogApp');
 if(catalog_app != null ) {
-    let catalog_props = $('#catalog-props');
+    let catalog_props = $('#catalogProps');
     let title = true;
     let price = true;
     let button = true;
@@ -38,6 +38,8 @@ if(catalog_app != null ) {
         btn_color_active = catalog_props.data('button_bg_hover_color');
         btn_color_hover = catalog_props.data('button_bg_active_color');
     }
+    let filters = catalog_props.data('filters')
+    // console.log('mis filtros son ',filters)
     let options = {
         title: title,
         price: price,
@@ -49,7 +51,8 @@ if(catalog_app != null ) {
         type: type,
         btn_color: btn_color,
         btn_color_active: btn_color_active,
-        btn_color_hover: btn_color_hover
+        btn_color_hover: btn_color_hover,
+        filters: filters
     }
     ReactDOM.render(
         <Provider store={createStoreWithMiddleware(reducers)}>

@@ -4,12 +4,21 @@
 class Post
 {
     /**
-     * Retrive post content by Post ID
+     * Retrieve post content by Post ID
      * @param $post_id
      * @return mixed
      */
     public static function getPostContent( $post_id ){
         return get_post_field('post_content',$post_id);
+    }
+
+    /**
+     * Retrieve post excerpt by Post ID
+     * @param $post_id
+     * @return mixed
+     */
+    public static function getPostExcerpt($post_id){
+        return get_post_field('post_excerpt',$post_id);
     }
     /**
      * Retrieve Post Feature/Thumbnail ID by Post ID
@@ -19,7 +28,15 @@ class Post
     public static function getFeatureImageID( $post_id ){
         return get_post_thumbnail_id($post_id);
     }
-
+    /**
+     * Retrieve Post Feature/Thumbnail URL by Post ID
+     * @param $post_id
+     * @return mixed
+     */
+    public static function getFeatureImageURL($post_id){
+        $image_id = self::getFeatureImageID($post_id);
+        return wp_get_attachment_url($image_id);
+    }
     /**
      * Retrieve a Feature Image Object by Post Feature/Thumbnail ID
      * @param $image_id

@@ -23,12 +23,13 @@ final class Asset{
         }
         $localized_array = array(
             'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
-            'siteurl'=>get_bloginfo('url')
+            'siteurl'=>get_bloginfo('url'),
+            'assets_url' => EXPERIENSA_ASSETS_URL
         );
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/common.js');
-        wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js');
-        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js');
+        wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js',[],null,true);
+        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/vendor_js'],null,true);
         wp_localize_script('experiensa/js', 'experiensa_vars', $localized_array);
         /**
          * Estimate enqueues

@@ -43,7 +43,7 @@ export default class CatalogVoyageDetailsModalCards extends React.Component {
             let image = voyage.cover_image
             let imageSrc
             if(!image.feature_image && image.gallery.length < 1){
-                imageSrc = sage_vars.stylesheet_directory_uri + '/assets/images/travel-no-image.jpg'
+                imageSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
             }else{
                 if(image.feature_image){
                     imageSrc = image.feature_image
