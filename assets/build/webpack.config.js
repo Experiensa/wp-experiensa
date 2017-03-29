@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const env = process.env.NODE_ENV;
 const paths = require('../../paths');
 
@@ -53,6 +54,40 @@ function rules(){
                 }
             ]
         },
+        {
+            test: /.css$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: ['css-loader']
+            })
+        },
+        {
+            test: /\.png$/,
+            use:[
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 100000
+                    }
+                }
+            ]
+        },
+        {
+            test: /\.(ttf|eot|png|jpe?g|gif|svg|ico)$/,
+            include: paths.EXPERIENSA_ASSETS,
+            loader: 'file-loader',
+            options: {
+                name: `[path][name].[ext]`,
+            },
+        },
+        {
+            test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg)$/,
+            include: /node_modules|bower_components/,
+            loader: 'file-loader',
+            options: {
+                name: `vendor/[name].[ext]`,
+            },
+        },
     ]
 }
 function plugins() {
@@ -60,6 +95,11 @@ function plugins() {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['common', 'react'],
             minChunks: Infinity
+        }),
+        new ExtractTextPlugin({
+            filename: 'main.css',
+            disable: false,
+            allChunks: true
         }),
         // new webpack.LoaderOptionsPlugin({
         //     minimize: true,

@@ -14,7 +14,6 @@ class Catalog extends React.Component {
         this.props.requestCatalog()
     }
     render() {
-        // console.log('voy a mostrar',this.props.catalog)
         let filterOptions = {
             categories: this.props.categories,
             includes: this.props.includes,
@@ -28,9 +27,9 @@ class Catalog extends React.Component {
         return (
             <div className="ui container">
                 <br/><br/>
-                <CatalogFilterLayout filterOptions={filterOptions} options={this.props.options}/>
+                <CatalogFilterLayout filters={this.props.filters} filterOptions={filterOptions} options={this.props.options}/>
                 <br/><br/>
-                {/*<CatalogLayout voyages={this.props.catalog} options={this.props.options}/>*/}
+                <CatalogLayout voyages={this.props.catalog} options={this.props.options}/>
                 <br/><br/>
             </div>
         );

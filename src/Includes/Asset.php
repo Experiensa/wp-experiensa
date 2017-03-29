@@ -26,6 +26,7 @@ final class Asset{
             'siteurl'=>get_bloginfo('url'),
             'assets_url' => EXPERIENSA_ASSETS_URL
         );
+        wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css',[]);
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js',[],null,true);

@@ -7,12 +7,12 @@ export default class CatalogFilterLayout extends React.Component {
         super()
     }
     loadFilters(){
-        let filterToShow = this.props.options.filters
+        let filterToShow = this.props.filters
         return filterToShow.map((filter,index)=>{
-            let options = {}
+            let filterOptions = {}
             switch(filter){
                 case 'country':
-                    options = {
+                    filterOptions = {
                         title: 'Countries',
                         icon: 'world icon',
                         type: 'FILTER_COUNTRY',
@@ -20,7 +20,7 @@ export default class CatalogFilterLayout extends React.Component {
                     };
                     break;
                 case 'location':
-                    options = {
+                    filterOptions = {
                         title: 'Locations',
                         icon: 'map icon',
                         type: 'FILTER_LOCATION',
@@ -28,14 +28,14 @@ export default class CatalogFilterLayout extends React.Component {
                     };
                     break;
                 default:
-                    options = {
+                    filterOptions = {
                         title: 'Themes',
                         icon: 'soccer icon',
                         type: 'FILTER_THEME',
                         values: this.props.filterOptions.themes
                     }
             }
-            return (<Filters options={options} key={index}/>)
+            return (<Filters filterOptions={filterOptions} key={index}/>)
         })
     }
     render() {

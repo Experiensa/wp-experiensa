@@ -11,8 +11,8 @@ class Catalog
             'type'  => 'select',
             'choices' => array(
                 array(
-                    'label' => __( 'Grid', 'experiensa' ),
-                    'value' => 'grid',
+                    'label' => __( 'Minimalist', 'experiensa' ),
+                    'value' => 'minimalist',
                 ),
                 array(
                     'label' => __( 'Cards', 'experiensa' ),
@@ -42,7 +42,7 @@ class Catalog
                     'value' => 'price',
                 ),
                 array(
-                    'label' => __( 'Button', 'experiensa' ),
+                    'label' => __( 'Detail Button', 'experiensa' ),
                     'value' => 'button',
                 ),
                 array(

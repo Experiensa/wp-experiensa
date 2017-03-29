@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid } from 'semantic-ui-react'
-
+import noTravelImage from '../../../../../../../assets/images/travel-no-image.jpg'
 export default class DetailsModal extends React.Component {
     constructor(){
         super()
@@ -44,22 +44,24 @@ export default class DetailsModal extends React.Component {
             return value
         }
         let duration = () =>{
-            return (voyage.duration?"<b>Duration</b>: " + voyage.duration+"<br/>":"")
+            return (voyage.duration?"<b>Duration</b>: " + voyage.duration.text+"<br/>":"")
         }
         let country = () =>{
-            return (voyage.country?"<b>Country</b>: " + voyage.country+"<br/>":"")
+            return (voyage.country?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
         }
         let location = () =>{
-            return (voyage.location?"<b>Location</b>: " + voyage.location+"<br/>":"")
+            return (voyage.location?"<b>Location</b>: " + voyage.location.text+"<br/>":"")
         }
         let theme = () =>{
-            return (voyage.theme?"<b>Theme</b>: " + voyage.theme+"<br/>":"")
+            return (voyage.theme?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
         }
         let voyageImage = () => {
+            // console.log(experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg')
+            // console.log('mi ruta es',experiensa_vars.assets_url)
             let image = voyage.cover_image
             let imageSrc
             if(!image.feature_image && image.gallery.length < 1){
-                imageSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
+                imageSrc = noTravelImage
             }else{
                 if(image.feature_image){
                     imageSrc = image.feature_image
