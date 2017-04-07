@@ -5,7 +5,7 @@ import DataRow from '../common/DataRow'
 import DetailsModal from '../voyages/layouts/DetailsModal'
 import { Card } from 'semantic-ui-react'
 
-export default class Minimalist extends React.Component {
+export default class VoyageCards extends React.Component {
     constructor(){
         super()
     }

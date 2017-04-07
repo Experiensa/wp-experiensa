@@ -65,6 +65,7 @@ if ( ! defined( 'EXPERIENSA_VER' )){
 //        die();
 //        var_dump(\Experiensa\Plugin\Modules\QueryBuilder::getTermsByTaxonomy('exp_location'));
 //        var_dump(\Experiensa\Plugin\Modules\QueryBuilder::getTaxonomies());
+//        var_dump(\Experiensa\Plugin\Modules\Request\Http::getApiResponse('http://localhost/pruebawp/wp-json/wp/v2/exp_voyage',true));
 //        die();
     }
     add_action('plugins_loaded','init_experiensa');

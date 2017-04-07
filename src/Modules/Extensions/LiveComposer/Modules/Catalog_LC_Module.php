@@ -43,7 +43,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'tab' => __( 'Buttons', 'experiensa' )
                 ),
-                Color::colorField('button_bg_color','Color','#fff','.button.catalog-button','styling','Buttons','background'),
+                Color::colorField('button_bg_color','Color','#b7b7b7','.button.catalog-button','styling','Buttons','background'),
                 Color::colorField('button_bg_hover_color','Color - Hover','#fff','.catalog-button:hover','styling','Buttons','background'),
                 Color::colorField('button_bg_active_color','Color - Active','#fff','.ui.button.toggle.active.catalog-button','styling','Buttons','background'),
                 array(

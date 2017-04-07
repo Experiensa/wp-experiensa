@@ -20,9 +20,11 @@ class Voyage
         foreach ($partners as $info){
             $partner_url = $info['url'] . 'wp-json/wp/v2/exp_voyage?&per_page=100';
             $partner_response = Http::getApiResponse($partner_url,true);
-            $partner_response = json_decode($partner_response,true);
-            $partner_response = self::createApiResponse($partner_response);
-            $voyages = array_merge($voyages,$partner_response);
+            if(!isset($partner_response['error'])) {
+                $partner_response = json_decode($partner_response, true);
+                $partner_response = self::createApiResponse($partner_response);
+                $voyages = array_merge($voyages, $partner_response);
+            }
         }
         return $voyages;
     }

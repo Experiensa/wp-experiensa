@@ -1,9 +1,12 @@
 import React from 'react'
 import _ from 'lodash'
+import { Card } from 'semantic-ui-react'
 // import CatalogVoyageCards from './CatalogVoyageCards'
 // import CatalogVoyageMinimalist from './CatalogVoyageMinimalist'
 // import CatalogVoyageMasonry from './voyages/layouts/masonry/CatalogVoyageMasonry'
 import Minimalist from './themes/Minimalist'
+import VoyageCards from './themes/VoyageCards'
+
 export default class CatalogLayout extends React.Component {
     constructor(){
         super()
@@ -20,9 +23,19 @@ export default class CatalogLayout extends React.Component {
             country: _.includes(elements,'country')
         })
     }
-    renderCards(){}
+    renderCards(){
+        return this.props.voyages.map((voyage,i) => {
+            return(
+                <VoyageCards voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
+            )
+        })
+    }
     renderMasonry(){
-
+        return this.props.voyages.map((voyage,i) => {
+            return(
+                <Minimalist voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
+            )
+        })
     }
     renderMinimalist(){
         return this.props.voyages.map((voyage,i) => {
@@ -32,21 +45,28 @@ export default class CatalogLayout extends React.Component {
         })
     }
     render() {
-        if(this.props.voyages) {
+        const size = _.size(this.props.voyages)
+        if(size > 0) {
+            // console.log('los voyages',this.props.voyages)
+            // console.log('mi size es',size)
+            let itemxrow = 4
+            if(size < 4)
+                itemxrow = size
+
             // console.log('mis voyages son', this.props.voyages)
             const type = this.props.options.type
             if (type == 'minimalist') {
                 return (
-                    <div className="ui four stackable cards">
+                    <Card.Group itemsPerRow={itemxrow}>
                         {this.renderMinimalist()}
-                    </div>
+                    </Card.Group>
                 )
             }
             if (type == 'cards') {
                 return (
-                    <div className="ui four stackable cards">
+                    <Card.Group itemsPerRow={itemxrow}>
                         <h1>Hola soy Cards</h1>
-                    </div>
+                    </Card.Group>
                 )
             }
             return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid } from 'semantic-ui-react'
-import noTravelImage from '../../../../../../../assets/images/travel-no-image.jpg'
+
 export default class DetailsModal extends React.Component {
     constructor(){
         super()
@@ -44,24 +44,25 @@ export default class DetailsModal extends React.Component {
             return value
         }
         let duration = () =>{
-            return (voyage.duration?"<b>Duration</b>: " + voyage.duration.text+"<br/>":"")
+            return (voyage.duration.text?"<b>Duration</b>: " + voyage.duration.text+"<br/>":"")
         }
         let country = () =>{
-            return (voyage.country?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
+            return (voyage.country.text?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
         }
         let location = () =>{
-            return (voyage.location?"<b>Location</b>: " + voyage.location.text+"<br/>":"")
+            return (voyage.location.text?"<b>Location</b>: " + voyage.location.text+"<br/>":"")
         }
         let theme = () =>{
-            return (voyage.theme?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
+            return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
         }
         let voyageImage = () => {
-            // console.log(experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg')
-            // console.log('mi ruta es',experiensa_vars.assets_url)
+            const lostTravelImage = experiensa_vars.assets_url + 'images/travel-no-image.jpg'
+            console.log(lostTravelImage)
+            console.log('mi ruta es',experiensa_vars.assets_url)
             let image = voyage.cover_image
             let imageSrc
             if(!image.feature_image && image.gallery.length < 1){
-                imageSrc = noTravelImage
+                imageSrc = lostTravelImage
             }else{
                 if(image.feature_image){
                     imageSrc = image.feature_image
