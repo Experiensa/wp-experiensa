@@ -9,7 +9,7 @@ class QueryBuilder
      * @return array
      */
     public static function getPostTypes(){
-        $cpt_list = get_post_types();
+        $cpt_list = get_post_types(array('public' => true));
         $post_types = array();
         foreach ($cpt_list as $cpt){
             if($cpt === 'jetpack-testimonial')

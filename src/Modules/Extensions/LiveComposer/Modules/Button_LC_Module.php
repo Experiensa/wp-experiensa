@@ -13,7 +13,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
         function options(){
             $options = [
                 Query::postType(),
-                Query::taxonomies('category'),
+                Query::taxonomies(),
                 Query::terms('terms'),
                 Query::max('max','5'),
             ];

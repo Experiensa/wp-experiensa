@@ -9,8 +9,14 @@ class Query
     {
         $pt = QueryBuilder::getPostTypes();
         $cpt = [];
+        $post_type_to_ignore = array(
+            'page',
+            'dslc_templates',
+            'team'
+        );
         foreach ($pt as $key => $value) {
-            $cpt[] = ['label' => $value, 'value' => $key];
+            if(!in_array($key,$post_type_to_ignore))
+                $cpt[] = ['label' => str_replace('Exp ','',$value), 'value' => $key];
         }
         return array(
             'label'   => __($title, 'experiensa'),
@@ -21,7 +27,7 @@ class Query
             'tab' => __('Query','sage')
         );
     }
-    public static function taxonomies($id = 'category',$default = 'all', $title = 'Category')
+    public static function taxonomies($id = 'taxonomy',$default = 'all', $title = 'Category')
     {
         $taxonomies = QueryBuilder::getTaxonomies();
         $tax = [];
