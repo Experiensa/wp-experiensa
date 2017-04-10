@@ -24,15 +24,22 @@ class Query
             'std'     => $default,
             'type'    => 'select',
             'choices' => $cpt,
-            'tab' => __('Query','sage')
+            'tab' => __('Query','experiensa')
         );
     }
-    public static function taxonomies($id = 'taxonomy',$default = 'all', $title = 'Category')
+    public static function taxonomies($id = 'taxonomy',$default = 'all', $title = 'Taxonomy')
     {
-        $taxonomies = QueryBuilder::getTaxonomies();
+        $taxonomies = QueryBuilder::getTaxonomies(array('public' => true));
         $tax = [];
+        $tax_to_ignore = array(
+            'post_tag',
+            'nav_menu',
+            'link_category',
+            'post_format'
+        );
         foreach ($taxonomies as $key => $value) {
-            $tax[] = ['label' => $value, 'value' => $key];
+            if(!in_array($key,$tax_to_ignore))
+                $tax[] = ['label' => $value, 'value' => $key];
         }
         return array(
             'label'   => __($title, 'experiensa'),
@@ -40,7 +47,7 @@ class Query
             'std'     => $default,
             'type'    => 'select',
             'choices' => $tax,
-            'tab' => __('Query','sage')
+            'tab' => __('Query','experiensa')
         );
     }
 
@@ -51,20 +58,22 @@ class Query
             'id'    => $id,
             'std'   => $default,
             'type'  => 'text',
-            'tab' => __('Query','sage')
+            'tab' => __('Query','experiensa')
         );
     }
-    public static function max($id = 'max',$max = '2',$title ='Max post #')
+    public static function max($id = 'max',$max = '2',$title ='Max post #',$onlypositive = true)
     {
         return array(
             'label'               => __($title, 'experiensa'),
             'id'                  => $id,
+            'onlypositive'        => $onlypositive,
             'std'                 => $max,
             'type'                => 'slider',
+            'refresh_on_change' => false,
             'affect_on_change_el' => '.element-to-affect',
             'min'                 => -1,
             'max'                 => 50,
-            'tab' => __('Query','sage')
+            'tab' => __('Query','experiensa')
         );
     }
 }

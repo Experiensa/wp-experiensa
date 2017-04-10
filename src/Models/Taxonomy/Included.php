@@ -41,6 +41,7 @@ class Included{
             'show_admin_column'          => true,
             'show_in_nav_menus'          => true,
             'show_tagcloud'              => true,
+            'show_in_rest'               => true,
             'rewrite'                    => $rewrite,
         );
         register_taxonomy( 'exp_included', array( 'post', 'exp_voyage', 'exp_estimate' ), $args );

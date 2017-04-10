@@ -40,6 +40,7 @@ class Country{
             'show_admin_column'          => true,
             'show_in_nav_menus'          => true,
             'show_tagcloud'              => true,
+            'show_in_rest'               => true,
             'rewrite'                    => $rewrite,
         );
         register_taxonomy( 'exp_country', array( 'post', 'attachment', 'exp_place', 'exp_voyage', 'exp_service', 'exp_host', 'exp_partner' ), $args );
