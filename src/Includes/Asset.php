@@ -3,20 +3,16 @@
 use Experiensa\Plugin\Modules\Helpers;
 use Experiensa\Plugin\Modules\Settings;
 
-if ( ! defined( 'ABSPATH' ) ) {
-    header( 'HTTP/1.0 403 Forbidden' );
-    exit;
-}
 /**
  * Class Assets
  * Load all custom javascript and CSS files on front-end and wp-admin
  */
 final class Asset{
-    public static function init(){
-        add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_frontend_scripts' ) );
-        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'load_admin_scripts' ) );
+    public function __construct( ) {
+        add_action( 'wp_enqueue_scripts', array( $this, 'load_frontend_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
     }
-    public static function load_frontend_scripts($hook){
+    public function load_frontend_scripts($hook){
         $protocol = 'http';
         if ( is_ssl() ) {
             $protocol = 'https';
@@ -39,7 +35,7 @@ final class Asset{
             wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
         }
     }
-    public static function load_admin_scripts($hook){
+    public function load_admin_scripts($hook){
         $cpt = (isset($_GET['post_type'])?$_GET['post_type']:false);
         $action = (isset($_GET['action'])?$_GET['action']:false);
 //        var_dump($hook);

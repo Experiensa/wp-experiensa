@@ -2,18 +2,18 @@
 
 /**
  * Class Requires
+ * Check for all dependency plugins
  * @package Experiensa\Plugin\Includes
  */
 class Requires
 {
-    public static function init(){
+    public function __construct( ) {
         add_action('admin_notices', array( __CLASS__, 'requiredPlugins' ));
     }
-
     /**
      * Notify if a required plugin is missing
      */
-    public static function requiredPlugins(){
+    public function requiredPlugins(){
         include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         $plugin_messages = array();
         $msg = __('This theme requires you to install the ');

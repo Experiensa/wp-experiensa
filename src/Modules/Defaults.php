@@ -2,7 +2,9 @@
 
 use Experiensa\Plugin\Modules\Common;
 use Experiensa\Plugin\Modules\Settings;
-
+/**
+ * Define defaults actions and filters
+ */
 class Defaults
 {
     public function __construct(){

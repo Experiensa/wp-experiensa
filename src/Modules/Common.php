@@ -1,7 +1,7 @@
 <?php namespace Experiensa\Plugin\Modules;
 
 //use Experiensa\Plugin\Modules\Helpers;
-
+// Contain many common use methods
 class Common
 {
     /**

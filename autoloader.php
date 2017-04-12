@@ -1,11 +1,10 @@
 <?php
-
+//Register my custom auto-loader
 spl_autoload_register('experiensa_autoloader');
-
+//Custom autoloader function
 function experiensa_autoloader($class){
     // project-specific namespace prefix
     $prefix = 'Experiensa\\Plugin\\';
-
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/src/';
     // does the class use the namespace prefix?

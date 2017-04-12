@@ -2,7 +2,9 @@
 
 use WP_Query;
 use Experiensa\Plugin\Modules\Helpers;
-
+/**
+ * Define custom setting pages and methods to get setting values
+ */
 class Settings
 {
     public static function addSettingPages(){
