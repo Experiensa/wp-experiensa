@@ -81,6 +81,11 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             $post_type = $options['posttype'];
             $taxonomy = $options['taxonomy'];
             $terms = $options['terms'];
+            if (!empty($terms)){
+                $terms = explode(',',$terms);
+            }else{
+                $terms = [];
+            }
             $max = $options['max'];
             $query_options = array(
                 'cpt'       => $post_type,

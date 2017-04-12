@@ -8,7 +8,7 @@
 class Requires
 {
     public function __construct( ) {
-        add_action('admin_notices', array( __CLASS__, 'requiredPlugins' ));
+        add_action('admin_notices', array( $this, 'requiredPlugins' ));
     }
     /**
      * Notify if a required plugin is missing
