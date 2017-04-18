@@ -1,5 +1,6 @@
 import React from 'react'
-import { Image, Container, Header } from 'semantic-ui-react'
+import { Image, Dimmer } from 'semantic-ui-react'
+import * as Images from '../functions/Images'
 
 export default class TextImage extends React.Component{
     constructor(){
@@ -8,14 +9,15 @@ export default class TextImage extends React.Component{
     }
     getContent(){
         return(
-            <h2>hola mundo</h2>
+            <p>{this.props.post.title.rendered}</p>
         )
     }
     renderSingleImage(){
+        const imgURL = Images.getImageURL(this.props.post)
         return(
             <Image
-                src="http://www.cravelook.com/media/wysiwyg/404NotFound.jpg"
-                as='a' size='medium'
+                src={imgURL}
+                as='a' fluid
                 href={this.props.post.link}
                 target='_blank'
                 alt="Post Image"
@@ -23,8 +25,8 @@ export default class TextImage extends React.Component{
         )
     }
     renderTextImage(active){
-
-        // console.log('mi content es')
+        const imgURL = Images.getImageURL(this.props.post)
+        const content = this.getContent()
         return(
             <Dimmer.Dimmable
                 as={Image}
@@ -32,8 +34,8 @@ export default class TextImage extends React.Component{
                 dimmer={{ active, content }}
                 onMouseEnter={this.handleShow}
                 onMouseLeave={this.handleHide}
-                size='medium'
-                src='http://www.cravelook.com/media/wysiwyg/404NotFound.jpg'
+                fluid
+                src={imgURL}
             />
         )
     }
@@ -41,23 +43,12 @@ export default class TextImage extends React.Component{
     handleHide = () => this.setState({ active: false })
     render(){
         const { active } = this.state
-        const content = this.getContent()
-        console.log('mi active es',active)
-        // return(
-        //     <h4>TEXTIMAGE</h4>
-        // )
         if(this.props.overlay){
             return(
-                <Dimmer.Dimmable
-                    as={Image}
-                    dimmed={active}
-                    dimmer={{ active, content }}
-                    onMouseEnter={this.handleShow}
-                    onMouseLeave={this.handleHide}
-                    size='medium'
-                    src='http://www.cravelook.com/media/wysiwyg/404NotFound.jpg'
-                />
-             )
+                <div>
+                    {this.renderTextImage(active)}
+                </div>
+            )
         }else{
              return(
                  <div>

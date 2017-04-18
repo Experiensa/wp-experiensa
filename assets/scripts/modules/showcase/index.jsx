@@ -9,14 +9,19 @@ import reducers from './reducers';
 import Showcase from './components/Showcase'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-
-var renderShowcase = function(){
+console.log('apenas estoy en showcase')
+const renderShowcase = function(){
+    console.log('entrando en renderShowcase')
     let showcaseComponent = document.getElementById('showcase-component');
     if(showcaseComponent != null){
         let options = JSON.parse(showcaseComponent.dataset.options)
         let query = JSON.parse(showcaseComponent.dataset.query)
-        console.log(options)
-        console.log(query)
+        ReactDOM.render(
+            <Provider store={createStoreWithMiddleware(reducers)}>
+                <Showcase options={options} query={query}/>
+            </Provider>,
+            showcaseComponent
+        )
     }else{
         let lc_preview = document.getElementById('page-builder-frame')
         if(lc_preview != null) {

@@ -25,18 +25,22 @@
     "es6-promise": "^4.1.0",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",
+    "masonry-layout": "^4.1.1",
     "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-masonry-component": "^5.0.5",
     "react-redux": "^5.0.3",
     "react-redux-toastr": "^5.0.0",
     "react-router": "^4.0.0",
     "react-router-redux": "^4.0.8",
+    "react-slick": "^0.14.8",
     "redux": "^3.6.0",
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.2.9",
-    "semantic-ui-react": "^0.67.1"
+    "semantic-ui-react": "^0.67.1",
+    "slick-carousel": "^1.6.0"
   },
   "devDependencies": {
     "babel": "^6.23.0",

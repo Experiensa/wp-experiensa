@@ -1,21 +1,18 @@
 import React from 'react'
-import { Grid, Image, Segment, Container, Header, Dimmer} from 'semantic-ui-react'
-import _ from 'lodash'
+import { Grid, Segment} from 'semantic-ui-react'
 import TextImage from './TextImage'
+
 export default class PostGrid extends React.Component{
     constructor(){
         super()
     }
     renderColumns(){
         return this.props.posts.map((post,i)=>{
-            console.log('mi post actaul es',post)
             return (
                 <Grid.Column key={i}>
-                    <Segment.Group>
-                        <Segment secondary textAlign="center">
-                            <TextImage post={post} overlay={true}/>
-                        </Segment>
-                    </Segment.Group>
+                    <Segment secondary textAlign="center" style={{padding: 0}}>
+                        <TextImage post={post} overlay={true}/>
+                    </Segment>
                 </Grid.Column>
             )
         })
