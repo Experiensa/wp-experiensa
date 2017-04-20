@@ -9,9 +9,7 @@ import reducers from './reducers';
 import Showcase from './components/Showcase'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-console.log('apenas estoy en showcase')
 const renderShowcase = function(){
-    console.log('entrando en renderShowcase')
     let showcaseComponent = document.getElementById('showcase-component');
     if(showcaseComponent != null){
         let options = JSON.parse(showcaseComponent.dataset.options)

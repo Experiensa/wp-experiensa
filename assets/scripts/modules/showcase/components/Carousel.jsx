@@ -4,11 +4,10 @@ import TextImage from './TextImage'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-export default class MasonryLayout extends React.Component{
+export default class Carousel extends React.Component{
     constructor(){
         super()
     }
-
     renderImages(){
         return this.props.posts.map((post,i) => {
             return (

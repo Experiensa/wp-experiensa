@@ -2,7 +2,8 @@ import React from 'react'
 import PostGrid from './PostGrid'
 import Buttons from './Buttons'
 import MasonryLayout from './MasonryLayout'
-import SliderLayout from './SliderLayout'
+import Carousel from './Carousel'
+import VegasSLider from './VegasSlider'
 export default class Layout extends React.Component{
     constructor(){
         super()
@@ -20,9 +21,14 @@ export default class Layout extends React.Component{
                 <Buttons posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
             )
         }
-        if(type == 'super'){
+        if(type == 'carousel'){
             return(
-                <SliderLayout posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                <Carousel posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+            )
+        }
+        if(type == 'vegas'){
+            return(
+                <VegasSLider posts={this.props.posts}/>
             )
         }
         return(

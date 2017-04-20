@@ -33,6 +33,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'tab' => __( 'Header', 'experiensa' )
                 ),
+                Layout::contentText('title_content','Content','Title','styling','Header'),
                 Color::colorField('text_color_title','Color','#000','.showcase-title','styling','Header','color'),
                 Font::fontFamily('text_font_title','','Header','.showcase-title'),
                 Font::textAlign('text_align_title','Align','center','.showcase-title','Header'),
@@ -57,6 +58,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'tab' => __( 'Header', 'experiensa' )
                 ),
+                Layout::contentText('subtitle_content','Content','Subtitle','styling','Header'),
                 Color::colorField('text_color_subtitle','Color','#000','.showcase-subtitle','styling','Header','color'),
                 Font::fontFamily('text_font_subtitle','','Header','.showcase-subtitle'),
                 Font::textAlign('text_align_subtitle','Align','center','.showcase-subtitle','Header'),
@@ -106,6 +108,11 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             set_query_var('header_opt',$header_opt);
             //Type - General
             set_query_var('showcase_type',$options['showcase_type']);
+
+            $title_content = $options['title_content'];
+            set_query_var('title_content',$title_content);
+            $subtitle_content = $options['subtitle_content'];
+            set_query_var('subtitle_content',$subtitle_content);
             /**
              * Component Settings
              */

@@ -8,14 +8,14 @@
     $query_options = json_encode($query_options);
     $component_options = json_encode($component_options);
 ?>
-<div class="showcase-module">
+<div class="showcase-module" style="padding: 10px">
 <?php if(!empty($header_opt)):?>
     <div class="showcase-title-wrapper">
     <?php if(in_array('show_title',$header_opt)):?>
-        <div class="showcase-title">Titulo</div>
+        <div class="showcase-title"><?=$title_content;?></div>
     <?php endif;?>
     <?php if(in_array('show_subtitle',$header_opt)):?>
-        <div class="showcase-subtitle">Subtitulo</div>
+        <div class="showcase-subtitle"><?=$subtitle_content;?></div>
     <?php endif;?>
     </div>
 <?php endif;?>

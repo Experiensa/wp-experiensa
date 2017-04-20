@@ -27,6 +27,17 @@ export default class Minimalist extends React.Component {
         }
         return(<div></div>);
     }
+    renderDetailButton(price){
+        if(this.props.show.detail_button){
+            return(
+                <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="button"/>
+            )
+        }else{
+            return(
+                <div></div>
+            )
+        }
+    }
     render() {
         const voyage = this.props.voyage;
         let currency = "USD";
@@ -37,20 +48,20 @@ export default class Minimalist extends React.Component {
             price = voyage.price
         if(price != 'No Available')
             price = currency+' '+price
-        console.log('soy el voyage',voyage);
-        console.log('mis opt son',this.props.options);
-        console.log('mis show son',this.props.show);
+        // console.log('soy el voyage',voyage);
+        // console.log('mis opt son',this.props.options);
+        // console.log('mis show son',this.props.show);
         return(
             <div className="ui card">
                 <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="image"/>
                 <div className="content">
                     <DataRow show={this.props.show.title} title={voyage.title} value="" isTitle={true}/>
-                    <DataRow show={this.props.show.title} title="Duration" value={voyage.duration} isTitle={false}/>
-                    <DataRow show={this.props.show.title} title="Theme" value={voyage.theme.text} isTitle={false}/>
-                    <DataRow show={this.props.show.title} title="Places" value={voyage.location.text} isTitle={false}/>
-                    <DataRow show={this.props.show.title} title="Country" value={voyage.country.text} isTitle={false}/>
+                    <DataRow show={this.props.show.duration} title="Duration" value={voyage.duration} isTitle={false}/>
+                    <DataRow show={this.props.show.themes} title="Theme" value={voyage.theme.text} isTitle={false}/>
+                    <DataRow show={this.props.show.location} title="Places" value={voyage.location.text} isTitle={false}/>
+                    <DataRow show={this.props.show.country} title="Country" value={voyage.country.text} isTitle={false}/>
                 </div>
-                <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="button"/>
+                {this.renderDetailButton(price)}
             </div>
         )
     }

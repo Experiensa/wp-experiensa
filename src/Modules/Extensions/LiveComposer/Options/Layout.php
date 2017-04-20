@@ -41,7 +41,6 @@ class Layout
                     'label' => __('Carousel','experiensa'),
                     'value' => 'carousel'
                 ),
-
                 array(
                     'label' => __('Flex','experiensa'),
                     'value' => 'flex'
@@ -63,8 +62,8 @@ class Layout
                     'value' => 'pinterest'
                 ),
                 array(
-                    'label' => __('Super Slider','experiensa'),
-                    'value' => 'super'
+                    'label' => __('Slider','experiensa'),
+                    'value' => 'slider'
                 ),
                 array(
                     'label' => __('Vegas Slider','experiensa'),
@@ -107,28 +106,16 @@ class Layout
         );
     }
 
-    public static function title($id='segment_title'){
+    public static function contentText($id = 'content_text',$label = 'Content',$default = '',$section,$tab){
         return array(
-            'label' => __('Title', 'sage'),
+            'label' => __($label, 'experiensa'),
             'id'    => $id,
-            'std'   => '',
+            'std'   => $default,
             'type'  => 'text',
-            'section' => 'styling',
-            'tab' => __('Layout','sage')
+            'section' => $section,
+            'tab' => __($tab,'experiensa')
         );
     }
-
-    public static function subtitle($id='segment_subtitle'){
-        return array(
-            'label' => __('Subtitle', 'sage'),
-            'id'    => $id,
-            'std'   => '',
-            'type'  => 'text',
-            'section' => 'styling',
-            'tab' => __('Layout','sage')
-        );
-    }
-
     public static function setLayoutOptions($options = [],$category = 'all'){
         $layout['container_class'] = 'full';
         $layout['container_style'] = 'padding: 0px 15px 0 15px;';

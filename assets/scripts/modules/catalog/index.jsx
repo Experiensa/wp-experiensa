@@ -8,7 +8,6 @@ require('es6-symbol/implement')
 import 'semantic-ui-css/semantic.css';
 
 import reducers from './reducers';
-
 import Catalog from './components/Catalog'
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);

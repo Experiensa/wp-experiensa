@@ -29,25 +29,37 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Font::fontFamily('content_font','Source Sans Pro','Content','.catalog-content'),
                 //Voyage content font color
                 Color::colorField('content_text_color','Content Color','#000','.catalog-content','styling','Content'),
-                //Button font family
-                Font::fontFamily('button_font','Source Sans Pro','Buttons','.catalog-button'),
-                //Button color
-                Color::colorField('button_text_color','Content Color','#000','.catalog-button','styling','Buttons'),
-                //Detail button color
-                Color::colorField('button_detail_color','Detail Color','#fff','.catalog-detail-button','styling','Buttons'),
                 array(
-                    'label' => __( 'Background', 'experiensa' ),
-                    'id' => 'css_bg_button_group',
+                    'label' => __( 'Filter Button', 'experiensa' ),
+                    'id' => 'css_filter_button_group',
                     'type' => 'group',
                     'action' => 'open',
                     'section' => 'styling',
                     'tab' => __( 'Buttons', 'experiensa' )
                 ),
+                Font::fontFamily('button_font','Source Sans Pro','Buttons','.catalog-button'),
+                Color::colorField('button_text_color','Content Color','#000','.catalog-button','styling','Buttons'),
                 Color::colorField('button_bg_color','Color','#b7b7b7','.button.catalog-button','styling','Buttons','background'),
                 Color::colorField('button_bg_hover_color','Color - Hover','#fff','.catalog-button:hover','styling','Buttons','background'),
                 Color::colorField('button_bg_active_color','Color - Active','#fff','.ui.button.toggle.active.catalog-button','styling','Buttons','background'),
                 array(
-                    'id' => 'css_bg_button_group',
+                    'id' => 'css_filter_button_group',
+                    'type' => 'group',
+                    'action' => 'close',
+                    'section' => 'styling',
+                    'tab' => __( 'Buttons', 'experiensa' )
+                ),
+                array(
+                    'label' => __( 'Detail Button', 'experiensa' ),
+                    'id' => 'css_detail_button_group',
+                    'type' => 'group',
+                    'action' => 'open',
+                    'section' => 'styling',
+                    'tab' => __( 'Buttons', 'experiensa' )
+                ),
+                Color::colorField('button_detail_color','Color','#fff','.catalog-detail-button','styling','Buttons'),
+                array(
+                    'id' => 'css_detail_button_group',
                     'type' => 'group',
                     'action' => 'close',
                     'section' => 'styling',

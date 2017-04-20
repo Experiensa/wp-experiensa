@@ -43,7 +43,7 @@ class Catalog
                 ),
                 array(
                     'label' => __( 'Detail Button', 'experiensa' ),
-                    'value' => 'button',
+                    'value' => 'detail_button',
                 ),
                 array(
                     'label' => __( 'Location', 'experiensa' ),
