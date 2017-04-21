@@ -21,6 +21,7 @@
     "node": ">= 6.9.4"
   },
   "dependencies": {
+    "autoresponsive-react": "^1.1.11",
     "axios": "^0.15.3",
     "es6-promise": "^4.1.0",
     "jquery": "^3.1.1",
@@ -35,6 +36,7 @@
     "react-router": "^4.0.0",
     "react-router-redux": "^4.0.8",
     "react-slick": "^0.14.8",
+    "react-stonecutter": "^0.3.4",
     "redux": "^3.6.0",
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.2.0",

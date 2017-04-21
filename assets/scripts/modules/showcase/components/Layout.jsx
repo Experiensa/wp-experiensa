@@ -1,9 +1,12 @@
 import React from 'react'
+import { Segment } from 'semantic-ui-react'
 import PostGrid from './PostGrid'
 import Buttons from './Buttons'
 import MasonryLayout from './MasonryLayout'
 import Carousel from './Carousel'
-import VegasSLider from './VegasSlider'
+import Pinterest from './Pinterest'
+import VegasSlider from './VegasSlider'
+
 export default class Layout extends React.Component{
     constructor(){
         super()
@@ -13,26 +16,43 @@ export default class Layout extends React.Component{
         let type = this.props.type
         if(type == 'grid') {
             return (
-                <PostGrid posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                <Segment vertical className='component-content'>
+                    <PostGrid posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                </Segment>
             )
         }
         if(type == 'button'){
             return(
-                <Buttons posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                <Segment vertical className='component-content'>
+                    <Buttons posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                </Segment>
             )
         }
         if(type == 'carousel'){
             return(
-                <Carousel posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                <div className='component-content'>
+                    <Carousel posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                </div>
             )
         }
         if(type == 'vegas'){
             return(
-                <VegasSLider posts={this.props.posts}/>
+                <div className='component-content'>
+                    <VegasSlider posts={this.props.posts}/>
+                </div>
+            )
+        }
+        if(type == 'pinterest'){
+            return(
+                <div className='component-content'>
+                    <Pinterest posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                </div>
             )
         }
         return(
-            <MasonryLayout posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+            <div className='component-content'>
+                <MasonryLayout posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+            </div>
         )
     }
 }

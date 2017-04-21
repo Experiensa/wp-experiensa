@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {requestPosts} from '../actions'
 import Layout from './Layout'
 import _ from 'lodash'
-import { Segment } from 'semantic-ui-react'
+
 
 class Showcase extends React.Component{
     constructor(){
@@ -26,9 +26,9 @@ class Showcase extends React.Component{
             // console.log('voy a enviar type',this.props.options.type)
             // console.log('voy a enviar row',this.props.options.posts_per_row)
             return (
-                <Segment vertical className='component-content'>
+                <div>
                     <Layout posts={this.props.posts} type={this.props.options.type} posts_per_row={this.props.options.posts_per_row}/>
-                </Segment>
+                </div>
             )
         }else {
             return (<h1>No Posts Available</h1>)
