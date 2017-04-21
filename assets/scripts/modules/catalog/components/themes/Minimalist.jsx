@@ -9,24 +9,6 @@ export default class Minimalist extends React.Component {
     constructor(){
         super()
     }
-    createTitleRow(value,show){
-        if(show){
-            return(
-                <div className="header catalog-title">{value}</div>
-            )
-        }
-        return(<div></div>)
-    }
-    createDataRow(title,value,show){
-        if(show) {
-            return (
-                <div className="catalog-content">
-                    <br/><strong>{title}: </strong>{value}
-                </div>
-            );
-        }
-        return(<div></div>);
-    }
     renderDetailButton(price){
         if(this.props.show.detail_button){
             return(

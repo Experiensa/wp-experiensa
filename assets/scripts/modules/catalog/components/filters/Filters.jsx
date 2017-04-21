@@ -24,7 +24,7 @@ export default class Filters extends React.Component {
             <div className="column">
                 <h3 className="ui header">
                     <i className={this.props.filterOptions.icon}/>
-                    <div className="content catalog-title">{this.props.filterOptions.title}</div>
+                    <div className="content catalog-filter-title">{this.props.filterOptions.title}</div>
                 </h3>
                 <div className="ui items" style={{"display": "block"}}>
                     {this.renderButtons()}

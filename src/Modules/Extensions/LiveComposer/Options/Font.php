@@ -11,7 +11,7 @@ namespace Experiensa\Plugin\Modules\Extensions\LiveComposer\Options;
 
 class Font
 {
-    public static function fontFamily($id = 'text_font', $default = 'Source Sans Pro', $tab = 'Content',$class){
+    public static function fontFamily($id = 'text_font', $default = 'Source Sans Pro', $tab = 'Content', $class){
         return array(
             'label' => __( 'Font Family', 'experiensa' ),
             'id' => $id,

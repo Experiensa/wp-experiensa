@@ -8,7 +8,7 @@ class FilterButton extends React.Component {
         super()
         this.state = {
             isActive: false,
-            classValue: 'catalog-button'
+            classValue: 'filter-button'
         }
         this.handleClick = this.handleClick.bind(this)
         // this.getStyles = /this.getStyles.bind(this)
@@ -17,7 +17,7 @@ class FilterButton extends React.Component {
         // console.log('handleCLick',e.currentTarget.style)
         // e.currentTarget.style.backgroundColor = '#ccc';
         const active = !this.state.isActive
-        const value = active?'active catalog-button': 'catalog-button'
+        const value = active?'active filter-button': 'filter-button'
         this.setState({
             isActive: active,
             classValue: value

@@ -1,10 +1,4 @@
 <?php
-//    echo "<pre>";
-//    print_r($query_options);
-//    echo "</pre>";
-//echo "<pre>";
-//print_r($component_options);
-//echo "</pre>";
     $query_options = json_encode($query_options);
     $component_options = json_encode($component_options);
 ?>
