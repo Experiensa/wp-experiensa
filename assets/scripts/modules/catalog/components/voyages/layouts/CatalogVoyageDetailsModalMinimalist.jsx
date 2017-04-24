@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid } from 'semantic-ui-react'
+import imageUrl from '../../../../../../images/travel-no-image.jpg'
+const travelNoImage = experiensa_vars.dist_url + imageUrl
 
 export default class CatalogVoyageDetailsModalMinimalist extends React.Component {
     state = { modalOpen: false }
@@ -52,7 +54,7 @@ export default class CatalogVoyageDetailsModalMinimalist extends React.Component
             let image = voyage.cover_image
             let imageSrc
             if(!image.feature_image && image.gallery.length < 1){
-                imageSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
+                imageSrc = travelNoImage
             }else{
                 if(image.feature_image){
                     imageSrc = image.feature_image

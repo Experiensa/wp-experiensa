@@ -1,4 +1,6 @@
 import React from 'react';
+import imageUrl from '../../../../../../images/travel-no-image.jpg'
+const travelNoImage = experiensa_vars.dist_url + imageUrl
 
 export default class CatalogVoyageMinimalist extends React.Component {
     constructor(){
@@ -18,12 +20,12 @@ export default class CatalogVoyageMinimalist extends React.Component {
                     imgSrc = imageGallery[0]
                     voyageImage = <img src={imgSrc}/>
                 }else{
-                    imgSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
+                    imgSrc = travelNoImage
                     voyageImage = <img src={imgSrc}/>
                 }
             }
         }else{
-            imgSrc = experiensa_vars.assets_url + '/assets/images/travel-no-image.jpg'
+            imgSrc = travelNoImage
             voyageImage = <img src={imgSrc}/>
         }
 

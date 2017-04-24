@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const env = process.env.NODE_ENV;
 const paths = require('../../paths');
@@ -9,7 +10,7 @@ function entry() {
         main: paths.EXPERIENSA_ASSETS + '/scripts/main.js',
         admin: paths.EXPERIENSA_ASSETS + '/scripts/admin.js',
         catalog: paths.EXPERIENSA_ASSETS + '/scripts/modules/catalog/index.jsx',
-        index: paths.EXPERIENSA_ASSETS + '/scripts/modules/showcase/index.jsx',
+        showcase: paths.EXPERIENSA_ASSETS + '/scripts/modules/showcase/index.jsx',
         common: [
             'jquery'
         ],
@@ -78,7 +79,7 @@ function rules(){
             include: paths.EXPERIENSA_ASSETS,
             loader: 'file-loader',
             options: {
-                name: `[path][name].[ext]`,
+                name: `vendor/[name].[ext]`,
             },
         },
         {
@@ -93,6 +94,10 @@ function rules(){
 }
 function plugins() {
     return [
+        new CleanWebpackPlugin(['dist'], {
+            root: paths.EXPERIENSA_ROOT,
+            verbose: false,
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['common', 'react'],
             minChunks: Infinity

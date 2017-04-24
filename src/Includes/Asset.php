@@ -25,8 +25,11 @@ final class Asset{
         );
         wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css',[]);
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
-        wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/common.js');
-        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/vendor_js'],null,true);
+        wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
+        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
+        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/showcase.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js',[],null,true);
         wp_localize_script('experiensa/js', 'experiensa_vars', $localized_array);
         /**
@@ -53,9 +56,13 @@ final class Asset{
             'dist_url'=>EXPERIENSA_DIST_URL
         );
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
-        wp_enqueue_script('experiensa/vendor_js', EXPERIENSA_URL . 'dist/common.js');
+        wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/main_js', EXPERIENSA_URL . 'dist/main.js');
+        wp_localize_script('experiensa/main_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/vendor_js'],null,true);
+        wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
+        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/showcase.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/admin_js', EXPERIENSA_URL . 'dist/admin.js');
         wp_localize_script('experiensa/admin_js', 'experiensa_vars', $localized_array);
         /**

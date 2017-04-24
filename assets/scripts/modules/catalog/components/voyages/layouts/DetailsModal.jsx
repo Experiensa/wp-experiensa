@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid } from 'semantic-ui-react'
+import imageUrl from '../../../../../../images/travel-no-image.jpg'
+const travelNoImage = experiensa_vars.dist_url + imageUrl
 
 export default class DetailsModal extends React.Component {
     constructor(){
@@ -56,7 +58,7 @@ export default class DetailsModal extends React.Component {
             return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
         }
         let voyageImage = () => {
-            const lostTravelImage = experiensa_vars.assets_url + 'images/travel-no-image.jpg'
+            const lostTravelImage = travelNoImage
             // console.log(lostTravelImage)
             // console.log('mi ruta es',experiensa_vars.assets_url)
             let image = voyage.cover_image
