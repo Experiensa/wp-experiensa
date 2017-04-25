@@ -13,6 +13,8 @@ final class Asset{
         add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
     }
     public function load_frontend_scripts($hook){
+        $agency_email = Settings::getEmail();
+        $agency_email = (!empty($agency_email)?$agency_email:'gabriel@experiensa.com');
         $protocol = 'http';
         if ( is_ssl() ) {
             $protocol = 'https';
@@ -21,7 +23,8 @@ final class Asset{
             'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
             'siteurl'=>get_bloginfo('url'),
             'assets_url' => EXPERIENSA_ASSETS_URL,
-            'dist_url'=>EXPERIENSA_DIST_URL
+            'dist_url'=>EXPERIENSA_DIST_URL,
+            'agency_email' => $agency_email
         );
         wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css',[]);
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
@@ -42,6 +45,8 @@ final class Asset{
     public function load_admin_scripts($hook){
         $cpt = (isset($_GET['post_type'])?$_GET['post_type']:false);
         $action = (isset($_GET['action'])?$_GET['action']:false);
+        $agency_email = Settings::getEmail();
+        $agency_email = (!empty($agency_email)?$agency_email:'gabriel@experiensa.com');
 //        var_dump($hook);
 //        var_dump($cpt);
 //        var_dump($action);
@@ -53,7 +58,8 @@ final class Asset{
             'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
             'siteurl'=>get_bloginfo('url'),
             'assets_url' => EXPERIENSA_ASSETS_URL,
-            'dist_url'=>EXPERIENSA_DIST_URL
+            'dist_url'=>EXPERIENSA_DIST_URL,
+            'agency_email' => $agency_email
         );
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');

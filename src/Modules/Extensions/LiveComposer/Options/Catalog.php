@@ -3,7 +3,7 @@
 
 class Catalog
 {
-    public static function type($id = 'type', $default = 'minimalist'){
+    public static function type($id = 'type', $default = 'cards'){
         return array(
             'label' => __('Type','experiensa'),
             'id'    => $id,
@@ -11,16 +11,12 @@ class Catalog
             'type'  => 'select',
             'choices' => array(
                 array(
-                    'label' => __( 'Minimalist', 'experiensa' ),
-                    'value' => 'minimalist',
-                ),
-                array(
                     'label' => __( 'Cards', 'experiensa' ),
                     'value' => 'cards',
                 ),
                 array(
-                    'label' => __( 'Masonry', 'experiensa' ),
-                    'value' => 'masonry',
+                    'label' => __( 'Pinterest', 'experiensa' ),
+                    'value' => 'pinterest',
                 ),
             ),
             'section' => 'styling'

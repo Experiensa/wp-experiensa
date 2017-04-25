@@ -72,6 +72,29 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'tab' => __( 'Header', 'experiensa' )
                 ),
+                /**
+                 * Overlay - Content Options
+                 */
+                array(
+                    'label' => __( 'Overlay', 'experiensa' ),
+                    'id' => 'showcase_content_options',
+                    'type' => 'group',
+                    'action' => 'open',
+                    'section' => 'styling',
+                    'tab' => __( 'Content', 'experiensa' )
+                ),
+                Color::colorField('showcase_overlay_bg','Background','#000','.ui.dimmer','styling','Content','background-color'),
+                Color::colorField('showcase_overlay_text_color','Text Color','#fff','.ui.dimmer > .content > *','styling','Content','color'),
+                Font::textTransform('.ui.dimmer > .content > *','Content','text_transform_overlay'),
+                Font::fontSize('overlay_font_size','Size','1','.ui.dimmer > .content','Content','rem'),
+                Font::textWeight('.ui.dimmer > .content','Content','overlay_text_weight','Text Weight','400'),
+                array(
+                    'id' => 'showcase_content_options',
+                    'type' => 'group',
+                    'action' => 'close',
+                    'section' => 'styling',
+                    'tab' => __( 'Content', 'experiensa' )
+                ),
             ];
             // Return the array
             return apply_filters( 'dslc_module_options', $options, $this->module_id );

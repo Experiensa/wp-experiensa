@@ -141,4 +141,35 @@ class Layout
             $layout['subtitle'] = '';
         return $layout;
     }
+    public static function border_radius($id = 'border_radius', $label = 'Border Radius', $default = 'inherit', $tab, $scope, $ext='rem',$max = 6){
+        return array(
+            'label'   => __($label, 'experiensa'),
+            'id'      => $id,
+            'onlypositive' => true,
+            'std'     => $default,
+            'type'    => 'slider',
+            'refresh_on_change' => false,
+            'affect_on_change_el' => $scope,
+            'affect_on_change_rule' => 'border-radius',
+            'section' => 'styling',
+            'tab' => __($tab,'experiensa'),
+            'ext' => $ext,
+            'min' => 0,
+            'max' => $max,
+            'increment' => 0.05,
+        );
+    }
+    public static function box_shadow($scope,$tab,$id='box_shadow',$label='Box Shadow'){
+        return array(
+            'label' => __( $label, 'experiensa' ),
+            'id' => $id,
+            'std' => '',
+            'type' => 'box_shadow',
+            'refresh_on_change' => false,
+            'affect_on_change_el' => $scope,
+            'affect_on_change_rule' => 'box-shadow',
+            'section' => 'styling',
+            'tab' => __($tab,'experiensa'),
+        );
+    }
 }

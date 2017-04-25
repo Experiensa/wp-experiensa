@@ -24,7 +24,7 @@ class Font
             'tab' => __( $tab, 'experiensa' )
         );
     }
-    public static function fontSize($id = 'font_size',$label = 'Text Size',$default = '1.8',$scope, $tab){
+    public static function fontSize($id = 'font_size',$label = 'Text Size',$default = '1.8',$scope, $tab,$ext='em'){
         return array(
             'label'   => __($label, 'experiensa'),
             'id'      => $id,
@@ -36,7 +36,7 @@ class Font
             'affect_on_change_rule' => 'font-size',
             'section' => 'styling',
             'tab' => __($tab,'experiensa'),
-            'ext' => 'em',
+            'ext' => $ext,
             'min' => 0,
             'max' => 6,
             'increment' => 0.05,

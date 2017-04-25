@@ -35,6 +35,9 @@ export default class DetailsModal extends React.Component {
     }
     render(){
         let voyage = this.props.voyage
+        const encodedSubject = encodeURIComponent(voyage.title)
+        const mailto = 'mailto:'+experiensa_vars.agency_email+'?subject='+encodedSubject
+        // console.log('lo que voy a mostrar en el mailto es',mailto)
         let price = () =>{
             let value = ""
             if(voyage.price){
@@ -117,7 +120,7 @@ export default class DetailsModal extends React.Component {
                 </Modal.Content>
                 <Modal.Actions>
                     <Button color="black" onClick={this.handleClose}>Close</Button>
-                    <a className="ui positive right labeled icon button">
+                    <a className="ui positive right labeled icon button" href={mailto}>
                         Contact us
                         <Icon name='checkmark'/>
                     </a>

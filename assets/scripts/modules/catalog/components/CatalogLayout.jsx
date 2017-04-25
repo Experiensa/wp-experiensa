@@ -4,8 +4,8 @@ import { Card } from 'semantic-ui-react'
 // import CatalogVoyageCards from './CatalogVoyageCards'
 // import CatalogVoyageMinimalist from './CatalogVoyageMinimalist'
 // import CatalogVoyageMasonry from './voyages/layouts/masonry/CatalogVoyageMasonry'
-import Minimalist from './themes/Minimalist'
 import VoyageCards from './themes/VoyageCards'
+// import VoyageCards from './themes/VoyageCards'
 
 export default class CatalogLayout extends React.Component {
     constructor(){
@@ -23,28 +23,29 @@ export default class CatalogLayout extends React.Component {
             country: _.includes(elements,'country')
         })
     }
-    renderCards(){
+    // renderCards(){
+    //     return this.props.voyages.map((voyage,i) => {
+    //         return(
+    //             <VoyageCards voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
+    //         )
+    //     })
+    // }
+    // renderMasonry(){
+    //     return this.props.voyages.map((voyage,i) => {
+    //         return(
+    //             <Minimalist voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
+    //         )
+    //     })
+    // }
+    renderVoyageCards(){
         return this.props.voyages.map((voyage,i) => {
             return(
                 <VoyageCards voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
             )
         })
     }
-    renderMasonry(){
-        return this.props.voyages.map((voyage,i) => {
-            return(
-                <Minimalist voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
-            )
-        })
-    }
-    renderMinimalist(){
-        return this.props.voyages.map((voyage,i) => {
-            return(
-                <Minimalist voyage={voyage} key={i} options={this.props.options} show={this.elementsToShow()}/>
-            )
-        })
-    }
     render() {
+        // console.log('el correo de la agencia es',experiensa_vars.agency_email)
         const size = _.size(this.props.voyages)
         if(size > 0) {
             // console.log('los voyages',this.props.voyages)
@@ -55,17 +56,10 @@ export default class CatalogLayout extends React.Component {
 
             // console.log('mis voyages son', this.props.voyages)
             const type = this.props.options.type
-            if (type == 'minimalist') {
-                return (
-                    <Card.Group itemsPerRow={itemxrow}>
-                        {this.renderMinimalist()}
-                    </Card.Group>
-                )
-            }
             if (type == 'cards') {
                 return (
                     <Card.Group itemsPerRow={itemxrow}>
-                        <h1>Hola soy Cards</h1>
+                        {this.renderVoyageCards()}
                     </Card.Group>
                 )
             }

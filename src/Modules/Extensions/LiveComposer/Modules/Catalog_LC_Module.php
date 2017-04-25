@@ -110,6 +110,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Color::colorField('button_bg_color','Button Color','#b7b7b7','.button.filter-button','styling','Filter','background'),
                 Color::colorField('button_bg_hover_color','Button Color - Hover','#fff','.filter-button:hover','styling','Filter','background'),
                 Color::colorField('button_bg_active_color','Button Color - Active','#fff','.ui.button.toggle.active.filter-button','styling','Filter','background'),
+                Layout::border_radius('button_border_radius','Border Radius','inherit','Filter','.filter-button','px',20),
+                Layout::box_shadow('.filter-button','Filter','button_box_shadow'),
                 array(
                     'id' => 'css_filter_button_group',
                     'type' => 'group',
@@ -141,7 +143,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                  * Content - Content Tab
                  */
                 array(
-                    'label' => __( 'Title', 'experiensa' ),
+                    'label' => __( 'Content', 'experiensa' ),
                     'id' => 'catalog_content_options',
                     'type' => 'group',
                     'action' => 'open',
@@ -150,6 +152,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 Font::fontFamily('voyage_content_font','Source Sans Pro','Content','.voyage-content'),
                 Color::colorField('voyage_content_text_color','Color','#000','.voyage-content','styling','Content'),
+                Color::colorField('voyage_content_bg_color','Background','#fff','.ui.card','styling','Content','background'),
+                Layout::border_radius('voyage_border_radius','Border Radius','inherit','Content','.ui.card','rem'),
                 array(
                     'id' => 'catalog_content_options',
                     'type' => 'group',

@@ -3,54 +3,41 @@ import DataRow from '../common/DataRow'
 // import VoyageImageMinimalist from './voyages/layouts/VoyageImageMinimalist'
 // import CatalogVoyageDetailsModalMinimalist from './voyages/layouts/CatalogVoyageDetailsModalMinimalist'
 import DetailsModal from '../voyages/layouts/DetailsModal'
-import { Card } from 'semantic-ui-react'
+import * as Info from '../common/Info'
+// import { Card } from 'semantic-ui-react'
 
 export default class VoyageCards extends React.Component {
     constructor(){
         super()
     }
-    createTitleRow(value,show){
-        if(show){
+    renderDetailButton(price){
+        if(this.props.show.detail_button){
             return(
-                <div className="header catalog-title">{value}</div>
+                <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="button"/>
+            )
+        }else{
+            return(
+                <div></div>
             )
         }
-        return(<div></div>)
-    }
-    createDataRow(title,value,show){
-        if(show) {
-            return (
-                <div className="catalog-content">
-                    <br/><strong>{title}: </strong>{value}
-                </div>
-            );
-        }
-        return(<div></div>);
     }
     render() {
         const voyage = this.props.voyage;
-        let currency = "USD";
-        if(voyage.currency!=null)
-            currency = voyage.currency
-        let price = "No Available"
-        if(voyage.price != '')
-            price = voyage.price
-        if(price != 'No Available')
-            price = currency+' '+price
-        console.log('soy el voyage',voyage);
-        console.log('mis opt son',this.props.options);
-        console.log('mis show son',this.props.show);
+        const price = Info.getVoyagePrice(voyage)
+        // console.log('soy el voyage',voyage);
+        // console.log('mis opt son',this.props.options);
+        // console.log('mis show son',this.props.show);
         return(
             <div className="ui card">
                 <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="image"/>
                 <div className="content">
                     <DataRow show={this.props.show.title} title={voyage.title} value="" isTitle={true}/>
-                    <DataRow show={this.props.show.title} title="Duration" value={voyage.duration} isTitle={false}/>
-                    <DataRow show={this.props.show.title} title="Theme" value={voyage.theme.text} isTitle={false}/>
-                    <DataRow show={this.props.show.title} title="Places" value={voyage.location.text} isTitle={false}/>
-                    <DataRow show={this.props.show.title} title="Country" value={voyage.country.text} isTitle={false}/>
+                    <DataRow show={this.props.show.duration} title="Duration" value={voyage.duration} isTitle={false}/>
+                    <DataRow show={this.props.show.themes} title="Theme" value={voyage.theme.text} isTitle={false}/>
+                    <DataRow show={this.props.show.location} title="Places" value={voyage.location.text} isTitle={false}/>
+                    <DataRow show={this.props.show.country} title="Country" value={voyage.country.text} isTitle={false}/>
                 </div>
-                <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="button"/>
+                {this.renderDetailButton(price)}
             </div>
         )
     }
