@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import { Card } from 'semantic-ui-react'
+import { Card, Loader } from 'semantic-ui-react'
 // import CatalogVoyageCards from './CatalogVoyageCards'
 // import CatalogVoyageMinimalist from './CatalogVoyageMinimalist'
 // import CatalogVoyageMasonry from './voyages/layouts/masonry/CatalogVoyageMasonry'
@@ -69,7 +69,11 @@ export default class CatalogLayout extends React.Component {
                 </div>
             );
         }else{
-            return(<h1>No Voyages Available</h1>)
+            return(
+                <div>
+                    <Loader active inline='centered' content='Loading'/>
+                </div>
+            )
         }
     }
 }

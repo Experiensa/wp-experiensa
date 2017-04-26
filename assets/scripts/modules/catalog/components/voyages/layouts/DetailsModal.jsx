@@ -1,12 +1,16 @@
 import React from 'react'
-import { Button, Header, Image, Modal, Icon, Grid } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Grid, Menu, Segment } from 'semantic-ui-react'
+import DetailModalContent from './DetailModalContent'
 import imageUrl from '../../../../../../images/travel-no-image.jpg'
 const travelNoImage = experiensa_vars.dist_url + imageUrl
 
 export default class DetailsModal extends React.Component {
     constructor(){
         super()
-        this.state = { modalOpen: false }
+        this.state = {
+            modalOpen: false,
+            activeItem: 'information'
+        }
     }
     handleOpen = (e) => {
         this.setState({
@@ -14,10 +18,12 @@ export default class DetailsModal extends React.Component {
         })
         e.preventDefault()
     }
-
     handleClose = (e) => this.setState({
         modalOpen: false,
     })
+    handleItemClick = (e, { name }) => {
+        this.setState({ activeItem: name })
+    }
     createButtonAction(){
         if(this.props.options.price){
             return(
@@ -34,32 +40,12 @@ export default class DetailsModal extends React.Component {
         )
     }
     render(){
+        const { activeItem } = this.state
         let voyage = this.props.voyage
         const encodedSubject = encodeURIComponent(voyage.title)
         const mailto = 'mailto:'+experiensa_vars.agency_email+'?subject='+encodedSubject
         // console.log('lo que voy a mostrar en el mailto es',mailto)
-        let price = () =>{
-            let value = ""
-            if(voyage.price){
-                value = "<b>Price</b>: "+ voyage.price+" "
-                if(voyage.currency)
-                    value += voyage.currency
-                value += "<br/>"
-            }
-            return value
-        }
-        let duration = () =>{
-            return (voyage.duration.text?"<b>Duration</b>: " + voyage.duration.text+"<br/>":"")
-        }
-        let country = () =>{
-            return (voyage.country.text?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
-        }
-        let location = () =>{
-            return (voyage.location.text?"<b>Location</b>: " + voyage.location.text+"<br/>":"")
-        }
-        let theme = () =>{
-            return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
-        }
+
         let voyageImage = () => {
             const lostTravelImage = travelNoImage
             // console.log(lostTravelImage)
@@ -83,6 +69,7 @@ export default class DetailsModal extends React.Component {
                 title = "Itinerary"
             return title
         }
+
         let actionTrigger
         if(this.props.type == 'button'){
             actionTrigger = this.createButtonAction()
@@ -98,25 +85,14 @@ export default class DetailsModal extends React.Component {
                     <h2>{voyage.title}</h2>
                 </Modal.Header>
                 <Modal.Content>
-                    <Grid stackable columns={2}>
-                        <Grid.Column width={6}>
-                            <div dangerouslySetInnerHTML={{__html: price()}}/>
-                            <div dangerouslySetInnerHTML={{__html: duration()}}/>
-                            <div dangerouslySetInnerHTML={{__html: country()}}/>
-                            <div dangerouslySetInnerHTML={{__html: location()}}/>
-                            <div dangerouslySetInnerHTML={{__html: theme()}}/>
-                            <br/>
-                            <p dangerouslySetInnerHTML={{__html: voyage.excerpt}}></p>
-                        </Grid.Column>
-                        <Grid.Column width={10}>
-                            <Image src={voyageImage()}/>
-                        </Grid.Column>
-                    </Grid>
-                </Modal.Content>
-                <Modal.Content>
-                    <h3>{itinerary_title()}</h3>
-                    <Modal.Description dangerouslySetInnerHTML={{__html: voyage.itinerary}}>
-                    </Modal.Description>
+                    <Menu attached='top' tabular>
+                        <Menu.Item name='information' active={activeItem === 'information'} onClick={this.handleItemClick}/>
+                        {itinerary_title()!==''?(
+                            <Menu.Item name='details' active={activeItem === 'details'} onClick={this.handleItemClick}/>
+                        ):(<div></div>)}
+                        <Menu.Item name='gallery' active={activeItem === 'gallery'} onClick={this.handleItemClick}/>
+                    </Menu>
+                    <DetailModalContent context={activeItem} data={voyage}/>
                 </Modal.Content>
                 <Modal.Actions>
                     <Button color="black" onClick={this.handleClose}>Close</Button>

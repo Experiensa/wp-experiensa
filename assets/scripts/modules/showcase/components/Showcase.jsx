@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { Loader } from 'semantic-ui-react'
 import {requestPosts} from '../actions'
 import Layout from './Layout'
 import _ from 'lodash'
-
 
 class Showcase extends React.Component{
     constructor(){
@@ -31,7 +31,11 @@ class Showcase extends React.Component{
                 </div>
             )
         }else {
-            return (<h1>No Posts Available</h1>)
+            return (
+                <div>
+                    <Loader active inline='centered' content='Loading'/>
+                </div>
+            )
         }
     }
 }
