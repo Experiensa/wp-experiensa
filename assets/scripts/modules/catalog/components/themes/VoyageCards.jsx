@@ -1,7 +1,5 @@
 import React from 'react'
 import DataRow from '../common/DataRow'
-// import VoyageImageMinimalist from './voyages/layouts/VoyageImageMinimalist'
-// import CatalogVoyageDetailsModalMinimalist from './voyages/layouts/CatalogVoyageDetailsModalMinimalist'
 import DetailsModal from '../voyages/layouts/DetailsModal'
 import * as Info from '../common/Info'
 // import { Card } from 'semantic-ui-react'
