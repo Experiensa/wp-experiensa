@@ -1,6 +1,7 @@
 require('es6-promise').polyfill();
 import axios from 'axios'
 import _ from 'lodash'
+const ld = _.noConflict();
 //Action Types
 export const REQUEST_CATALOG = 'REQUEST_CATALOG'
 export const FILTER_CATALOG = 'FILTER_CATALOG'
@@ -33,7 +34,7 @@ function getFilteredCatalog(catalog = [],filters = [],object_name){
     let auxList = []
     if(filters.length > 0) {
         for (var i in catalog) {
-            let intersection = _.intersection(catalog[i][object_name]['array'], filters)
+            let intersection = ld.intersection(catalog[i][object_name]['array'], filters)
             // console.log('mi intersection',intersection)
             if (intersection.length > 0 && intersection.length == filters.length) {
                 auxList.push(catalog[i])

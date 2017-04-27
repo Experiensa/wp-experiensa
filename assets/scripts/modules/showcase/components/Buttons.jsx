@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid, Image, Segment, Container, Header, Button } from 'semantic-ui-react'
-import _ from 'lodash'
 
 export default class Buttons extends React.Component{
     constructor(){

@@ -1,5 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
+const ld = _.noConflict();
 import { Card, Loader } from 'semantic-ui-react'
 // import CatalogVoyageCards from './CatalogVoyageCards'
 // import CatalogVoyageMinimalist from './CatalogVoyageMinimalist'
@@ -14,13 +15,13 @@ export default class CatalogLayout extends React.Component {
     elementsToShow(){
         let elements = this.props.options.elements
         return({
-            title: _.includes(elements,'title'),
-            price: _.includes(elements,'price'),
-            detail_button: _.includes(elements,'detail_button'),
-            location: _.includes(elements,'location'),
-            duration: _.includes(elements,'duration'),
-            themes: _.includes(elements,'themes'),
-            country: _.includes(elements,'country')
+            title: ld.includes(elements,'title'),
+            price: ld.includes(elements,'price'),
+            detail_button: ld.includes(elements,'detail_button'),
+            location: ld.includes(elements,'location'),
+            duration: ld.includes(elements,'duration'),
+            themes: ld.includes(elements,'themes'),
+            country: ld.includes(elements,'country')
         })
     }
     // renderCards(){
@@ -46,7 +47,7 @@ export default class CatalogLayout extends React.Component {
     }
     render() {
         // console.log('el correo de la agencia es',experiensa_vars.agency_email)
-        const size = _.size(this.props.voyages)
+        const size = ld.size(this.props.voyages)
         if(size > 0) {
             // console.log('los voyages',this.props.voyages)
             // console.log('mi size es',size)

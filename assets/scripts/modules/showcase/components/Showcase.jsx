@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import { Loader } from 'semantic-ui-react'
 import {requestPosts} from '../actions'
 import Layout from './Layout'
-import _ from 'lodash'
 
 class Showcase extends React.Component{
     constructor(){

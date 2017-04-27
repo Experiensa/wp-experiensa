@@ -1,6 +1,7 @@
 require('es6-promise').polyfill();
 import axios from 'axios'
 import _ from 'lodash'
+const ld = _.noConflict();
 //Action Types
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 
@@ -11,7 +12,7 @@ function createRequestURL(post_type,taxonomy,terms,max){
     let requestURL = base_url + post_type
     if(taxonomy !== 'all'){
         requestURL += '?per_page=' + max + '&filter[taxonomy]=' + taxonomy
-        if(!_.isEmpty(terms)){
+        if(!ld.isEmpty(terms)){
             for(let i = 0; i < terms.length; i++){
                 requestURL += '&filter[term]=' + terms[i]
             }
