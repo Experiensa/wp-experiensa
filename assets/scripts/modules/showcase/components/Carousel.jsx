@@ -12,7 +12,7 @@ export default class Carousel extends React.Component{
         return this.props.posts.map((post,i) => {
             return (
                 <div key={i} className="slider-item">
-                    <TextImage post={post} overlay={false}/>
+                    <TextImage post={post} overlay={true}/>
                 </div>
             )
         })

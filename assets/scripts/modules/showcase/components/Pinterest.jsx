@@ -1,45 +1,53 @@
-import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
-import { CSSGrid, SpringGrid, measureItems, layout, enterExitStyle } from 'react-stonecutter';
-import TextImage from './TextImage'
-const Grid = measureItems(SpringGrid);
+import React from "react";
+import StackGrid from "react-stack-grid";
+import { Image, Dimmer } from 'semantic-ui-react'
+import * as Images from '../functions/Images';
+import TextImage from './TextImage';
 
 export default class Pinterest extends React.Component{
     constructor(){
         super()
     }
     renderCards(){
+        let overlay = true
         return this.props.posts.map((post,i) => {
             return (
-                <Card key={i} className="asdasdsa">
-                    <TextImage post={post} overlay={false}/>
-                    <Card.Content>
-                        <Card.Header>
-                            Matthew
-                        </Card.Header>
-                    </Card.Content>
-                </Card>
+                <div key={i}>
+                    {<TextImage post={post} overlay={true}/>}
+                </div>
             )
         })
     }
     render(){
-        const columnNumber = parseInt(this.props.posts_per_row)
-        console.log('******',this.props.posts)
+        let columnNumber = parseInt(this.props.posts_per_row)
+        let columnWidth;
+        console.log('el tipo de number', typeof columnNumber)
+        console.log('******x',this.props.posts)
+        switch(columnNumber){
+            case 1:
+                columnWidth = "100%";
+                break;
+            case 2:
+                columnWidth = "50%";
+                break;
+            case 3:
+                columnWidth = "30%";
+                break;
+            case 4:
+                columnWidth = "25%";
+                break;
+            default:
+                columnWidth = "10%";
+        }
         return(
-            <Grid
-                columns={columnNumber}
-                columnWidth={150}
+            <StackGrid
+                columnWidth={columnWidth}
                 gutterWidth={5}
                 gutterHeight={5}
-                layout={layout.pinterest}
-                duration={800}
-                easing="ease-out"
-                enter={enterExitStyle.simple.enter}
+                duration={1000}
             >
-                <Card.Group>
-                    {this.renderCards()}
-                </Card.Group>
-            </Grid>
+                {this.renderCards()}
+            </StackGrid>
         )
     }
 }

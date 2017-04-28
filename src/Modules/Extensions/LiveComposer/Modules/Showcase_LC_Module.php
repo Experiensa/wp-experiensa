@@ -85,6 +85,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 ),
                 Color::colorField('showcase_overlay_bg','Background','#000','.ui.dimmer','styling','Content','background-color'),
                 Color::colorField('showcase_overlay_text_color','Text Color','#fff','.ui.dimmer > .content > *','styling','Content','color'),
+                Font::fontFamily('showcase_overlay_font_family','','Content','.ui.dimmer > .content'),
                 Font::textTransform('.ui.dimmer > .content > *','Content','text_transform_overlay'),
                 Font::fontSize('overlay_font_size','Size','1','.ui.dimmer > .content','Content','rem'),
                 Font::textWeight('.ui.dimmer > .content','Content','overlay_text_weight','Text Weight','400'),
