@@ -17,7 +17,7 @@ use Experiensa\Plugin\Models\Taxonomy\Included;
 use Experiensa\Plugin\Models\Taxonomy\Location;
 use Experiensa\Plugin\Models\Taxonomy\ProductType;
 use Experiensa\Plugin\Models\Taxonomy\Theme;
-
+/* Register custom post types and taxonomies */
 class Register{
     public static function init(){
         Brochure::init();

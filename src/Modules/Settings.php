@@ -31,8 +31,8 @@ class Settings
     **/
     public static function defineDefaultSettingPage($pages){
         $pages[] = array(
-            'page_title'    => __('Options','sage'),
-            'menu_title'    => __('Options', 'sage'),
+            'page_title'    => __('Options','experiensa'),
+            'menu_title'    => __('Options', 'experiensa'),
             'capability'    => 'manage_options',
             'sub_menu'      => 'themes.php',
             'menu_slug'     => 'experiensa-settings',
@@ -40,20 +40,20 @@ class Settings
             'menu_icon'     => 'dashicons-editor-kitchensink',
             'page_icon'     => 'dashicons-editor-kitchensink',
             'single_line'   => false,
-            'save_text'     => __('Save options','sage'),
+            'save_text'     => __('Save options','experiensa'),
         );
         return $pages;
     }
     public static function defineTutorialSettingPage($pages){
         $pages[] = array(
-            'page_title'    => __('Trainning','sage'),
-            'menu_title'    => __('Trainning', 'sage'),
+            'page_title'    => __('Trainning','experiensa'),
+            'menu_title'    => __('Trainning', 'experiensa'),
             'sub_menu'      => 'index.php',
             'capability'    => 'manage_options',
             'menu_slug'     => 'experiensa-tutorials',
             'setting'       => 'experiensa_tutorials',
             'single_line'   => false,
-            'save_text'     => __('Save Tutorials','sage'),
+            'save_text'     => __('Save Tutorials','experiensa'),
         );
         return $pages;
     }

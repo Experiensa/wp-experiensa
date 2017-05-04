@@ -4,24 +4,24 @@
 //
 //    function team_post_type($post_types){
 //        $labels = array(
-//            'name'                  => _x( 'Team', 'Post Type General Name', 'sage'),
-//            'singular_name'         => _x( 'Team Member', 'Post Type Singular Name', 'sage'),
-//            'menu_name'             => __( 'Team', 'sage'),
-//            'name_admin_bar'        => __( 'Team', 'sage' ),
-//            'parent_item_colon'     => __( 'Parent Team:', 'sage'),
-//            'all_items'             => __( 'All Team Members', 'sage'),
-//            'add_new_item'          => __( 'Add New Team Member', 'sage'),
-//            'add_new'               => __( 'Add New', 'sage'),
-//            'new_item'              => __( 'New Member', 'sage' ),
-//            'edit_item'             => __( 'Edit Member', 'sage'),
-//            'update_item'           => __( 'Update Member', 'sage'),
-//            'view_item'             => __( 'View Member', 'sage'),
-//            'search_items'          => __( 'Search Member', 'sage'),
-//            'not_found'             => __( 'Not found', 'sage'),
-//            'not_found_in_trash'    => __( 'Not found in Trash', 'sage'),
-//            'items_list'            => __( 'Team Member list', 'sage' ),
-//            'items_list_navigation' => __( 'Team Member list navigation', 'sage' ),
-//            'filter_items_list'     => __( 'Filter Team Member list', 'sage' ),
+//            'name'                  => _x( 'Team', 'Post Type General Name', 'experiensa'),
+//            'singular_name'         => _x( 'Team Member', 'Post Type Singular Name', 'experiensa'),
+//            'menu_name'             => __( 'Team', 'experiensa'),
+//            'name_admin_bar'        => __( 'Team', 'experiensa' ),
+//            'parent_item_colon'     => __( 'Parent Team:', 'experiensa'),
+//            'all_items'             => __( 'All Team Members', 'experiensa'),
+//            'add_new_item'          => __( 'Add New Team Member', 'experiensa'),
+//            'add_new'               => __( 'Add New', 'experiensa'),
+//            'new_item'              => __( 'New Member', 'experiensa' ),
+//            'edit_item'             => __( 'Edit Member', 'experiensa'),
+//            'update_item'           => __( 'Update Member', 'experiensa'),
+//            'view_item'             => __( 'View Member', 'experiensa'),
+//            'search_items'          => __( 'Search Member', 'experiensa'),
+//            'not_found'             => __( 'Not found', 'experiensa'),
+//            'not_found_in_trash'    => __( 'Not found in Trash', 'experiensa'),
+//            'items_list'            => __( 'Team Member list', 'experiensa' ),
+//            'items_list_navigation' => __( 'Team Member list navigation', 'experiensa' ),
+//            'filter_items_list'     => __( 'Filter Team Member list', 'experiensa' ),
 //        );
 //        $rewrite = array(
 //            'slug'                  => 'team',
@@ -31,8 +31,8 @@
 //        );
 //
 //        $post_types['team'] = array(
-//            'label'                 => __( 'Team', 'sage' ),
-//            'description'           => __( 'List of Team Members', 'sage' ),
+//            'label'                 => __( 'Team', 'experiensa' ),
+//            'description'           => __( 'List of Team Members', 'experiensa' ),
 //            'labels'                => $labels,
 //            'supports'              => array('title', 'thumbnail', 'editor','excerpt'),
 //            'taxonomies'            => array( 'category', 'post_tag', 'country'),

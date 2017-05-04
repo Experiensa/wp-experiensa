@@ -53,13 +53,6 @@ class Requires
             'url'       => 'https://livecomposerplugin.com/downloads/live-composer-page-builder/'
         ];
 
-//        $kirki = [
-//            'name'      => 'Kirki',
-//            'folder'    => 'kirki',
-//            'file'      => 'kirki.php',
-//            'url'       => 'https://livecomposerplugin.com/downloads/live-composer-page-builder/'
-//        ];
-
         $plugins = [$piklist, $api, $wpml, $jetpack, $live_composer];
 
         foreach ($plugins as $key => $value) {
@@ -69,7 +62,7 @@ class Requires
                     $wp_version = get_bloginfo('version');
                     $version = explode('.',$wp_version);
                     if(!empty($version) && ((int)$version[0]<4) && (int)$version[1]<7){
-                        $plugin_messages[] = $msg . $value['name'] . ' <a href="'. $value['url'] .'">'.__('Download') . '</a> '.__('Or install a Wordpress version over ','sage').' '.$wp_version;
+                        $plugin_messages[] = $msg . $value['name'] . ' <a href="'. $value['url'] .'">'.__('Download') . '</a> '.__('Or install a Wordpress version over ','experiensa').' '.$wp_version;
                     }
                 }else{
                     $plugin_messages[] = $msg . $value['name'] . ' <a href="'. $value['url'] .'">'.__('Download') . '</a>';
@@ -85,6 +78,9 @@ class Requires
             echo '</div>';
         }
     }
+    /**
+    *   Load template from start path templates/
+    **/
     public static function experiensaLoadTemplate($filename = false){
         if($filename){
             $template = EXPERIENSA_TEMPLATES . $filename;

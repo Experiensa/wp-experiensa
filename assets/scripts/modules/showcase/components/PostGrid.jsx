@@ -11,7 +11,7 @@ export default class PostGrid extends React.Component{
             return (
                 <Grid.Column key={i}>
                     <Segment secondary textAlign="center" style={{padding: 0}}>
-                        <TextImage post={post} overlay={true}/>
+                        <TextImage post={post} overlay={this.props.overlay}/>
                     </Segment>
                 </Grid.Column>
             )

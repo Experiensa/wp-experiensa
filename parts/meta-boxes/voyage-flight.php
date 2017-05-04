@@ -13,26 +13,26 @@ $flight_airline = array(
     'type'  => 'text',
     'field' => 'flight_airline',
     'columns'   => 4,
-    'label' => __('Airline','sage')
+    'label' => __('Airline','experiensa')
 );
 
 $flight_number = array(
     'type'  => 'text',
     'field' => 'flight_number',
     'columns'   => 4,
-    'label' => __('Flight number','sage')
+    'label' => __('Flight number','experiensa')
 );
 
 $flight_class = array(
     'type'      => 'select',
     'field'     => 'flight_class',
-    'label'     => __('Flight Class','sage'),
+    'label'     => __('Flight Class','experiensa'),
     'columns'   => 4,
     'value'     => 'economy',
     'choices'   => array(
-        'economy'   => __('Economy','sage'),
-        'business'  => __('Business','sage'),
-        'first'     => __('First','sage'),
+        'economy'   => __('Economy','experiensa'),
+        'business'  => __('Business','experiensa'),
+        'first'     => __('First','experiensa'),
     ),
 );
 
@@ -40,21 +40,21 @@ $flight_departure_city = array(
     'type'      => 'text',
     'field'     => 'flight_departure_city',
     'columns'   => 6,
-    'label'     => __('Departure city','sage')
+    'label'     => __('Departure city','experiensa')
 );
 
 $flight_arrival_city = array(
     'type'      => 'text',
     'field'     => 'flight_arrival_city',
     'columns'   => 6,
-    'label'     => __('Arrival city','sage')
+    'label'     => __('Arrival city','experiensa')
 );
 
 $flight_departure_date = array(
     'type'      => 'datepicker',
     'field'     => 'flight_departure_date',
     'columns'   => 3,
-    'label'     => __('Departure date','sage'),
+    'label'     => __('Departure date','experiensa'),
     'options'   => array( 'dateFormat' => 'd/m/yy' ),
 );
 
@@ -62,14 +62,14 @@ $flight_departure_time= array(
     'type'  => 'time',
     'field' => 'flight_departure_time',
     'columns'   => 3,
-    'label' => __('Departure time','sage')
+    'label' => __('Departure time','experiensa')
 );
 
 $flight_arrival_date = array(
     'type'      => 'datepicker',
     'field'     => 'flight_arrival_date',
     'columns'   => 3,
-    'label'     => __('Arrival date','sage'),
+    'label'     => __('Arrival date','experiensa'),
     'options'   => array('dateFormat' => 'd/m/yy'),
 );
 
@@ -77,7 +77,7 @@ $flight_arrival_time = array(
     'type'      => 'time',
     'field'     => 'flight_arrival_time',
     'columns'   => 3,
-    'label'     => __('Arrival time','sage')
+    'label'     => __('Arrival time','experiensa')
 );
 
 piklist('field', array(

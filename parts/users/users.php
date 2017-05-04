@@ -148,15 +148,15 @@ piklist('field', array(
         'class' => 'text'
     ),
     'choices' => array(
-        'female' => __('Female','sage'),
-        'male' => __('Male','sage')
+        'female' => __('Female','experiensa'),
+        'male' => __('Male','experiensa')
     )
 ));
 
 piklist('field', array(
     'type'       => 'checkbox',
     'field'      => 'user_language',
-    'label'      => __('Language Spoken', 'sage'),
+    'label'      => __('Language Spoken', 'experiensa'),
     'list'       => false,
     'attributes' => array(
         'class' => 'text'
@@ -189,7 +189,7 @@ piklist('field', array(
 
     'label' => __('Profile Picture','piklist'),
     'options' => array(
-        'modal_title' => __('Add Picture','sage'),
+        'modal_title' => __('Add Picture','experiensa'),
         'button' => __('Add Picture','piklist')
     ),
     'validate' => array(
@@ -207,13 +207,13 @@ piklist('field', array(
     'type'     => 'text',
     'field'    => 'user_phone',
     'add_more' => true,
-    'label'    => __('Phone(s)', 'sage')
+    'label'    => __('Phone(s)', 'experiensa')
 ));
 
 piklist('field', array(
     'type'       => 'datepicker',
     'field'      => 'user_birthday',
-    'label'      => __('Birthday', 'sage'),
+    'label'      => __('Birthday', 'experiensa'),
     'attributes' => array(
         'class' => 'text'
     ),
@@ -226,7 +226,7 @@ piklist('field', array(
 piklist('field', array(
     'type'  => 'textarea',
     'field' => 'user_hobbies',
-    'label' => __('Hobbies', 'sage'),
+    'label' => __('Hobbies', 'experiensa'),
     'attributes' => array(
         'rows' => 10,
         'cols' => 50,
@@ -240,7 +240,7 @@ $countrylist = \Experiensa\Modules\Common::country_list();
 $passport_country = array(
     'type'      => 'select',
     'field'     => 'user_passport_country',
-    'label'     => __('Country','sage'),
+    'label'     => __('Country','experiensa'),
     'columns'   => 4,
     'choices'   => $countrylist
 );
@@ -249,14 +249,14 @@ $passport_number = array(
     'type'      => 'text',
     'field'     => 'user_passport_number',
     'columns'   => 3,
-    'label'     => __('Passport number','sage')
+    'label'     => __('Passport number','experiensa')
 );
 
 $passport_expiry_date = array(
     'type'      => 'datepicker',
     'field'     => 'user_passport_expiry_date',
     'columns'   => 2,
-    'label'     => __('Expiry date','sage'),
+    'label'     => __('Expiry date','experiensa'),
     'options'   => array('dateFormat' => 'd/m/yy'),
 );
 
@@ -264,12 +264,12 @@ $passport_place_issue = array(
     'type'      => 'text',
     'field'     => 'user_passport_place_issue',
     'columns'   => 3,
-    'label'     => __('Place of issue','sage')
+    'label'     => __('Place of issue','experiensa')
 );
 
 piklist('field', array(
     'type'      => 'group',
-    'label' => __('Passport','sage'),
+    'label' => __('Passport','experiensa'),
     'add_more'  => true,
     'fields'    => array(
         $passport_country,
@@ -283,7 +283,7 @@ piklist('field', array(
 $user_work_occupation = array(
     'type' => 'text',
     'field' => 'user_work_occupation',
-    'label' => __('Occupation','sage')
+    'label' => __('Occupation','experiensa')
 );
 
 $work_sectors = array(
@@ -307,7 +307,7 @@ $work_sectors = array(
 $user_work_sectors =  array(
     'type' => 'select',
     'field' => 'user_work_sector',
-    'label' => __('Sector','sage'),
+    'label' => __('Sector','experiensa'),
     'attributes' => array(
         'class' => 'text'
     ),
@@ -316,7 +316,7 @@ $user_work_sectors =  array(
 
 piklist('field', array(
     'type' => 'group',
-    'label' => __('Work','sage'),
+    'label' => __('Work','experiensa'),
     'fields' => array(
         $user_work_occupation,
         $user_work_sectors
@@ -326,7 +326,7 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'checkbox',
     'field' => 'user_airplane_preferences',
-    'label' => __('Airplane preferences','sage'),
+    'label' => __('Airplane preferences','experiensa'),
     'list' => false,
     'attributes' => array(
         'class' => 'text'
@@ -357,7 +357,7 @@ $status = array(
 piklist('field',array(
     'type'      => 'select',
     'field'     => 'user_marital_status',
-    'label'     => __('Marital Status','sage'),
+    'label'     => __('Marital Status','experiensa'),
     'columns'   => 4,
     'choices'   => $status
 ));
@@ -365,7 +365,7 @@ piklist('field',array(
 piklist('field', array(
     'type' => 'checkbox',
     'field' => 'user_color',
-    'label' => __('Favorite color','sage'),
+    'label' => __('Favorite color','experiensa'),
     'list' => false,
     'attributes' => array(
         'class' => 'text'

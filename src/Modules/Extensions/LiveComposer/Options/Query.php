@@ -69,7 +69,7 @@ class Query
             'onlypositive'        => $onlypositive,
             'std'                 => $max,
             'type'                => 'slider',
-            'refresh_on_change' => false,
+            'refresh_on_change'   => true,
             'affect_on_change_el' => '.element-to-affect',
             'min'                 => -1,
             'max'                 => 50,

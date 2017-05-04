@@ -20,8 +20,8 @@
 add_filter('piklist_admin_pages', 'default_experiensa_setting_pages');
 function default_experiensa_setting_pages($pages){
     $pages[] = array(
-        'page_title'    => __('Options','sage'),
-        'menu_title'    => __('Options', 'sage'),
+        'page_title'    => __('Options','experiensa'),
+        'menu_title'    => __('Options', 'experiensa'),
         'capability'    => 'manage_options',
         'sub_menu'      => 'themes.php',
         'menu_slug'     => 'experiensa-settings',
@@ -29,7 +29,7 @@ function default_experiensa_setting_pages($pages){
         'menu_icon'     => 'dashicons-editor-kitchensink',
         'page_icon'     => 'dashicons-editor-kitchensink',
         'single_line'   => false,
-        'save_text'     => __('Save options','sage'),
+        'save_text'     => __('Save options','experiensa'),
     );
     return $pages;
 }
@@ -40,14 +40,14 @@ function default_experiensa_setting_pages($pages){
 add_filter('piklist_admin_pages', 'tutorials_setting_page');
 function tutorials_setting_page($pages){
     $pages[] = array(
-        'page_title'    => __('Trainning','sage'),
-        'menu_title'    => __('Trainning', 'sage'),
+        'page_title'    => __('Trainning','experiensa'),
+        'menu_title'    => __('Trainning', 'experiensa'),
         'sub_menu'      => 'index.php',
         'capability'    => 'manage_options',
         'menu_slug'     => 'experiensa-tutorials',
         'setting'       => 'experiensa_tutorials',
         'single_line'   => false,
-        'save_text'     => __('Save Tutorials','sage'),
+        'save_text'     => __('Save Tutorials','experiensa'),
     );
 
     return $pages;

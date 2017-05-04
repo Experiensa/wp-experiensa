@@ -9,11 +9,10 @@ export default class Pinterest extends React.Component{
         super()
     }
     renderCards(){
-        let overlay = true
         return this.props.posts.map((post,i) => {
             return (
                 <div key={i}>
-                    {<TextImage post={post} overlay={true}/>}
+                    {<TextImage post={post} overlay={this.props.overlay}/>}
                 </div>
             )
         })
@@ -21,8 +20,6 @@ export default class Pinterest extends React.Component{
     render(){
         let columnNumber = parseInt(this.props.posts_per_row)
         let columnWidth;
-        console.log('el tipo de number', typeof columnNumber)
-        console.log('******x',this.props.posts)
         switch(columnNumber){
             case 1:
                 columnWidth = "100%";

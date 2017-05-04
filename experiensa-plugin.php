@@ -4,7 +4,7 @@
 * Plugin URI: https://github.com/Experiensa/wp-experiensa
 * Description: This plugin adds tourist information to your website
 * Plugin Type: Piklist
-* Version: 0.0.1
+* Version: 0.7.0
 * Author: Experiensa
 * License: GPL2
 */

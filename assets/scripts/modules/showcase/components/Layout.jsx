@@ -17,7 +17,7 @@ export default class Layout extends React.Component{
         if(type == 'grid') {
             return (
                 <Segment vertical className='component-content'>
-                    <PostGrid posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                    <PostGrid posts={this.props.posts} posts_per_row={this.props.posts_per_row} overlay={this.props.overlay}/>
                 </Segment>
             )
         }
@@ -45,13 +45,13 @@ export default class Layout extends React.Component{
         if(type == 'pinterest'){
             return(
                 <div className='component-content'>
-                    <Pinterest posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                    <Pinterest posts={this.props.posts} posts_per_row={this.props.posts_per_row} overlay={this.props.overlay}/>
                 </div>
             )
         }
         return(
             <div className='component-content'>
-                <MasonryLayout posts={this.props.posts} posts_per_row={this.props.posts_per_row}/>
+                <MasonryLayout posts={this.props.posts} posts_per_row={this.props.posts_per_row} overlay={this.props.overlay}/>
             </div>
         )
     }

@@ -11,6 +11,7 @@ export default class Buttons extends React.Component{
             return (
                 <Grid.Column key={i}>
                     <Button
+                        className="showcase-button"
                         basic
                         as='a'
                         href={post.link}

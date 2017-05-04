@@ -236,13 +236,13 @@ class Voyages{
         $days            = get_post_meta($object[ 'id' ],'days');
         $nights          = get_post_meta($object[ 'id' ],'nights');
         if(!empty($days[0])){
-            $duration.= implode($days) .' '.__('Days', 'sage');
+            $duration.= implode($days) .' '.__('Days', 'experiensa');
             if(!empty($nights[0])){
-                $duration.= ' / ' . implode($nights) . ' ' . __('Nights', 'sage');
+                $duration.= ' / ' . implode($nights) . ' ' . __('Nights', 'experiensa');
             }
         }else{
             if(!empty($nights[0])){
-                $duration.= implode($nights) . ' ' . __('Nights', 'sage');
+                $duration.= implode($nights) . ' ' . __('Nights', 'experiensa');
             }
         }
         return $duration;

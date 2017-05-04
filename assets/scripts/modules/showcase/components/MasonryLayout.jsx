@@ -4,7 +4,7 @@ import TextImage from './TextImage'
 import { Image } from 'semantic-ui-react'
 import * as Images from '../functions/Images'
 const masonryOptions = {
-    transitionDuration: 0,
+    transitionDuration: 2,
     columnWidth: 60
 };
 
@@ -16,16 +16,9 @@ export default class MasonryLayout extends React.Component{
 
     renderImages(){
         return this.props.posts.map((post,i) => {
-            const imgURL = Images.getImageURL(post)
             return (
                 <div key={i} className="masonry-item">
-                    <Image
-                        src={imgURL}
-                        as='a'
-                        href={post.link}
-                        target='_blank'
-                        alt="Post Image"
-                    />
+                    {<TextImage post={post} overlay={this.props.overlay}/>}
                 </div>
             )
         })

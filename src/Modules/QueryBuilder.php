@@ -57,9 +57,8 @@ class QueryBuilder
         foreach ($taxonomies_list as $taxonomy){
             $taxonomies[$taxonomy] = ucwords(str_replace('_',' ',$taxonomy));
         }
-        $taxonomies['location'] = __('Destinations','sage');
-        $taxonomies['all'] = __('All Posts','sage');
-        $taxonomies['news'] = __('News','sage');
+        $taxonomies['all'] = __('All Posts','experiensa');
+        $taxonomies['news'] = __('News','experiensa');
         return $taxonomies;
     }
 

@@ -12,6 +12,7 @@ final class Asset{
         add_action( 'wp_enqueue_scripts', array( $this, 'load_frontend_scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
     }
+    // Include scripts and style files on front-end side
     public function load_frontend_scripts($hook){
         $agency_email = Settings::getEmail();
         $agency_email = (!empty($agency_email)?$agency_email:'gabriel@experiensa.com');
@@ -42,14 +43,12 @@ final class Asset{
             wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
         }
     }
+    // Include scripts and style files on wordpres administrator side
     public function load_admin_scripts($hook){
         $cpt = (isset($_GET['post_type'])?$_GET['post_type']:false);
         $action = (isset($_GET['action'])?$_GET['action']:false);
         $agency_email = Settings::getEmail();
         $agency_email = (!empty($agency_email)?$agency_email:'gabriel@experiensa.com');
-//        var_dump($hook);
-//        var_dump($cpt);
-//        var_dump($action);
         $protocol = 'http';
         if ( is_ssl() ) {
             $protocol = 'https';

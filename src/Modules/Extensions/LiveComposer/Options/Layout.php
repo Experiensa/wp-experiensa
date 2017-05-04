@@ -61,19 +61,22 @@ class Layout
                     'label' => __('Pinterest','experiensa'),
                     'value' => 'pinterest'
                 ),
-                array(
+                /*array(
                     'label' => __('Slider','experiensa'),
                     'value' => 'slider'
                 ),
                 array(
                     'label' => __('Vegas Slider','experiensa'),
                     'value' => 'vegas'
-                ),
+                ),*/
                 array(
                     'label' => __('Windows 8','experiensa'),
                     'value' => 'win8'
                 ),
             ),
+            /*'dependent_controls' => array(
+		        'button' => 'showcase_button_font'
+	        ),*/
             'section' => 'styling',
         );
     }
@@ -105,7 +108,25 @@ class Layout
             'section' => 'styling',
         );
     }
-
+    public static function display_overlay($label = 'Overlay', $id = 'display_overlay', $default='true'){
+        return array(
+            'label'   => __($label, 'experiensa'),
+            'id'      => $id,
+            'std'     => $default,
+            'type'    => 'select',
+            'choices' => array(
+                array(
+                    'label' => 'Enable',
+                    'value' => 'true'
+                ),
+                array(
+                    'label' => 'Disable',
+                    'value' => 'false'
+                )
+            ),
+            'section' => 'styling',
+        );
+    }
     public static function contentText($id = 'content_text',$label = 'Content',$default = '',$section,$tab){
         return array(
             'label' => __($label, 'experiensa'),

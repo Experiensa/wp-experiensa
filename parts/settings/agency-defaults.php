@@ -12,7 +12,7 @@ $currency_list = Common::currency_name_description_list();
 piklist('field',array(
     'type'      => 'select',
     'field'     => 'agency_currency',
-    'label'     => __('Currency','sage'),
+    'label'     => __('Currency','experiensa'),
     'columns'   => 3,
     'value'     => 'CHF',
     'choices'   => $currency_list,

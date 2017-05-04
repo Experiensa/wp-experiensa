@@ -13,42 +13,42 @@ use \Experiensa\Plugin\Modules\Settings;
 $title = array(
     'type'          => 'text',
     'field'         => 'estimate_title',
-    'label'         => __('Title','sage'),
+    'label'         => __('Title','experiensa'),
     'columns'       => 8
 );
 
 $people = array(
     'type'  => 'number',
     'field' => 'estimate_people',
-    'label' => __('Number of people','sage'),
+    'label' => __('Number of people','experiensa'),
     'columns' => 2,
 );
 
 $number_days = array(
     'type'          => 'number',
     'field'         => 'estimate_days',
-    'label'         => __('Days','sage'),
+    'label'         => __('Days','experiensa'),
     'columns'       => 1,
 );
 
 $number_nights = array(
     'type'          => 'number',
     'field'         => 'estimate_nights',
-    'label'         => __('Nights','sage'),
+    'label'         => __('Nights','experiensa'),
     'columns'       => 1,
 );
 
 $price = array(
     'type'          => 'number',
     'field'         => 'estimate_price',
-    'label'         => __('Price','sage'),
+    'label'         => __('Price','experiensa'),
     'attributes'    => array( 'step' => 'any' ),
     'columns'       => 3
 );
 $currency = array(
     'type'      => 'select',
     'field'     => 'estimate_currency',
-    'label'     => __('Currency','sage'),
+    'label'     => __('Currency','experiensa'),
     'value'     => Settings::getCurrency(),
     'choices'   => Common::currency_name_description_list(),
     'columns'   => 5
@@ -57,7 +57,7 @@ $currency = array(
 $expiry_date = array(
     'type'      => 'datepicker',
     'field'     => 'estimate_expiry_date',
-    'label'     => __('Expiry date','sage'),
+    'label'     => __('Expiry date','experiensa'),
     'columns'   => 4
 );
 
@@ -65,20 +65,20 @@ $slogan = array(
     'type'      => 'text',
     'field'     => 'estimate_slogan',
     'columns'   => 12,
-    'label'     => __('Voyage slogan','sage')
+    'label'     => __('Voyage slogan','experiensa')
 );
 
 $conditions = array(
     'type'      => 'textarea',
     'field'     => 'estimate_information_conditions',
-    'label'     => __('Additional information & Conditions','sage'),
+    'label'     => __('Additional information & Conditions','experiensa'),
     'columns'   => 12
 );
 
 $photos = array(
     'type'  => 'file',
     'field' => 'estimate_gallery',
-    'label' => __('Photo Gallery','sage')
+    'label' => __('Photo Gallery','experiensa')
 );
 
 
@@ -91,26 +91,26 @@ $flight_airline = array(
     'type'  => 'text',
     'field' => 'flight_airline',
     'columns'   => 4,
-    'label' => __('Airline','sage')
+    'label' => __('Airline','experiensa')
 );
 
 $flight_number = array(
     'type'  => 'text',
     'field' => 'flight_number',
     'columns'   => 4,
-    'label' => __('Flight number','sage')
+    'label' => __('Flight number','experiensa')
 );
 
 $flight_class = array(
     'type'      => 'select',
     'field'     => 'flight_class',
-    'label'     => __('Flight Class','sage'),
+    'label'     => __('Flight Class','experiensa'),
     'columns'   => 4,
     'value'     => 'economy',
     'choices'   => array(
-        'economy'   => __('Economy','sage'),
-        'business'  => __('Business','sage'),
-        'first'     => __('First','sage'),
+        'economy'   => __('Economy','experiensa'),
+        'business'  => __('Business','experiensa'),
+        'first'     => __('First','experiensa'),
     ),
 );
 
@@ -118,21 +118,21 @@ $flight_departure_city = array(
     'type'      => 'text',
     'field'     => 'flight_departure_city',
     'columns'   => 6,
-    'label'     => __('Departure city','sage')
+    'label'     => __('Departure city','experiensa')
 );
 
 $flight_arrival_city = array(
     'type'      => 'text',
     'field'     => 'flight_arrival_city',
     'columns'   => 6,
-    'label'     => __('Arrival city','sage')
+    'label'     => __('Arrival city','experiensa')
 );
 
 $flight_departure_date = array(
     'type'      => 'datepicker',
     'field'     => 'flight_departure_date',
     'columns'   => 3,
-    'label'     => __('Departure date','sage'),
+    'label'     => __('Departure date','experiensa'),
     'options'   => array( 'dateFormat' => 'dd/mm/yy' ),
 );
 
@@ -140,14 +140,14 @@ $flight_departure_time= array(
     'type'      => 'time',
     'field'     => 'flight_departure_time',
     'columns'   => 3,
-    'label'     => __('Departure time','sage')
+    'label'     => __('Departure time','experiensa')
 );
 
 $flight_arrival_date = array(
     'type'      => 'datepicker',
     'field'     => 'flight_arrival_date',
     'columns'   => 3,
-    'label'     => __('Arrival date','sage'),
+    'label'     => __('Arrival date','experiensa'),
     'options'   => array('dateFormat' => 'dd/mm/yy'),
 );
 
@@ -155,21 +155,21 @@ $flight_arrival_time = array(
     'type'      => 'time',
     'field'     => 'flight_arrival_time',
     'columns'   => 3,
-    'label'     => __('Arrival time','sage')
+    'label'     => __('Arrival time','experiensa')
 );
 
 $flight_comments = [
     'type'          => 'text',
     'field'         => 'flight_comments',
-    'label'         => __('Comments','sage'),
-    'attributes'    => ['placeholder' => __('Comments','sage')],
+    'label'         => __('Comments','experiensa'),
+    'attributes'    => ['placeholder' => __('Comments','experiensa')],
     'columns'       => 12
 ];
 
 $flights = array(
     'type' => 'group',
     'field' => 'flights_group',
-    'label' => __('Flights','sage'),
+    'label' => __('Flights','experiensa'),
     'add_more' => true,
     'fields' => array(
         $flight_airline,
@@ -190,43 +190,43 @@ $flights = array(
 $host_name = [
     'type'      => 'text',
     'field'     => 'establishment_name',
-    'label'     => __('Establishment name','sage'),
+    'label'     => __('Establishment name','experiensa'),
     'columns'   => 6
 ];
 
 $host_type = [
     'type'      => 'select',
     'field'     => 'establishment_type',
-    'label'     => __('Establishment type','sage'),
+    'label'     => __('Establishment type','experiensa'),
     'columns'   => 4,
     'choices'   => array(
-        'hotel'     => __('Hotel','sage'),
-        'b&b'       => __('Bed & Breakfast','sage'),
-        'residence' => __('Residence','sage'),
-        'airbnb'    => __('Airbnb','sage'),
-        'private'   => __('Private apartment','sage'),
-        'hostel'    => __('Hostel','sage'),
+        'hotel'     => __('Hotel','experiensa'),
+        'b&b'       => __('Bed & Breakfast','experiensa'),
+        'residence' => __('Residence','experiensa'),
+        'airbnb'    => __('Airbnb','experiensa'),
+        'private'   => __('Private apartment','experiensa'),
+        'hostel'    => __('Hostel','experiensa'),
     )
 ];
 
 $host_rating = array(
     'type'      => 'select',
     'field'     => 'establishment_rating',
-    'label'     => __('Rating','sage'),
+    'label'     => __('Rating','experiensa'),
     'columns'   => 2,
     'choices'   => array(
-        '5' => __('5 Stars','sage'),
-        '4' => __('4 Stars','sage'),
-        '3' => __('3 Stars','sage'),
-        '2' => __('2 Stars','sage'),
-        '1' => __('1 Star','sage')
+        '5' => __('5 Stars','experiensa'),
+        '4' => __('4 Stars','experiensa'),
+        '3' => __('3 Stars','experiensa'),
+        '2' => __('2 Stars','experiensa'),
+        '1' => __('1 Star','experiensa')
     )
 );
 
 $host_checkin_date = array(
     'type'      => 'datepicker',
     'field'     => 'establishment_checkin_date',
-    'label'     => __('Check-in date','sage'),
+    'label'     => __('Check-in date','experiensa'),
     'columns'   => 3,
     'options'   => array('dateFormat' => 'd/m/yy'),
 );
@@ -234,14 +234,14 @@ $host_checkin_date = array(
 $host_checkin_time = array(
     'type'      => 'time',
     'field'     => 'establishment_checkin_time',
-    'label'     => __('Check-in time','sage'),
+    'label'     => __('Check-in time','experiensa'),
     'columns'   => 3
 );
 
 $host_checkout_date = array(
     'type'      => 'datepicker',
     'field'     => 'establishment_checkout_date',
-    'label'     => __('Check-out date','sage'),
+    'label'     => __('Check-out date','experiensa'),
     'columns'   => 3,
     'options'   => array('dateFormat' => 'd/m/yy'),
 );
@@ -249,19 +249,19 @@ $host_checkout_date = array(
 $host_checkout_time = array(
     'type'      => 'time',
     'field'     => 'establishment_checkout_time',
-    'label'     => __('Check-out time','sage'),
+    'label'     => __('Check-out time','experiensa'),
     'columns'   => 3
 );
 $host_gallery = [
     'type'      => 'file',
     'field'     => 'establishment_gallery',
-    'label'     => __('Photo Gallery','sage'),
+    'label'     => __('Photo Gallery','experiensa'),
 ];
 
 $host_comments = array(
     'type'      => 'textarea',
     'field'     => 'establishment_comments',
-    'label'     => __('Comments & Description','sage'),
+    'label'     => __('Comments & Description','experiensa'),
     'columns'   => 12
 );
 
@@ -269,7 +269,7 @@ $host_comments = array(
 $accomodations = array(
     'type' => 'group',
     'field' => 'accomodations_group',
-    'label' => __('Accomodations','sage'),
+    'label' => __('Accomodations','experiensa'),
     'add_more' => true,
     'fields' => array(
         $host_name,
@@ -290,7 +290,7 @@ piklist('field', array(
     'type'      => 'group',
     'field'     => 'estimate_voyages',
     'template'  => 'field',
-    'label'     => __('Voyages','sage'),
+    'label'     => __('Voyages','experiensa'),
     'add_more'  => true,
     'fields'    => array(
         $title,

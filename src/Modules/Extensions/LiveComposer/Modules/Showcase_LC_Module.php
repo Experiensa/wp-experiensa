@@ -21,7 +21,8 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Layout::header(),
                 Layout::showcase_type(),
                 Layout::post_per_row(),
-                Color::colorField('showcase_background_color','Background Color','inherit','.showcase-module','styling','general','background-color'),
+                Layout::display_overlay(),
+                Color::colorField('showcase_background_color','Background Color','inherit','.showcase-module','styling','general','background-color'),            
                 /**
                  * Title - Header Options
                  */
@@ -96,6 +97,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                     'section' => 'styling',
                     'tab' => __( 'Content', 'experiensa' )
                 ),
+                // Font::fontFamily('showcase_button_font','Source Sans Pro','Button','.showcase-button'),
             ];
             // Return the array
             return apply_filters( 'dslc_module_options', $options, $this->module_id );
@@ -142,9 +144,11 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
              */
             $type = $options['showcase_type'];
             $posts_per_row = $options['post_per_row'];
+            $overlay = $options['display_overlay'];
             $component_options = array(
                 'type'  => $type,
-                'posts_per_row' => $posts_per_row
+                'posts_per_row' => $posts_per_row,
+                'overlay' => $overlay
             );
             set_query_var('component_options',$component_options);
             ob_start();
