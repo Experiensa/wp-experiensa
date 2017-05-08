@@ -42,6 +42,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Font::fontSize('catalog_font_size_title','Size','3.5','.catalog-title','Header'),
                 Font::textTransform('.catalog-title','Header','catalog_text_transform_title'),
                 Font::textWeight('.catalog-title','Header','catalog_text_weight_title'),
+                Layout::line_height('.catalog-title','Header','catalog_header_line_height', 'Line Height', 1),
                 array(
                     'id' => 'catalog_title_header_options',
                     'type' => 'group',

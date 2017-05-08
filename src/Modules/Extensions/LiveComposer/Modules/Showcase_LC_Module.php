@@ -41,6 +41,7 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Font::fontSize('font_size_title','Size','3.5','.showcase-title','Header'),
                 Font::textTransform('.showcase-title','Header','text_transform_title'),
                 Font::textWeight('.showcase-title','Header','text_weight_title'),
+                Layout::line_height('.showcase-title','Header','header_line_height', 'Line Height', 1),
                 array(
                     'id' => 'title_header_options',
                     'type' => 'group',
