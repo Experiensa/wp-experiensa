@@ -14,7 +14,7 @@ export default class DataRow extends React.Component {
                 if( this.props.value) {
                     return (
                         <div className="voyage-content">
-                            <br/><strong>{this.props.title}: </strong>{this.props.value}
+                            <strong>{this.props.title}: </strong>{this.props.value}
                         </div>
                     )
                 }else{

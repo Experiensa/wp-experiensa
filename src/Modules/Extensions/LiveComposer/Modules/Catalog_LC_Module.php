@@ -153,7 +153,9 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
                 Font::fontFamily('voyage_content_font','Source Sans Pro','Content','.voyage-content'),
                 Color::colorField('voyage_content_text_color','Color','#000','.voyage-content','styling','Content'),
                 Color::colorField('voyage_content_bg_color','Background','#fff','.ui.card','styling','Content','background'),
+                Layout::line_height('.voyage-content', 'Content'),
                 Layout::border_radius('voyage_border_radius','Border Radius','inherit','Content','.ui.card','rem'),
+                Layout::box_shadow('.ui.card','Content','card_box_shadow','Card Box Shadow'),
                 array(
                     'id' => 'catalog_content_options',
                     'type' => 'group',

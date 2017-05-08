@@ -25,13 +25,17 @@ export default class DetailsModal extends React.Component {
         this.setState({ activeItem: name })
     }
     createButtonAction(){
-        if(this.props.options.price){
+        if(this.props.options.price != "No Available"){
             return(
-                <Button id="modal-card-details" className="catalog-detail-button" onClick={this.handleOpen} attached='bottom'>{this.props.price}</Button>
+                <div className="content">
+                    <Button id="modal-card-details" className="catalog-detail-button" onClick={this.handleOpen} fluid>{this.props.price}</Button>
+                </div>
             );
         }
         return(
-            <Button id="modal-card-details" className="catalog-detail-button" onClick={this.handleOpen} attached='bottom'>Details</Button>
+            <div className="content">
+                <Button id="modal-card-details" className="catalog-detail-button" onClick={this.handleOpen} fluid>Details</Button>
+            </div>
         );
     }
     createImage(voyageImage){

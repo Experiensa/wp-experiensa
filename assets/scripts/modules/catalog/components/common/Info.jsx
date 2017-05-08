@@ -5,8 +5,8 @@ export function getVoyagePrice(data){
         currency = data.currency
     let price = "No Available"
     if(data.price != '')
-        price = voyage.price
-    if(price != 'No Available')
+        price = data.price
+    if(price != "No Available")
         price = currency+' '+price
     return price
 }

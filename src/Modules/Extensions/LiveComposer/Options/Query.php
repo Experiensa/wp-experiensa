@@ -35,11 +35,13 @@ class Query
             'post_tag',
             'nav_menu',
             'link_category',
-            'post_format'
+            'post_format',
+            'piklist_demo_type',
+            'piklist_demo_user_type'
         );
         foreach ($taxonomies as $key => $value) {
             if(!in_array($key,$tax_to_ignore))
-                $tax[] = ['label' => $value, 'value' => $key];
+                $tax[] = ['label' => str_replace('Exp ','',$value), 'value' => $key];
         }
         return array(
             'label'   => __($title, 'experiensa'),

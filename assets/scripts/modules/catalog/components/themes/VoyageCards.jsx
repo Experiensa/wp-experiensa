@@ -22,14 +22,16 @@ export default class VoyageCards extends React.Component {
     render() {
         const voyage = this.props.voyage;
         const price = Info.getVoyagePrice(voyage)
-        // console.log('soy el voyage',voyage);
+        // console.log('el precio es',price);
+        //  console.log('soy el voyage',voyage);
         // console.log('mis opt son',this.props.options);
-        // console.log('mis show son',this.props.show);
+        //  console.log('mis show son',this.props.show);
         return(
             <div className="ui card">
                 <DetailsModal voyage={this.props.voyage} price={price} options={this.props.options} type="image"/>
                 <div className="content">
                     <DataRow show={this.props.show.title} title={voyage.title} value="" isTitle={true}/>
+                    <DataRow show={this.props.show.price} title="Price" value={price} isTitle={false}/>
                     <DataRow show={this.props.show.duration} title="Duration" value={voyage.duration} isTitle={false}/>
                     <DataRow show={this.props.show.themes} title="Theme" value={voyage.theme.text} isTitle={false}/>
                     <DataRow show={this.props.show.location} title="Places" value={voyage.location.text} isTitle={false}/>

@@ -180,7 +180,7 @@ class Layout
             'increment' => 0.05,
         );
     }
-    public static function box_shadow($scope,$tab,$id='box_shadow',$label='Box Shadow'){
+    public static function box_shadow($scope, $tab, $id = 'box_shadow', $label = 'Box Shadow'){
         return array(
             'label' => __( $label, 'experiensa' ),
             'id' => $id,
@@ -191,6 +191,24 @@ class Layout
             'affect_on_change_rule' => 'box-shadow',
             'section' => 'styling',
             'tab' => __($tab,'experiensa'),
+        );
+    }
+    public static function line_height($scope, $tab, $id = 'line_height',$label = 'Line Height', $default = 'initial', $ext = 'em', $max = 10){
+        return array(
+            'label'   => __($label, 'experiensa'),
+            'id'      => $id,
+            'onlypositive' => true,
+            'std'     => $default,
+            'type'    => 'slider',
+            'refresh_on_change' => false,
+            'affect_on_change_el' => $scope,
+            'affect_on_change_rule' => 'line-height',
+            'section' => 'styling',
+            'tab' => __($tab,'experiensa'),
+            'ext' => $ext,
+            'min' => 0,
+            'max' => $max,
+            'increment' => 0.05,
         );
     }
 }
