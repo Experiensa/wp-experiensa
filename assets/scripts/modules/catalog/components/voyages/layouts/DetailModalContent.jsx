@@ -87,7 +87,7 @@ export default class DetailsModal extends React.Component {
                         {imageObj.src.map((image,index)=>{
                             return(
                                 <div key={index} className="slider-item">
-                                    <Image src={image} fluid/>
+                                    <Image src={image} fluid style={{maxHeight:600}}/>
                                 </div>
                             )
                         })}
