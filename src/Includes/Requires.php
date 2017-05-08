@@ -60,7 +60,7 @@ class Requires
             'url'       => 'https://livecomposerplugin.com/downloads/live-composer-page-builder/'
         ];
 
-        $plugins = [$piklist, $api, $wpml, $jetpack, $live_composer];
+        $plugins = [$piklist, $api, $rest_filter, $wpml, $jetpack, $live_composer];
 
         foreach ($plugins as $key => $value) {
             $plugin = $value['folder'] . '/' . $value['file'];
