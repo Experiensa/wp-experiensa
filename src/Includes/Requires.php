@@ -32,6 +32,13 @@ class Requires
             'url'       => 'http://v2.wp-api.org/'
         ];
 
+        $rest_filter = [
+            'name'      => 'rest-filter - Filter parameter for posts endpoints',
+            'folder'    => 'rest-filter',
+            'file'      => 'plugin.php',
+            'url'       => 'https://github.com/wp-api/rest-filter'
+        ];
+
         $wpml = [
             'name'      => 'WPML',
             'folder'    => 'sitepress-multilingual-cms',
