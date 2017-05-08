@@ -9,7 +9,13 @@ export default class TextImage extends React.Component{
     }
     getContent(){
         return(
-            <p>{this.props.post.title.rendered}</p>
+            <a
+                href={this.props.post.link}
+                target='_blank'
+                style = {{color: 'inherit'}}
+            >
+                {this.props.post.title.rendered}
+            </a>
         )
     }
     renderSingleImage(){
@@ -35,7 +41,7 @@ export default class TextImage extends React.Component{
                 onMouseEnter={this.handleShow}
                 onMouseLeave={this.handleHide}
                 fluid
-                src={imgURL}
+                src={imgURL}                
             />
         )
     }
