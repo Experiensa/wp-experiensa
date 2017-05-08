@@ -2,9 +2,6 @@ import React from 'react'
 import _ from 'lodash'
 const ld = _.noConflict();
 import { Card, Loader } from 'semantic-ui-react'
-// import CatalogVoyageCards from './CatalogVoyageCards'
-// import CatalogVoyageMinimalist from './CatalogVoyageMinimalist'
-// import CatalogVoyageMasonry from './voyages/layouts/masonry/CatalogVoyageMasonry'
 import VoyageCards from './themes/VoyageCards'
 import VoyagePinterest from './themes/VoyagePinterest'
 

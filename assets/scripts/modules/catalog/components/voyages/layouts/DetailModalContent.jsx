@@ -1,6 +1,10 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid, Menu, Segment, Container } from 'semantic-ui-react'
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import imageUrl from '../../../../../../images/travel-no-image.jpg'
+import { getVoyageImage } from '../../common/Info'
 const travelNoImage = experiensa_vars.dist_url + imageUrl
 
 export default class DetailsModal extends React.Component {
@@ -66,25 +70,33 @@ export default class DetailsModal extends React.Component {
             </div>
         )
     }
-    renderGallery(){
+    renderGallery(){        
         let voyage = this.props.data
-        let voyageImage = () => {
-            const lostTravelImage = travelNoImage
-            let image = voyage.cover_image
-            let imageSrc
-            if(!image.feature_image && image.gallery.length < 1){
-                imageSrc = lostTravelImage
-            }else{
-                if(image.feature_image){
-                    imageSrc = image.feature_image
-                }else{
-                    imageSrc = image.gallery[0]
-                }
+        const imageObj = getVoyageImage(voyage)
+        if(imageObj.gallery){
+            const settings = {
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1
             }
-            return imageSrc
+            return(
+                <Container>
+                    <Slider {...settings}>
+                        {imageObj.src.map((image,index)=>{
+                            return(
+                                <div key={index} className="slider-item">
+                                    <Image src={image} fluid/>
+                                </div>
+                            )
+                        })}
+                    </Slider>
+                </Container>
+            )
         }
         return(
-            <Image src={voyageImage()} centered/>
+            <Image src={imageObj.src} centered/>
         )
     }
     render(){
