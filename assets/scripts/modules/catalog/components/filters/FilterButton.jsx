@@ -30,20 +30,20 @@ class FilterButton extends React.Component {
         //https://github.com/facebook/react/issues/1881
         let style = {
             backgroundColor: color,
-            margin: "2px"            
+            margin: "3px"            
         }
         return (style)
     }
     render() {
-        // const styles = this.getStyles()
-        const color = (this.state.isActive?this.props.active_color:this.props.color);
+        const styles = this.getStyles()
+        // const color = (this.state.isActive?this.props.active_color:this.props.color);
         return (
             <Button
                 toggle
                 compact
                 className={this.state.classValue}
                 key={this.props.id}
-                style={{backgroundColor: `${color}`}}
+                style={styles}
                 onClick={(e) => this.handleClick(e,this.props.filter_type)}
             >
                 {this.props.name}
