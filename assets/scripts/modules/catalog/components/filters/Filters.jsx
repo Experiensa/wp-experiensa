@@ -9,10 +9,14 @@ export default class Filters extends React.Component {
         if(this.props.filterOptions.values) {
             return this.props.filterOptions.values.map((value) => {
                 return (
-                    <FilterButton key={value.id}
-                                  id={value.id}
-                                  name={value.name}
-                                  filter_type={this.props.filterOptions.type}/>
+                    <FilterButton 
+                        key={value.id}
+                        id={value.id}
+                        name={value.name}
+                        filter_type={this.props.filterOptions.type}
+                        color={this.props.color}
+                        active_color={this.props.active_color}
+                    />
                 )
             })
         }else{

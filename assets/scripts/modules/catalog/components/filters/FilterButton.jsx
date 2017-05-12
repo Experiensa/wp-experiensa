@@ -14,6 +14,7 @@ class FilterButton extends React.Component {
         // this.getStyles = /this.getStyles.bind(this)
     }
     handleClick(e,filter_type){
+        // console.log('el color va cambiar ', this.props.active_color)
         // console.log('handleCLick',e.currentTarget.style)
         // e.currentTarget.style.backgroundColor = '#ccc';
         const active = !this.state.isActive
@@ -25,28 +26,24 @@ class FilterButton extends React.Component {
         this.props.filterCatalog(filter_type,this.props.name,!this.state.isActive)
     }
     getStyles(){
-        // console.log('mis props',this.props)
-        // console.log('mis states son',this.state)
-        // let bg = this.props.options.btn_color + '!important'
-        // if(this.state.isActive)
-        //     bg = this.props.options.btn_color_active+' !important'
+        const color = (this.state.isActive?this.props.active_color:this.props.color);
+        //https://github.com/facebook/react/issues/1881
         let style = {
-            margin: "3px"//,
-            // background: bg
+            backgroundColor: color,
+            margin: "2px"            
         }
-        // console.log('mi nuevo estilo es',style)
         return (style)
     }
     render() {
-        // console.log('mis propsx',this.props)
-        let styles = this.getStyles()
+        // const styles = this.getStyles()
+        const color = (this.state.isActive?this.props.active_color:this.props.color);
         return (
             <Button
                 toggle
                 compact
                 className={this.state.classValue}
                 key={this.props.id}
-                style={styles}
+                style={{backgroundColor: `${color}`}}
                 onClick={(e) => this.handleClick(e,this.props.filter_type)}
             >
                 {this.props.name}

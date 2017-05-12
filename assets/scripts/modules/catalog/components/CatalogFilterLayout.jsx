@@ -8,8 +8,9 @@ export default class CatalogFilterLayout extends React.Component {
     }
     loadFilters(){
         let filterToShow = this.props.filters
-        console.log('los filtros a mostrar son',filterToShow)
-        console.log('los filter options son',this.props.filterOptions)
+        // console.log('mis props que voy a mandar a Filters', this.props.options)
+        // console.log('los filtros a mostrar son',filterToShow)
+        // console.log('los filter options son',this.props.filterOptions)
         return filterToShow.map((filter,index)=>{
             let filterOptions = {}
             switch(filter){
@@ -60,7 +61,7 @@ export default class CatalogFilterLayout extends React.Component {
                         values: this.props.filterOptions.themes
                     }
             }
-            return (<Filters filterOptions={filterOptions} key={index}/>)
+            return (<Filters filterOptions={filterOptions} key={index} color={this.props.options.button_bg_color} active_color={this.props.options.button_bg_active_color}/>)
         })
     }
     render() {
