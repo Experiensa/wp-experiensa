@@ -13,7 +13,7 @@ class FilterButton extends React.Component {
             isActive: false,
             classValue: 'filter-button',
             styles: {
-                margin: "3px"
+                margin: 3
             }
         }
         this.handleClick = this.handleClick.bind(this)
@@ -24,6 +24,7 @@ class FilterButton extends React.Component {
         this.setState({
             styles: {
                 backgroundColor: `${this.props.color} !important`,
+                margin: 3
             }
         })
     }
@@ -36,6 +37,7 @@ class FilterButton extends React.Component {
             classValue: value,
             styles: {
                 backgroundColor: `${color} !important`,
+                margin: 3
             }
         })
         this.props.filterCatalog(filter_type,this.props.name,!this.state.isActive)
@@ -44,6 +46,7 @@ class FilterButton extends React.Component {
         this.setState({
             styles: {
                 backgroundColor: `${this.props.hover_color} !important`,
+                margin: 3
             }
         })
     }
@@ -53,6 +56,7 @@ class FilterButton extends React.Component {
         this.setState({
             styles: {
                 backgroundColor: `${color} !important`,
+                margin: 3
             }
         })
     }
