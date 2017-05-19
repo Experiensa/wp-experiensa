@@ -1,7 +1,9 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid, Menu, Segment } from 'semantic-ui-react'
+import withImportantStyle from 'react-with-important-style';
 import DetailModalContent from './DetailModalContent'
 import imageUrl from '../../../../../../images/travel-no-image.jpg'
+var CardImage = withImportantStyle('img');
 const travelNoImage = experiensa_vars.dist_url + imageUrl
 
 export default class DetailsModal extends React.Component {
@@ -39,9 +41,20 @@ export default class DetailsModal extends React.Component {
         );
     }
     createImage(voyageImage){
-        return(
-            <img className="image catalog-image" src={voyageImage} onClick={this.handleOpen}/>
-        )
+        const border = this.props.options.content_border_radius;
+        if(border !== 'inherit'){
+            const imgStyle = {
+                borderTopLeftRadius: `${border}rem !important`,
+                borderTopRightRadius: `${border}rem !important`,
+            }
+            return(                
+                <CardImage className="image catalog-image" src={voyageImage} onClick={this.handleOpen} style={imgStyle}/>
+            )
+        }else{
+            return(
+                <CardImage className="image catalog-image" src={voyageImage} onClick={this.handleOpen}/>
+            )
+        }
     }
     render(){
         const { activeItem } = this.state

@@ -29,7 +29,7 @@ function createPostsObject(data){
 export function requestPosts(post_type,taxonomy,terms,max) {
     return(dispatch,getState)=>{
         let requestURL = createRequestURL(post_type,taxonomy,terms,max)
-        console.log('requestURL',requestURL)
+        // console.log('requestURL',requestURL)
         axios.get(requestURL,{timeout: 30000})
         .then((response)=>{
             dispatch({

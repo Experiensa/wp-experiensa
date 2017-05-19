@@ -16,6 +16,7 @@ export default class Filters extends React.Component {
                         filter_type={this.props.filterOptions.type}
                         color={this.props.color}
                         active_color={this.props.active_color}
+                        hover_color={this.props.hover_color}
                     />
                 )
             })

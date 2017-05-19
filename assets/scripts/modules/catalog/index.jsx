@@ -6,7 +6,6 @@ import thunk from 'redux-thunk'
 require('es6-symbol/implement')
 
 import 'semantic-ui-css/semantic.css';
-
 import reducers from './reducers';
 import Catalog from './components/Catalog'
 
@@ -31,7 +30,7 @@ const renderCatalog = function() {
             if (catalog_app != null) {
                 let options = JSON.parse(catalog_app.dataset.options)
                 let filters = JSON.parse(catalog_app.dataset.filters)
-                // console.log('mis options son ',options,typeof options)
+                // console.log('mis options sonx ',options,typeof options)
                 // console.log('mis filtros son ',filters, typeof filters)
                 ReactDOM.render(
                     <Provider store={createStoreWithMiddleware(reducers)}>

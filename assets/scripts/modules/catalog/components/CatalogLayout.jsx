@@ -47,6 +47,7 @@ export default class CatalogLayout extends React.Component {
                     </Card.Group>
                 )
             }
+            // console.log('voy por newpinterestr',this.props.voyages)
             return (
                 <VoyagePinterest voyages={this.props.voyages} options={this.props.options} show={this.elementsToShow()}/>
             );

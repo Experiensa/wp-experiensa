@@ -1,7 +1,7 @@
 import React from 'react'
-import StackGrid from "react-stack-grid";
+import StackGrid, { transitions } from "react-stack-grid";
 import VoyagePinterestElement from './VoyageCards'
-
+const { scaleDown } = transitions;
 
 export default class VoyagePinterestLayout extends React.Component {
     constructor(){
@@ -11,10 +11,15 @@ export default class VoyagePinterestLayout extends React.Component {
         const voyages = this.props.voyages;
         return(
             <StackGrid
-                columnWidth={200}
+                columnWidth={250}
                 gutterWidth={10}
                 gutterHeight={15}
                 duration={1000}
+                appear={scaleDown.appear}
+        appeared={scaleDown.appeared}
+        enter={scaleDown.enter}
+        entered={scaleDown.entered}
+        leaved={scaleDown.leaved}
             >
 
                 {voyages.map((voyage,i) => (

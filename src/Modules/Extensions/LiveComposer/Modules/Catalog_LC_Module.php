@@ -211,13 +211,14 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
             $button_bg_color = $options['button_bg_color'];
             $button_bg_hover_color = $options['button_bg_hover_color'];
             $button_bg_active_color = $options['button_bg_active_color'];
-
+            $voyage_border_radius = $options['voyage_border_radius'];
             $catalog_options = [
                 'type' => $type,
                 'elements' => $elements,
                 'button_bg_color' => $button_bg_color,
                 'button_bg_hover_color' => $button_bg_hover_color,
-                'button_bg_active_color' => $button_bg_active_color
+                'button_bg_active_color' => $button_bg_active_color,
+                'content_border_radius' => $voyage_border_radius
             ];
 
             set_query_var('catalog_options',$catalog_options);

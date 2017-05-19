@@ -111,7 +111,7 @@ function plugins() {
         //     minimize: true,
         //     debug: false
         // }),
-         new webpack.optimize.UglifyJsPlugin({
+         /*new webpack.optimize.UglifyJsPlugin({
              compress: {
                  warnings: false,
                  screw_ie8: true,
@@ -127,7 +127,7 @@ function plugins() {
              output: {
                  comments: false,
              },
-         }),
+         }),*/
         new webpack.ProvidePlugin({
             $: "jquery"
         })

@@ -1,53 +1,73 @@
 import React from 'react';
 import {connect} from 'react-redux'
+//https://github.com/facebook/react/issues/1881
+import withImportantStyle from 'react-with-important-style';
 import {filterCatalog} from '../../actions'
 import { Button } from 'semantic-ui-react'
+var SingleButton = withImportantStyle('button');
 
 class FilterButton extends React.Component {
     constructor(){
         super()
         this.state = {
             isActive: false,
-            classValue: 'filter-button'
+            classValue: 'filter-button',
+            styles: {
+                margin: "3px"
+            }
         }
         this.handleClick = this.handleClick.bind(this)
-        // this.getStyles = /this.getStyles.bind(this)
+        this.onMouseOver = this.onMouseOver.bind(this)
+        this.onMouseOut = this.onMouseOut.bind(this)
     }
-    handleClick(e,filter_type){
-        // console.log('el color va cambiar ', this.props.active_color)
-        // console.log('handleCLick',e.currentTarget.style)
-        // e.currentTarget.style.backgroundColor = '#ccc';
+    componentWillMount() {
+        this.setState({
+            styles: {
+                backgroundColor: `${this.props.color} !important`,
+            }
+        })
+    }
+    handleClick(e,filter_type){        
         const active = !this.state.isActive
-        const value = active?'active filter-button': 'filter-button'
+        const value = active ? 'active' : '';
+        const color = (active?this.props.active_color:this.props.color);
         this.setState({
             isActive: active,
-            classValue: value
+            classValue: value,
+            styles: {
+                backgroundColor: `${color} !important`,
+            }
         })
         this.props.filterCatalog(filter_type,this.props.name,!this.state.isActive)
     }
-    getStyles(){
-        const color = (this.state.isActive?this.props.active_color:this.props.color);
-        //https://github.com/facebook/react/issues/1881
-        let style = {
-            backgroundColor: color,
-            margin: "3px"            
-        }
-        return (style)
+    onMouseOver(e){
+        this.setState({
+            styles: {
+                backgroundColor: `${this.props.hover_color} !important`,
+            }
+        })
+    }
+    onMouseOut(e){
+        const active = this.state.isActive;
+        const color = active?this.props.active_color:this.props.color;
+        this.setState({
+            styles: {
+                backgroundColor: `${color} !important`,
+            }
+        })
     }
     render() {
-        const styles = this.getStyles()
-        // const color = (this.state.isActive?this.props.active_color:this.props.color);
         return (
-            <Button
-                toggle
-                compact
-                className={this.state.classValue}
+            <SingleButton
+                className={`ui compact toggle button ${this.state.classValue} filter-button`}
                 key={this.props.id}
-                style={styles}
+                style={this.state.styles}
                 onClick={(e) => this.handleClick(e,this.props.filter_type)}
+                onMouseOver = {this.onMouseOver}
+                onMouseOut = {this.onMouseOut}
             >
                 {this.props.name}
-            </Button>
+            </SingleButton>
         );
     }
 }

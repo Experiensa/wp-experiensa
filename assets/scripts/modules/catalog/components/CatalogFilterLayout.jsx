@@ -61,7 +61,14 @@ export default class CatalogFilterLayout extends React.Component {
                         values: this.props.filterOptions.themes
                     }
             }
-            return (<Filters filterOptions={filterOptions} key={index} color={this.props.options.button_bg_color} active_color={this.props.options.button_bg_active_color}/>)
+            return (
+                <Filters 
+                    filterOptions={filterOptions} 
+                    key={index} 
+                    color={this.props.options.button_bg_color} 
+                    active_color={this.props.options.button_bg_active_color}
+                    hover_color={this.props.options.button_bg_hover_color}
+                />)
         })
     }
     render() {
