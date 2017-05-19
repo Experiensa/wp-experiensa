@@ -42,17 +42,21 @@ export default class DetailsModal extends React.Component {
     }
     createImage(voyageImage){
         const border = this.props.options.content_border_radius;
+        console.log('mi border es', border)
         if(border !== 'inherit'){
+            console.log('voy por aqui')
             const imgStyle = {
                 borderTopLeftRadius: `${border}rem !important`,
                 borderTopRightRadius: `${border}rem !important`,
             }
+            console.log(imgStyle);
             return(                
                 <CardImage className="image catalog-image" src={voyageImage} onClick={this.handleOpen} style={imgStyle}/>
             )
         }else{
+            console.log('voy por alla')
             return(
-                <CardImage className="image catalog-image" src={voyageImage} onClick={this.handleOpen}/>
+                <Image className="image catalog-image" src={voyageImage} onClick={this.handleOpen}/>
             )
         }
     }

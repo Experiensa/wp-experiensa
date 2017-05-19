@@ -16,10 +16,10 @@ export default class VoyagePinterestLayout extends React.Component {
                 gutterHeight={15}
                 duration={1000}
                 appear={scaleDown.appear}
-        appeared={scaleDown.appeared}
-        enter={scaleDown.enter}
-        entered={scaleDown.entered}
-        leaved={scaleDown.leaved}
+                appeared={scaleDown.appeared}
+                enter={scaleDown.enter}
+                entered={scaleDown.entered}
+                leaved={scaleDown.leaved}
             >
 
                 {voyages.map((voyage,i) => (
