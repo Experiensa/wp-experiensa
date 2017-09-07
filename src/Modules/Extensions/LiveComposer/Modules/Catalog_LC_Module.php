@@ -6,7 +6,7 @@ use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Color;
 use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Font;
 use Experiensa\PLugin\Includes\Requires;
 
-if ( defined( 'DS_LIVE_COMPOSER_URL' ) ) {
+if ( defined( 'DS_LIVE_COMPOSER_URL' ) && !class_exists('Catalog_LC_Module') ) {
     class Catalog_LC_Module extends DSLC_Module{
         // Module Attributes
         var $module_id = 'Catalog_LC_Module';
