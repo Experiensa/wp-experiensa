@@ -1,10 +1,10 @@
 <?php
 
 
-include_once EXPERIENSA_ABS . '/modules/customizer/Information.php';
-include_once EXPERIENSA_ABS . '/modules/customizer/Defaults.php';
-include_once EXPERIENSA_ABS . '/modules/customizer/SocialNetwork.php';
-include_once EXPERIENSA_ABS . '/modules/customizer/Experiensa_Kirki.php';
+require_once EXPERIENSA_ABS . '/modules/customizer/Information.php';
+require_once EXPERIENSA_ABS . '/modules/customizer/Defaults.php';
+require_once EXPERIENSA_ABS . '/modules/customizer/SocialNetwork.php';
+require_once EXPERIENSA_ABS . '/modules/customizer/Experiensa_Kirki.php';
 
 use Experiensa\Modules\Customizer\Information;
 use Experiensa\Modules\Customizer\Defaults;

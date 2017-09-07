@@ -14,7 +14,7 @@ class Requires
      * Notify if a required plugin is missing
      */
     public function requiredPlugins(){
-        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         $plugin_messages = array();
         $msg = __('This theme requires you to install the ');
 
