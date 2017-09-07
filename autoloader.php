@@ -22,6 +22,6 @@ function experiensa_autoloader($class){
     $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
     // if the file exists, require it
     if (file_exists($file)) {
-        require $file;
+        require_once $file;
     }
 }

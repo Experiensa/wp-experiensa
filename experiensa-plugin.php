@@ -29,7 +29,7 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         define('EXPERIENSA_MAIN_API_URL',get_bloginfo('url') . '/wp-json/wp/v2');
         define('EXPERIENSA_DIR_NAME', dirname(plugin_basename(__FILE__)));        
         //Include the custom autoloader
-        include EXPERIENSA_ABS . '/autoloader.php';
+        include_once EXPERIENSA_ABS . '/autoloader.php';
         new Experiensa\Plugin\Includes\Requires();
         new Experiensa\Plugin\Includes\Asset();
         Experiensa\Plugin\Models\Register::init();
@@ -37,7 +37,7 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         new \Experiensa\Plugin\Modules\Defaults();
         new Experiensa\Plugin\Modules\Api\RegisterApi();
         // TODO: this include need to be like this because LIVEComposer modules are external 
-        include EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/live-composer-loader.php';
+        include_once EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/live-composer-loader.php';
     }
     add_action('plugins_loaded','init_experiensa');
 //    add_action('init','init_experiensa');
