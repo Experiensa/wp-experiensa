@@ -10,7 +10,7 @@ class Voyage
 //        return $partner_api_url;
         $response = Http::getApiResponse($partner_api_url,true);
 //        return $response;
-        if($decode)
+        if($decode && \is_string($response))
             return json_decode($response,true);
         return $response;
     }
@@ -30,7 +30,7 @@ class Voyage
     }
     public static function createApiResponse($voyages){
         $response = [];
-        if(!empty($voyages)){
+        if(!empty($voyages) && !isset($voyages['error'])){
             $i = 0;
             foreach ($voyages as $info){
                 $row['index'] = $i;
