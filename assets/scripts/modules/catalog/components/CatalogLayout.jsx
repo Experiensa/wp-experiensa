@@ -42,7 +42,7 @@ export default class CatalogLayout extends React.Component {
             const type = this.props.options.type
             if (type == 'cards') {
                 return (
-                    <Card.Group itemsPerRow={itemxrow}>
+                    <Card.Group className="stackable" itemsPerRow={itemxrow}>
                         {this.renderVoyageCards()}
                     </Card.Group>
                 )

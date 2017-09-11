@@ -64,7 +64,7 @@ function rules(){
             })
         },
         {
-            test: /\.png$/,
+            test: /\.(png|jpg)$/,
             use:[
                 {
                     loader: 'url-loader',
@@ -75,8 +75,8 @@ function rules(){
             ]
         },
         {
-            test: /\.(ttf|eot|png|jpe?g|gif|svg|ico)$/,
-            include: paths.EXPERIENSA_ASSETS,
+            test: /\.(ttf|eot|woff2?|png|jpe?g|gif|svg)$/,
+            include: path.resolve(paths.EXPERIENSA_ASSETS),
             loader: 'file-loader',
             options: {
                 name: `vendor/[name].[ext]`,
@@ -111,6 +111,16 @@ function plugins() {
         //     minimize: true,
         //     debug: false
         // }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,
+            },
+        }),
          /*new webpack.optimize.UglifyJsPlugin({
              compress: {
                  warnings: false,

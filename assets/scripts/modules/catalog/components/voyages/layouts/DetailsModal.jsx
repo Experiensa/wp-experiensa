@@ -4,8 +4,10 @@ import withImportantStyle from 'react-with-important-style';
 import DetailModalContent from './DetailModalContent'
 import imageUrl from '../../../../../../images/travel-no-image.jpg'
 var CardImage = withImportantStyle('img');
-const travelNoImage = experiensa_vars.dist_url + imageUrl
-
+const travelNoImage = experiensa_vars.dist_url + 'vendor/travel-no-image.jpg'
+// console.log('experiensa_vars.dist_url',experiensa_vars.dist_url);
+// console.log('imageUrl',imageUrl);
+console.log('travelNoImage',travelNoImage);
 export default class DetailsModal extends React.Component {
     constructor(){
         super()
@@ -42,19 +44,19 @@ export default class DetailsModal extends React.Component {
     }
     createImage(voyageImage){
         const border = this.props.options.content_border_radius;
-        console.log('mi border es', border)
+        // console.log('mi border es', border)
         if(border !== 'inherit'){
             console.log('voy por aqui')
             const imgStyle = {
                 borderTopLeftRadius: `${border}rem !important`,
                 borderTopRightRadius: `${border}rem !important`,
             }
-            console.log(imgStyle);
+            // console.log(imgStyle);
             return(                
                 <CardImage className="image catalog-image" src={voyageImage} onClick={this.handleOpen} style={imgStyle}/>
             )
         }else{
-            console.log('voy por alla')
+            // console.log('voy por alla')
             return(
                 <Image className="image catalog-image" src={voyageImage} onClick={this.handleOpen}/>
             )
