@@ -39,12 +39,11 @@ export default class CatalogLayout extends React.Component {
             let itemxrow = 4
             if(size < 4)
                 itemxrow = size
-
             // console.log('mis voyages son', this.props.voyages)
             const type = this.props.options.type
             if (type == 'cards') {
                 return (
-                    <Card.Group className="stackable" itemsPerRow={itemxrow}>
+                    <Card.Group className="stackable" itemsPerRow={4}>
                         {this.renderVoyageCards()}
                     </Card.Group>
                 )
