@@ -18,7 +18,9 @@ export default class CatalogLayout extends React.Component {
             location: ld.includes(elements,'location'),
             duration: ld.includes(elements,'duration'),
             themes: ld.includes(elements,'themes'),
-            country: ld.includes(elements,'country')
+            country: ld.includes(elements,'country'),
+            includes: ld.includes(elements,'includes'),
+            excludes: ld.includes(elements,'excludes')
         })
     }
     renderVoyageCards(){

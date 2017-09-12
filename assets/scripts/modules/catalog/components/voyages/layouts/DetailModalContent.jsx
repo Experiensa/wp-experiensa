@@ -35,6 +35,12 @@ export default class DetailsModal extends React.Component {
         let theme = () =>{
             return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
         }
+        let includes = () =>{
+            return (voyage.included.text?"<b>Includes</b>: " + voyage.included.text+"<br/>":"")
+        }
+        let excludes = () =>{
+            return (voyage.excluded.text?"<b>Excludes</b>: " + voyage.excluded.text+"<br/>":"")
+        }
         return(
             <Grid stackable columns={2}>
                 <Grid.Column width={6}>
@@ -44,6 +50,8 @@ export default class DetailsModal extends React.Component {
                     <div dangerouslySetInnerHTML={{__html: country()}}/>
                     <div dangerouslySetInnerHTML={{__html: location()}}/>
                     <div dangerouslySetInnerHTML={{__html: theme()}}/>
+                    <div dangerouslySetInnerHTML={{__html: includes()}}/>
+                    <div dangerouslySetInnerHTML={{__html: excludes()}}/>
                     <br/>
                     </Container>
                 </Grid.Column>
@@ -118,7 +126,6 @@ export default class DetailsModal extends React.Component {
                 )
             }
         }
-
         return (
             <Segment attached='bottom'>
                 {this.renderInformation()}

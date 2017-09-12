@@ -56,6 +56,14 @@ class Catalog
                 array(
                     'label' => __( 'Country', 'experiensa' ),
                     'value' => 'country',
+                ),
+                array(
+                    'label' => __( 'Includes', 'experiensa' ),
+                    'value' => 'includes',
+                ),
+                array(
+                    'label' => __( 'Excludes', 'experiensa' ),
+                    'value' => 'excludes',
                 )
             ),
             'section' => 'styling',

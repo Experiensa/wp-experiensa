@@ -23,7 +23,7 @@ class Catalog extends React.Component {
             countries: this.props.countries
         }
         // console.log('filterOptions',filterOptions)
-        console.log('mis options son',this.props.options)
+        // console.log('mis options son',this.props.options)
         return (
             <div className="ui container">
                 <br/><br/>

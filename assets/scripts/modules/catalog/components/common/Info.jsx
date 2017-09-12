@@ -1,5 +1,5 @@
 import imageUrl from '../../../../../images/travel-no-image.jpg'
-const travelNoImage = experiensa_vars.dist_url + imageUrl
+const travelNoImage = experiensa_vars.dist_url + 'vendor/travel-no-image.jpg'
 
 export function getVoyagePrice(data){
     let currency = "USD";
