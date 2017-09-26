@@ -11,6 +11,7 @@ function entry() {
         admin: paths.EXPERIENSA_ASSETS + '/scripts/admin.js',
         catalog: paths.EXPERIENSA_ASSETS + '/scripts/modules/catalog/index.jsx',
         showcase: paths.EXPERIENSA_ASSETS + '/scripts/modules/showcase/index.jsx',
+        request: paths.EXPERIENSA_ASSETS + '/scripts/modules/request/index.jsx',
         common: [
             'jquery'
         ],
@@ -120,6 +121,7 @@ function plugins() {
             output: {
                 comments: false,
             },
+            // sourceMap: true
         }),
          /*new webpack.optimize.UglifyJsPlugin({
              compress: {
@@ -143,8 +145,10 @@ function plugins() {
         })
     ]
 }
+// let devtool = 'source-map';
+// let devtool = 'hidden-sourcemap';
 let devtool = 'inline-source-map';
-if(env === 'production'){ devtool = 'hidden-sourcemap' }
+// if(env === 'production'){ devtool = 'hidden-sourcemap' }
 const webpackConfig = {
     devtool: devtool,
     entry: entry(),

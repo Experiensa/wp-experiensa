@@ -33,8 +33,10 @@ final class Asset{
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
-        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/showcase.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/request.js',['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
+        wp_enqueue_script('experiensa/request_js', EXPERIENSA_URL . 'dist/request.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_localize_script('experiensa/request_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js',[],null,true);
         wp_localize_script('experiensa/js', 'experiensa_vars', $localized_array);
         /**

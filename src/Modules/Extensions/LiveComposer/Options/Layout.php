@@ -3,7 +3,7 @@
 
 class Layout
 {
-    public static function header($label = 'Header', $default = '', $id = 'header_opt'){
+    public static function header($label = 'Header', $default = '', $id = 'header_opt', $section = 'styling'){
         return array(
             'label'     => __($label,'experiensa'),
             'id'        => $id,
@@ -19,7 +19,7 @@ class Layout
                     'value' =>  'show_subtitle'
                 )
             ),
-            'section'   => 'styling'
+            'section'   => $section
         );
     }
     public static function showcase_type($label = 'Type', $default = 'grid', $id = 'showcase_type'){
