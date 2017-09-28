@@ -17,37 +17,39 @@ final class Asset{
         $agency_email = Settings::getEmail();
         $agency_email = (!empty($agency_email)?$agency_email:'gabriel@experiensa.com');
         $protocol = 'http';
-        if ( is_ssl() ) {
+        if (is_ssl() ) {
             $protocol = 'https';
         }
         $localized_array = array(
-            'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
+            'ajaxurl'=>admin_url('admin-ajax.php', $protocol),
             'siteurl'=>get_bloginfo('url'),
             'assets_url' => EXPERIENSA_ASSETS_URL,
             'dist_url'=>EXPERIENSA_DIST_URL,
             'agency_email' => $agency_email
         );
-        wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css',[]);
-        wp_enqueue_style('experiensa-css',EXPERIENSA_URL . 'assets/styles/style.css',[]);
+        wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css', []);
+        wp_enqueue_style('experiensa-css',EXPERIENSA_URL . 'assets/styles/style.css', []);
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
-        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
-        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/request.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/request.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
-        wp_enqueue_script('experiensa/request_js', EXPERIENSA_URL . 'dist/request.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_enqueue_script('experiensa/request_js', EXPERIENSA_URL . 'dist/request.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/request_js', 'experiensa_vars', $localized_array);
-        wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js',[],null,true);
+        wp_enqueue_script('experiensa/js', EXPERIENSA_URL . 'dist/main.js', [], null, true);
         wp_localize_script('experiensa/js', 'experiensa_vars', $localized_array);
         /**
          * Estimate enqueues
          */
-        if(is_single() && get_post_type() == 'exp_estimate' && Helpers::check_internet_connection()){
+        if(is_single() && get_post_type() == 'exp_estimate' && Helpers::check_internet_connection()) {
             wp_enqueue_script('stripe/js', 'https://js.stripe.com/v2/');
         }
     }
-    // Include scripts and style files on wordpres administrator side
-    public function load_admin_scripts($hook){
+    /**
+    Include scripts and style files on wordpres administrator side
+    */
+    public function load_admin_scripts($hook) {
         $cpt = (isset($_GET['post_type'])?$_GET['post_type']:false);
         $action = (isset($_GET['action'])?$_GET['action']:false);
         $agency_email = Settings::getEmail();
@@ -57,7 +59,7 @@ final class Asset{
             $protocol = 'https';
         }
         $localized_array = array(
-            'ajaxurl'=>admin_url('admin-ajax.php',$protocol),
+            'ajaxurl'=>admin_url('admin-ajax.php', $protocol),
             'siteurl'=>get_bloginfo('url'),
             'assets_url' => EXPERIENSA_ASSETS_URL,
             'dist_url'=>EXPERIENSA_DIST_URL,
@@ -67,9 +69,9 @@ final class Asset{
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/main_js', EXPERIENSA_URL . 'dist/main.js');
         wp_localize_script('experiensa/main_js', 'experiensa_vars', $localized_array);
-        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js',['experiensa/react_js','experiensa/vendor_js'],null,true);
+        wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js', ['experiensa/react_js','experiensa/vendor_js'],null,true);
         wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
-        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/showcase.js',['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/showcase.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/admin_js', EXPERIENSA_URL . 'dist/admin.js');
         wp_localize_script('experiensa/admin_js', 'experiensa_vars', $localized_array);

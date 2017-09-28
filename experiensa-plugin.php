@@ -32,6 +32,7 @@ if ( ! defined( 'EXPERIENSA_VER' )){
         require_once EXPERIENSA_ABS . '/autoloader.php';
         new Experiensa\Plugin\Includes\Requires();
         new Experiensa\Plugin\Includes\Asset();
+        new Experiensa\Plugin\Modules\Ajax();
         Experiensa\Plugin\Models\Register::init();
         Experiensa\Plugin\Modules\Settings::addSettingPages();
         new \Experiensa\Plugin\Modules\Defaults();

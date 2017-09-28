@@ -133,11 +133,17 @@ class Settings
         $recaptcha['secret_key'] = (isset($agency_options['recaptcha_secret_key'])?$agency_options['recaptcha_secret_key']:'6Lfq_Q0UAAAAAFZKcsbGcX89WEBvarb_wu7jzKqe');
         return $recaptcha;
     }
+    public static function getGoogleAPIKey(){
+        $agency_options = self::getAllSettings();
+        $api_key = (isset($agency_options['google_api_key'])?$agency_options['google_api_key']:'AIzaSyAZ03tMpSTSyRlG-6070zosF5a606k99qI');
+        return $api_key;
+    }
     public static function getGoogleMapsAPIKey(){
         $agency_options = self::getAllSettings();
         $api_key = (isset($agency_options['gmaps_api_key'])?$agency_options['gmaps_api_key']:'AIzaSyAxU6TfM2bDMh6NR9jVksCrNIT6nY8BeNo');
         return $api_key;
     }
+
     public static function getSocialMedia(){
         $agency_options = self::getAllSettings();
         $info = array();

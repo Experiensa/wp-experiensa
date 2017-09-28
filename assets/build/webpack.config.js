@@ -146,8 +146,8 @@ function plugins() {
     ]
 }
 // let devtool = 'source-map';
-// let devtool = 'hidden-sourcemap';
-let devtool = 'inline-source-map';
+let devtool = 'hidden-sourcemap';
+// let devtool = 'inline-source-map';
 // if(env === 'production'){ devtool = 'hidden-sourcemap' }
 const webpackConfig = {
     devtool: devtool,

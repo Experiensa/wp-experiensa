@@ -8,20 +8,7 @@ use Experiensa\Plugin\Modules\Helpers;
  */
 class Http
 {
-    /**
-     * Make a Http request to API with multiple validations
-     * @param $apiUrl
-     * @param bool $check_lang
-     * @param string $lang_var_name
-     * @return string
-     */
-    public static function getApiResponse($apiUrl,$check_lang = false,$lang_var_name = 'lang'){
-        if ($check_lang) {
-            $code = Helpers::getActiveLanguageCode();
-            if ($code) {
-                $apiUrl .= '&' . $lang_var_name . '=' . $code;
-            }
-        }
+    public static function getStandardApiResponse($apiUrl){
         $options = array(
             'blocking' => true,
             'timeout' => 10,
@@ -47,6 +34,22 @@ class Http
         }
 
         return wp_remote_retrieve_body( $response );
+    }
+    /**
+     * Make a Http request to API with multiple validations
+     * @param $apiUrl
+     * @param bool $check_lang
+     * @param string $lang_var_name
+     * @return string
+     */
+    public static function getApiResponse($apiUrl,$check_lang = false,$lang_var_name = 'lang'){
+        if ($check_lang) {
+            $code = Helpers::getActiveLanguageCode();
+            if ($code) {
+                $apiUrl .= '&' . $lang_var_name . '=' . $code;
+            }
+        }
+        return self::getStandardApiResponse($apiUrl);
     }
 
     /**
