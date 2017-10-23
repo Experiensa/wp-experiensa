@@ -1,32 +1,75 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
+import FormSteps from './FormSteps';
+import DestinationForm from './DestinationForm';
+import FlightForm from './FlightForm';
+import HostingForm from './HostingForm';
+import ThemeForm from './ThemeForm';
+import TransportForm from './TransportForm';
+import ConfirmForm from './ConfirmForm';
 
 class Request extends Component {
+  constructor(props) {
+    super(props)
+    this.nextPage = this.nextPage.bind(this)
+    this.previousPage = this.previousPage.bind(this)
+    this.state = {
+      page: 1
+    }
+  }
+  nextPage() {
+    console.log('se presiono nextPage')
+    this.setState({page: this.state.page + 1})
+  }
+  previousPage() {
+    console.log('se presiono previousPage')
+    this.setState({page: this.state.page - 1})
+  }
   render() {
-    const { handleSubmit } = this.props;
+    const {onSubmit} = this.props;
+    const {page} = this.state;
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <Field name="firstName" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <Field name="lastName" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <Field name="email" component="input" type="email"/>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <div>
+        <FormSteps page={page}/>
+        <br/>
+        {page === 1 && <DestinationForm onSubmit={this.nextPage} />}
+        {page === 2 && (
+          <FlightForm
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 3 && (
+          <HostingForm
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 4 && (
+          <ThemeForm
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 5 && (
+          <TransportForm
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+        )}
+        {page === 6 && (
+          <ConfirmForm
+            previousPage={this.previousPage}
+            onSubmit={onSubmit}
+          />
+        )}
+      </div>
     );
   }
 }
 
-// Decorate the form component
-Request = reduxForm({
-  form: 'contact' // a unique name for this form
-})(Request);
+Request.PropTypes = {
+  onSubmit: PropTypes.func.isRequired
+}
 
 export default Request;

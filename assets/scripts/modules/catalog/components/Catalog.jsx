@@ -19,7 +19,7 @@ class Catalog extends React.Component {
             includes: this.props.includes,
             excludes: this.props.excludes,
             themes: this.props.themes,
-            locations: this.props.locations,
+            destinations: this.props.destinations,
             countries: this.props.countries
         }
         // console.log('filterOptions',filterOptions)
@@ -43,7 +43,7 @@ function mapStateToProps(state){
         includes: state.catalog.includes,
         excludes: state.catalog.excludes,
         themes: state.catalog.themes,
-        locations: state.catalog.locations,
+        destinations: state.catalog.destinations,
         countries: state.catalog.countries
     }
 }

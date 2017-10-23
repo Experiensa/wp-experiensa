@@ -8,7 +8,7 @@ export const FILTER_CATALOG = 'FILTER_CATALOG'
 
 export const FILTER_CATEGORY = 'FILTER_CATEGORY'
 export const FILTER_COUNTRY = 'FILTER_COUNTRY'
-export const FILTER_LOCATION = 'FILTER_LOCATION'
+export const FILTER_DESTINATION = 'FILTER_DESTINATION'
 export const FILTER_THEME = 'FILTER_THEME'
 export const FILTER_INCLUDE = 'FILTER_INCLUDE'
 export const FILTER_EXCLUDE = 'FILTER_EXCLUDE'
@@ -44,14 +44,14 @@ function getFilteredCatalog(catalog = [],filters = [],object_name){
     }
     return catalog
 }
-function searchCatalog(catalog,categories,countries,excludes,includes,locations,themes){
+function searchCatalog(catalog,categories,countries,excludes,includes,destinations,themes){
     let auxCatalog = []
     if(catalog.length > 0){
         auxCatalog = getFilteredCatalog(catalog,categories,'category')
         auxCatalog = getFilteredCatalog(auxCatalog,countries,'country')
         auxCatalog = getFilteredCatalog(auxCatalog,excludes,'exclude')
         auxCatalog = getFilteredCatalog(auxCatalog,includes,'include')
-        auxCatalog = getFilteredCatalog(auxCatalog,locations,'location')
+        auxCatalog = getFilteredCatalog(auxCatalog,destinations,'destination')
         auxCatalog = getFilteredCatalog(auxCatalog,themes,'theme')
     }
     return auxCatalog
@@ -66,8 +66,8 @@ function createCatalogObject(data,type=REQUEST_CATALOG){
                 originalCatalog: data.catalog,
                 themes: data.theme_filter,
                 themes_active: [],
-                locations: data.location_filter,
-                locations_active:[],
+                destinations: data.destination_filter,
+                destinations_active:[],
                 countries: data.country_filter,
                 countries_active:[],
                 categories: data.category_filter,
@@ -113,7 +113,7 @@ export function filterCatalog(filterType,value,active){
         let countries_active = original_state.countries_active
         let excludes_active = original_state.excludes_active
         let includes_active = original_state.includes_active
-        let locations_active = original_state.locations_active
+        let destinations_active = original_state.destinations_active
         let themes_active = original_state.themes_active
         switch (filterType){
             case FILTER_CATEGORY:
@@ -144,11 +144,11 @@ export function filterCatalog(filterType,value,active){
                     includes_active = delete_filter(value,includes_active)
                 }
                 break
-            case FILTER_LOCATION:
+            case FILTER_DESTINATION:
                 if(active){
-                    locations_active = add_filter(value,original_state.locations_active)
+                    destinations_active = add_filter(value,original_state.destinations_active)
                 }else{
-                    locations_active = delete_filter(value,original_state.locations_active)
+                    destinations_active = delete_filter(value,original_state.destinations_active)
                 }
                 break
             default:
@@ -164,7 +164,7 @@ export function filterCatalog(filterType,value,active){
             && countries_active.length < 1
             && excludes_active.length < 1
             && includes_active.length <1
-            && locations_active.length < 1
+            && destinations_active.length < 1
             && themes_active.length < 1){
             newCatalog =  originalCatalog
         }else{
@@ -173,7 +173,7 @@ export function filterCatalog(filterType,value,active){
                 countries_active,
                 excludes_active,
                 includes_active,
-                locations_active,
+                destinations_active,
                 themes_active
             )
         }
@@ -182,8 +182,8 @@ export function filterCatalog(filterType,value,active){
             originalCatalog: originalCatalog,
             themes: original_state.themes,
             themes_active: themes_active,
-            locations: original_state.locations,
-            locations_active:locations_active,
+            destinations: original_state.destinations,
+            destinations_active:destinations_active,
             countries: original_state.countries,
             countries_active: countries_active,
             categories: original_state.categories,

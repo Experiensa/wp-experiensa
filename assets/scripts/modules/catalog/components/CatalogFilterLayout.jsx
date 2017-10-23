@@ -30,12 +30,12 @@ export default class CatalogFilterLayout extends React.Component {
                         values: this.props.filterOptions.countries
                     };
                     break;
-                case 'location':
+                case 'destination':
                     filterOptions = {
-                        title: 'Locations',
+                        title: 'Destinations',
                         icon: 'map icon',
-                        type: 'FILTER_LOCATION',
-                        values: this.props.filterOptions.locations
+                        type: 'FILTER_DESTINATION',
+                        values: this.props.filterOptions.destinations
                     };
                     break;
                 case 'includes':
@@ -43,14 +43,14 @@ export default class CatalogFilterLayout extends React.Component {
                         title: 'Includes',
                         icon: 'check circle icon',
                         type: 'FILTER_INCLUDE',
-                        values: this.props.filterOptions.locations
+                        values: this.props.filterOptions.destinations
                     };
                     break;case 'excludes':
                     filterOptions = {
                         title: 'Excludes',
                         icon: 'remove circle icon',
                         type: 'FILTER_EXCLUDE',
-                        values: this.props.filterOptions.locations
+                        values: this.props.filterOptions.destinations
                     };
                     break;
                 default:

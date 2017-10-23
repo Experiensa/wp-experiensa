@@ -2,6 +2,8 @@
 
 use Experiensa\Plugin\Modules\Common;
 use Experiensa\Plugin\Modules\Settings;
+use Experiensa\Plugin\Modules\QueryBuilder;
+use Experiensa\Plugin\Modules\Helpers;
 /**
  * Define defaults actions and filters
  */
@@ -18,7 +20,6 @@ class Defaults
         if ( class_exists( 'Jetpack' ) && \Jetpack::is_module_active( 'tiled-gallery' ) ){
             add_filter( 'tiled_gallery_content_width', array($this,'wpsites_custom_tiled_gallery_width' ));
         }
-
     }
     /**
      *   Allow upload SVG files

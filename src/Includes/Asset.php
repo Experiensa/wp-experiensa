@@ -8,7 +8,7 @@ use Experiensa\Plugin\Modules\Settings;
  * Load all custom javascript and CSS files on front-end and wp-admin
  */
 final class Asset{
-    public function __construct( ) {
+    public function __construct() {
         add_action( 'wp_enqueue_scripts', array( $this, 'load_frontend_scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_scripts' ) );
     }

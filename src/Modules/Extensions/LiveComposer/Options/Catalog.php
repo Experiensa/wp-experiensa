@@ -22,7 +22,7 @@ class Catalog
             'section' => 'styling'
         );
     }
-    public static function elements($id = 'elements', $default = 'title price button location duration themes country'){
+    public static function elements($id = 'elements', $default = 'title price button destination duration themes country'){
         return array(
             'label' => __( 'Elements', 'experiensa' ),
             'id' => $id,
@@ -42,8 +42,8 @@ class Catalog
                     'value' => 'detail_button',
                 ),
                 array(
-                    'label' => __( 'Location', 'experiensa' ),
-                    'value' => 'location',
+                    'label' => __( 'Destination', 'experiensa' ),
+                    'value' => 'destination',
                 ),
                 array(
                     'label' => __( 'Duration', 'experiensa' ),
@@ -85,8 +85,8 @@ class Catalog
                     'value' => 'country',
                 ),
                 array(
-                    'label' => __( 'Location', 'experiensa' ),
-                    'value' => 'location',
+                    'label' => __( 'Destination', 'experiensa' ),
+                    'value' => 'destination',
                 ),
                 array(
                     'label' => __( 'Themes', 'experiensa' ),

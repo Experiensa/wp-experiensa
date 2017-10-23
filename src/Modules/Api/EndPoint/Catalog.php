@@ -129,7 +129,7 @@ class Catalog {
         if(!empty($catalog)){
             $data['catalog'] = $catalog;
             $data['country_filter'] = $this->createFilterObject('country');
-            $data['location_filter'] = $this->createFilterObject('location');
+            $data['destination_filter'] = $this->createFilterObject('location');
             $data['theme_filter'] = $this->createFilterObject('theme');
             $data['included_filter'] = $this->createFilterObject('included');
             $data['excluded_filter'] = $this->createFilterObject('excluded');

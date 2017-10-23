@@ -68,19 +68,19 @@ class QueryBuilder
      * @param array $terms
      * @return array
      */
-    public static function getTermsByTaxonomy($taxonomy,$terms = array()){
+    public static function getTermsByTaxonomy($taxonomy,$terms = array(), $hide_empty = true){
         if(!empty($terms)){
             $args = array(
                 'taxonomy'   => $taxonomy,
                 'orderby'    => 'none',
                 'slug'       => $terms,
-                'hide_empty' => true,
+                'hide_empty' => $hide_empty,
             );
         }else {
             $args = array(
                 'taxonomy'   => $taxonomy,
                 'orderby'    => 'none',
-                'hide_empty' => true,
+                'hide_empty' => $hide_empty,
             );
         }
         $terms = get_terms($args);

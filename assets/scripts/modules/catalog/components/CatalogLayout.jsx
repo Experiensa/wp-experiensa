@@ -15,7 +15,7 @@ export default class CatalogLayout extends React.Component {
             title: ld.includes(elements,'title'),
             price: ld.includes(elements,'price'),
             detail_button: ld.includes(elements,'detail_button'),
-            location: ld.includes(elements,'location'),
+            destination: ld.includes(elements,'destination'),
             duration: ld.includes(elements,'duration'),
             themes: ld.includes(elements,'themes'),
             country: ld.includes(elements,'country'),

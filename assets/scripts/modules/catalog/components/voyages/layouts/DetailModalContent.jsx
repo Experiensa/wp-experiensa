@@ -29,8 +29,8 @@ export default class DetailsModal extends React.Component {
         let country = () =>{
             return (voyage.country.text?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
         }
-        let location = () =>{
-            return (voyage.location.text?"<b>Location</b>: " + voyage.location.text+"<br/>":"")
+        let destination = () =>{
+            return (voyage.destination.text?"<b>Destination</b>: " + voyage.destination.text+"<br/>":"")
         }
         let theme = () =>{
             return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
@@ -48,7 +48,7 @@ export default class DetailsModal extends React.Component {
                     <div dangerouslySetInnerHTML={{__html: price()}}/>
                     <div dangerouslySetInnerHTML={{__html: duration()}}/>
                     <div dangerouslySetInnerHTML={{__html: country()}}/>
-                    <div dangerouslySetInnerHTML={{__html: location()}}/>
+                    <div dangerouslySetInnerHTML={{__html: destination()}}/>
                     <div dangerouslySetInnerHTML={{__html: theme()}}/>
                     <div dangerouslySetInnerHTML={{__html: includes()}}/>
                     <div dangerouslySetInnerHTML={{__html: excludes()}}/>
