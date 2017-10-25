@@ -9,7 +9,7 @@ export default class Captcha extends Component{
       value: ''
     }
   }
-  onChange(value) {
+  confirmCaptcha = (value) => {
     console.log("Captcha value:", value);
     this.setState({ value: value });
   }
@@ -22,7 +22,7 @@ export default class Captcha extends Component{
           <ReCAPTCHA
           ref="recaptcha"
           sitekey="6Lfq_Q0UAAAAACUqqMQSJ-qOhT8SHS_msHRbOdB1"
-          onChange={this.onChange}
+          onChange={this.confirmCaptcha}
           />
           <input {...captcha} type="hidden" value={this.state.value}/>
         </Grid.Column>

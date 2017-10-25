@@ -44,5 +44,52 @@ class Theme{
             'rewrite'                    => $rewrite,
         );
         register_taxonomy( 'exp_theme', array( 'post', 'attachment', 'exp_voyage', 'exp_service', 'exp_host' ), $args );
+        self::add_exp_theme_taxonomy();
+    }
+    public static function add_exp_theme_taxonomy() {
+        $taxonomy = 'exp_theme';
+        $df_theme_en = ['City','Safari','Nature','Sport','Wellness','Leisure','Beach','Honeymoon','Adventure','Party','Mountain','Cruise','Culinary','Shopping','Culture','Romance'];
+        $df_theme_fr = ['Ville','Safari','Nature','Sport','Bien-être','Loisir','Plage','Voyage de noces','Aventure','Fetes','Montagne','Croisieres','Culinaire','Shopping','Cuture','Romance'];
+        $df_theme_es = ['Ciudad','Safari','Naturaleza','Deporte','Bienestar','Ocio','Playa','Luna de miel','Aventura','Fiesta','Montaña','Cruceros','Culinario','Shopping','Cultura','Romance'];
+        $df_theme = $df_theme_en;
+        //
+        $code = false;
+        //Check if WPML is installed
+        if ( function_exists('icl_object_id') ) {
+            //Active WPML language code
+            $code = ICL_LANGUAGE_CODE;
+        }
+        if(!$code){
+            $code = get_bloginfo("language");
+            $code = explode("-",$code,2);
+            $code = $code[0];
+        }
+        $language = strtolower($code);
+        // $language = Helpers::getSiteLanguageCode();
+        if($language == 'es'){
+            $df_theme = $df_theme_es;
+        }else{
+            if($language == 'fr'){
+                $df_theme = $df_theme_fr;
+            }
+        }
+        if(taxonomy_exists($taxonomy)){
+            $terms = get_terms([
+                'taxonomy'   => $taxonomy,
+                'orderby'    => 'none',
+                'hide_empty' => false,
+            ]);
+            if(!empty($terms)){
+                foreach($terms as $t){
+                    $name = ucfirst(strtolower($t->name));
+                    if(in_array($name, $df_theme)){
+                        $df_theme = array_diff($df_theme, array($name));
+                    }
+                }
+            }
+            foreach($df_theme as $theme){
+                wp_insert_term($theme, $taxonomy);
+            }
+        }
     }
 }

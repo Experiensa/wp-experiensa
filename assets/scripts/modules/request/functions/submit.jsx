@@ -1,20 +1,19 @@
 require('es6-promise').polyfill();
 import axios from 'axios';
+import qs from 'qs';
 import { SubmissionError } from 'redux-form';
 
 function submit(formData){
-  console.log('form data',formData);
-  let params = new URLSearchParams()
-  params.append('action', 'requestCountryName')
-  params.append('formData', formData)
+  let params = {'action': 'requestVoyageForm', 'formData': formData}
   const url = experiensa_vars.ajaxurl;
   return axios
-  .post(url,params)
+  .post(url, qs.stringify(params))
   .then((response)=>{
-    console.log('asdasd',response)
-    if (response.error) {
+    const rs = response.data
+    // console.log('asdasd', response)
+    if (rs.error) {
       throw new SubmissionError({
-        _error: response.message,
+        _error: rs.message,
       });
     }
   })
@@ -22,7 +21,7 @@ function submit(formData){
     console.log('un error', err);
     if (e instanceof SubmissionError) throw err;
     throw new SubmissionError({
-      _error: "Am pierdut conexiunea cu server-ul",
+      _error: "Request error",
     });
   })
 }

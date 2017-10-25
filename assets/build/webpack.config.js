@@ -121,15 +121,15 @@ function plugins() {
             output: {
                 comments: false,
             },
-            // sourceMap: true
+            sourceMap: true
         }),
         new webpack.ProvidePlugin({
             $: "jquery"
         })
     ]
 }
-// let devtool = 'source-map';
-let devtool = 'hidden-sourcemap';
+let devtool = 'source-map';
+// let devtool = 'hidden-sourcemap';
 // let devtool = 'inline-source-map';
 // if(env === 'production'){ devtool = 'hidden-sourcemap' }
 const webpackConfig = {

@@ -1,13 +1,34 @@
 import React from 'react';
-import {Fields, reduxForm} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import {Form, Button, Icon} from 'semantic-ui-react';
-import TransportOptions from './sections/TransportOptions';
+
+const drivers = [
+  { text: 'Transport Type', value: '' },
+  { text: 'Driver', value: 'driver' },
+  { text: 'Self Drive', value: 'self-drive' },
+]
+const types = [
+  { text: 'Driver Type', value: '' },
+  { text: 'Rent a Car', value: 'rent a car' },
+  { text: 'Public Transportation', value: 'public transportation' },
+]
 
 const TransportForm = props => {
   const { handleSubmit, previousPage } = props
   return (
     <Form onSubmit={handleSubmit}>
-      <Fields names={['trans_type','trans_driver']} component={TransportOptions}/>
+      <Form.Group>
+        <Field name="trans_type" component="select" className="ui dropdown">
+          {drivers.map((opt,index)=>(
+            <option key={index} value={opt.value}>{opt.text}</option>
+          ))}
+        </Field>
+        <Field name="trans_driver" component="select" className="ui dropdown">
+          {types.map((opt,index)=>(
+            <option key={index} value={opt.value}>{opt.text}</option>
+          ))}
+        </Field>
+      </Form.Group>
       <Button type='button' className="previous" animated onClick={previousPage} color='orange' floated='left' size='big'>      
         <Button.Content visible>Previous</Button.Content>
         <Button.Content hidden>

@@ -215,4 +215,13 @@ class Helpers
         );
         return $effects;
     }    
+
+    public static function arrayToString($array, $key){
+        $string = '';
+        if (isset($array[$key])) {
+            $array = $array[$key];
+            $string = implode(",", $array);
+        }
+        return $string;
+    }
 }
