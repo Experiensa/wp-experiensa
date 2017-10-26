@@ -35,6 +35,8 @@ class Ajax{
 			$mail_body .= isset($data['phone'])?'<strong>Phone: </strong>'.$data['phone'].'<br>':'';
 			$destination = isset($data['destination'])?$data['destination']:'';
 			$mail_body .= isset($data['destination'])?'<strong>Destination: </strong>'.$data['destination'].'<br>':'';
+			$mail_body .= isset($data['departure'])?'<strong>Departure date: </strong>'.$data['departure'].'<br>':'';
+			$mail_body .= isset($data['return'])?'<strong>Return date: </strong>'.$data['return'].'<br>':'';
 			$mail_body .= isset($data['companion'])?'<strong>Companion: </strong>'.$data['companion'].'<br>':'';
 			$mail_body .= isset($data['adults'])?'<strong>Adults: </strong>'.$data['adults'].'<br>':'';
 			$mail_body .= isset($data['kids'])?'<strong>Kids: </strong>'.$data['kids'].'<br>':'';
@@ -63,9 +65,15 @@ class Ajax{
 			$blog_email = $blog_email == null ? 'gab.zambrano@gmail.com': $blog_email;
 			$to = $email.','.$blog_email;
 			$headers = array('Content-Type: text/html; charset=UTF-8');
-			if( wp_mail($to,'Request: '.$destination, $mail_body, $headers) === false ){
+			$captcha_value = isset($data['captcha_value']) && $data['captcha_value'] != '';
+			if(!$captcha_value){
 				$error = true;
-				$msg = 'Error sending the request mail';
+				$msg = 'Invalid captcha validation';
+			}else{
+				if( wp_mail($to,'Request: '.$destination, $mail_body, $headers) === false ){
+					$error = true;
+					$msg = 'Error sending the request mail';
+				}
 			}
 			wp_send_json(['error'=>$error, 'message'=>$msg, 'body'=>$mail_body]);
 		}

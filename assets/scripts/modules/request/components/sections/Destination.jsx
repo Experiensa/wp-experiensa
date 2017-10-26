@@ -18,18 +18,21 @@ class Destination extends Component {
         this.setState({
           startDate: date
         });
+        this.props.departure.input.onChange(moment(date).format('DD-MM-YYYY'))
     }
     handleEndChange(date) {
         this.setState({
             endDate: date
         });
+        this.props.return.input.onChange(moment(date).format('DD-MM-YYYY'))
     }
   render() {
     const fields = this.props;
+    console.log('destination props',fields);
     return(
       <div className="fields">
         <div className="seven wide field">
-            <div className="ui fluid input field">
+            <div className={fields.destination.meta.error && fields.destination.meta.touched?"ui fluid input field error":"ui fluid input field"}>
                 <div className="ui left icon input">
                     <input {...fields.destination.input}  type="text" placeholder="Destination" required/>
                     <i className="marker icon"></i>
@@ -44,7 +47,7 @@ class Destination extends Component {
                     className="rc-dp-input"
                     placeholderText="Departure date"
                     onChange={this.handleStartChange}/>
-                <input {...fields.departure.input}  type="hidden" value={moment(this.state.startDate).format('DD-MM-YYYY')}/>
+                <input {...fields.departure.input}  type="hidden"/>
                 <i className="calendar icon"></i>
             </div>
         </div>
@@ -57,7 +60,7 @@ class Destination extends Component {
                     placeholderText="Return date"
                     minDate={this.state.startDate}
                     onChange={this.handleEndChange}/>
-                <input {...fields.return.input}  type="hidden" value={moment(this.state.endDate).format('DD-MM-YYYY')}/>
+                <input {...fields.return.input}  type="hidden"/>
                 <i className="calendar icon"></i>
             </div>
         </div>

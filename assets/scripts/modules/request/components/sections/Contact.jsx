@@ -6,29 +6,28 @@ class Contact extends Component {
     const fullname = this.props.fullname
     const email = this.props.email
     const phone = this.props.phone
-    console.log('contactprops',fields);
     return(
       <div className="fields">
         <div className="seven wide field">
-          <div className="ui fluid input field">
+          <div className={fullname.meta.error && fullname.meta.touched?"ui fluid input field error":"ui fluid input field"}>
             <div className="ui left icon input">
-              <input {...fullname.input} error={fullname.meta.error && fullname.meta.touched} type="text" placeholder="Full name" required/>
+              <input {...fullname.input} type="text" placeholder="Full name" required/>
               <i className="user icon"></i>
             </div>
           </div>
         </div>
         <div className="five wide field">
-          <div className="ui fluid input field">
+          <div className={email.meta.error && email.meta.touched?"ui fluid input field error":"ui fluid input field"}>
             <div className="ui left icon input">
-              <input {...email.input} error={email.meta.error && email.meta.touched} type="text" placeholder="Email" required/>
+              <input {...email.input} type="text" placeholder="Email" required/>
               <i className="envelope icon"></i>
             </div>
           </div>
         </div>
         <div className="four wide field">
-          <div className="ui fluid input field">
+          <div className={phone.meta.error && phone.meta.touched?"ui fluid input field error":"ui fluid input field"}>
             <div className="ui left icon input">
-              <input {...phone.input} error={email.meta.error && email.meta.touched} type="text" placeholder="Phone Number" required/>
+              <input {...phone.input} type="text" placeholder="Phone Number" required/>
               <i className="call icon"></i>
             </div>
           </div>

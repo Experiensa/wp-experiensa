@@ -14,7 +14,6 @@ const types = [
 export default class TransportOptions extends Component {
   render() {
     const fields = this.props;
-    console.log('TransportOptions', fields);
     return(
         <Form.Group >
           <Form.Select {...fields.trans_type.input} label='Transport Type' options={types} placeholder='Select' />

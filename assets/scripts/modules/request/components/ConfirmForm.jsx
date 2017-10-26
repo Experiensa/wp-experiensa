@@ -3,8 +3,10 @@ import {Field, reduxForm} from 'redux-form';
 import {Form, Button, Icon} from 'semantic-ui-react';
 import Captcha from './sections/Captcha';
 import submit from '../functions/submit';
+import validate from '../functions/validate';
 
 const ConfirmForm = props => {
+  console.log('confirm form props', props)
   const { handleSubmit, pristine, previousPage, submitting } = props
   
   return (
@@ -29,5 +31,7 @@ const ConfirmForm = props => {
 export default reduxForm({
   form: 'contact',
   destroyOnUnmount: false, // <------ preserve form data
-  forceUnregisterOnUnmount: true // <------ unregister fields on unmount
+  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  initialValues: {'captcha_value': ''},
+  validate
 })(ConfirmForm);

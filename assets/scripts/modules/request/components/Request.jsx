@@ -18,15 +18,14 @@ class Request extends Component {
     }
   }
   nextPage() {
-    console.log('se presiono nextPage')
     this.setState({page: this.state.page + 1})
   }
   previousPage() {
-    console.log('se presiono previousPage')
     this.setState({page: this.state.page - 1})
   }
   render() {
     const {onSubmit} = this.props;
+    console.log('props de request principal', this.props)
     const {page} = this.state;
     return (
       <div>

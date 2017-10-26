@@ -5,26 +5,23 @@ import ReCAPTCHA from 'react-google-recaptcha';
 export default class Captcha extends Component{
   constructor(){
     super()
-    this.state = {
-      value: ''
-    }
   }
   confirmCaptcha = (value) => {
-    console.log("Captcha value:", value);
-    this.setState({ value: value });
+    this.props.input.onChange(value)
   }
   render(){
     console.log("Captcha props:", this.props);
+    console.log('experiensa_vars',experiensa_vars)
     const captcha = this.props.input;
     return(
       <Grid centered columns={2}>
         <Grid.Column>
           <ReCAPTCHA
           ref="recaptcha"
-          sitekey="6Lfq_Q0UAAAAACUqqMQSJ-qOhT8SHS_msHRbOdB1"
+          sitekey={experiensa_vars.google_api_key}
           onChange={this.confirmCaptcha}
           />
-          <input {...captcha} type="hidden" value={this.state.value}/>
+          <input {...captcha} type="hidden" value={captcha.value}/>
         </Grid.Column>
       </Grid>
     )

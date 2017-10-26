@@ -26,19 +26,12 @@ const htypes = [
 export default class HostingOptions extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      value: 2
-    }
   }
   handleRate = (e, { rating, maxRating }) => {
-    console.log('mi rating es', rating);
-    this.setState({ value: rating });
-    // this.props.stars.input.onChange(rating);
+    this.props.stars.input.onChange(rating);
   }
   render() {
     const fields = this.props;
-    console.log('HostingOptions state', this.state);
-    console.log('HostingOptions', fields);
     return(
       <Grid columns={3}>
         <Field name="hoptions" component={CheckboxGroup} options={hoptions} mainLabel="Options"/>
@@ -47,8 +40,8 @@ export default class HostingOptions extends Component {
           <Form.Group inline>
             <label>Stars</label>
             <Form.Field> 
-              <Rating icon='star' defaultRating={2} maxRating={5} onRate={this.handleRate}/>
-              <input {...fields.stars.input}  type="hidden" value={this.state.value}/>
+              <Rating icon='star' defaultRating={fields.stars.input.value} maxRating={5} onRate={this.handleRate}/>
+              <input {...fields.stars.input}  type="hidden" value={fields.stars.input.value}/>
             </Form.Field>
           </Form.Group>
         </Grid.Column>

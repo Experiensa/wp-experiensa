@@ -18,7 +18,6 @@ export default class CheckboxGroup extends Component {
   render() {
     const options = this.props.options;
     const input = this.props.input;
-    console.log('CheckboxGroup props', this.props);
     return(
       <Grid.Column>
         <Form.Group grouped>
