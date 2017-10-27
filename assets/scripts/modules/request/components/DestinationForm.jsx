@@ -3,6 +3,7 @@ import {Field, Fields, reduxForm} from 'redux-form';
 import {Form, Button, Icon} from 'semantic-ui-react';
 import Contact from './sections/Contact';
 import Destination from './sections/Destination';
+import Budget from './sections/Budget';
 import validate from '../functions/validate';
 
 const DestinationForm = props => {
@@ -80,8 +81,7 @@ const DestinationForm = props => {
         <div className="four wide field">
           <strong>Budget</strong>
           <div className="budget-slider">
-            <div id="price-slider"></div>
-            <input name="budget" style={{ display: 'none' }} />
+            <Fields names={['min_budget','max_budget']} component={Budget}/>
           </div>
           <br/>
         </div>
@@ -105,5 +105,6 @@ export default reduxForm({
   form: 'contact',
   destroyOnUnmount: false, // <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  initialValues: {min_budget:500,max_budget:5000},
   validate
 })(DestinationForm);

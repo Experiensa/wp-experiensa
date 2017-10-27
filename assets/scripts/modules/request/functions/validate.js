@@ -15,9 +15,9 @@ const validate = values => {
   if (!values.destination) {
     errors.destination = 'Required'
   }
-  if(!values.captcha_value || values.captcha_value == ''){
+  /*if(!values.captcha_value || values.captcha_value == ''){
     errors.captcha_value = 'Captcha validation required'
-  }
+  }*/
   console.log('validate errors', errors);
   return errors
 }

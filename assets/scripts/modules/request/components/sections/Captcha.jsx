@@ -5,9 +5,15 @@ import ReCAPTCHA from 'react-google-recaptcha';
 export default class Captcha extends Component{
   constructor(){
     super()
+    this.state = {
+      value: ''
+    }
   }
   confirmCaptcha = (value) => {
     this.props.input.onChange(value)
+    this.setState({
+      value: value
+    })
   }
   render(){
     console.log("Captcha props:", this.props);
@@ -18,10 +24,10 @@ export default class Captcha extends Component{
         <Grid.Column>
           <ReCAPTCHA
           ref="recaptcha"
-          sitekey={experiensa_vars.google_api_key}
+          sitekey="6Lfq_Q0UAAAAACUqqMQSJ-qOhT8SHS_msHRbOdB1"
           onChange={this.confirmCaptcha}
           />
-          <input {...captcha} type="hidden" value={captcha.value}/>
+          <input {...captcha} type="hidden" value={this.state.value}/>
         </Grid.Column>
       </Grid>
     )

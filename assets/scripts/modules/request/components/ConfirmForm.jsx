@@ -32,6 +32,5 @@ export default reduxForm({
   form: 'contact',
   destroyOnUnmount: false, // <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  initialValues: {'captcha_value': ''},
   validate
 })(ConfirmForm);

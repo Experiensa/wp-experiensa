@@ -26,7 +26,8 @@ final class Asset{
             'assets_url' => EXPERIENSA_ASSETS_URL,
             'dist_url'=>EXPERIENSA_DIST_URL,
             'agency_email' => $agency_email,
-            'google_api_key' => Settings::getGoogleAPIKey()
+            'google_api_key' => Settings::getGoogleAPIKey(),
+            'currency' => Settings::getCurrency()
         );
         wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css', []);
         wp_enqueue_style('experiensa-css',EXPERIENSA_URL . 'assets/styles/style.css', []);
@@ -65,7 +66,8 @@ final class Asset{
             'assets_url' => EXPERIENSA_ASSETS_URL,
             'dist_url'=>EXPERIENSA_DIST_URL,
             'agency_email' => $agency_email,
-            'google_api_key' => Settings::getGoogleAPIKey()
+            'google_api_key' => Settings::getGoogleAPIKey(),
+            'currency' => Settings::getCurrency()
         );
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');

@@ -35,6 +35,9 @@ class Ajax{
 			$mail_body .= isset($data['phone'])?'<strong>Phone: </strong>'.$data['phone'].'<br>':'';
 			$destination = isset($data['destination'])?$data['destination']:'';
 			$mail_body .= isset($data['destination'])?'<strong>Destination: </strong>'.$data['destination'].'<br>':'';
+			$min_budget = isset($data['min_budget'])?$data['min_budget'].' '.Settings::getCurrency():'';
+			$max_budget = isset($data['max_budget'])?' - '.$data['max_budget'].' '.Settings::getCurrency():'';
+			$mail_body .= '<strong>Budget: </strong>'.$min_budget.$max_budget.'<br>';
 			$mail_body .= isset($data['departure'])?'<strong>Departure date: </strong>'.$data['departure'].'<br>':'';
 			$mail_body .= isset($data['return'])?'<strong>Return date: </strong>'.$data['return'].'<br>':'';
 			$mail_body .= isset($data['companion'])?'<strong>Companion: </strong>'.$data['companion'].'<br>':'';
