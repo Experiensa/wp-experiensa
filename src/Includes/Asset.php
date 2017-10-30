@@ -20,6 +20,7 @@ final class Asset{
         if (is_ssl() ) {
             $protocol = 'https';
         }
+        $recaptchaData = Settings::getRecaptchaData();
         $localized_array = array(
             'ajaxurl'=>admin_url('admin-ajax.php', $protocol),
             'siteurl'=>get_bloginfo('url'),
@@ -27,7 +28,9 @@ final class Asset{
             'dist_url'=>EXPERIENSA_DIST_URL,
             'agency_email' => $agency_email,
             'google_api_key' => Settings::getGoogleAPIKey(),
-            'currency' => Settings::getCurrency()
+            'currency' => Settings::getCurrency(),
+            'recaptcha_site_key' => $recaptchaData['site_key'],
+            'recaptcha_secret_key' => $recaptchaData['secret_key']
         );
         wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css', []);
         wp_enqueue_style('experiensa-css',EXPERIENSA_URL . 'assets/styles/style.css', []);
@@ -60,6 +63,7 @@ final class Asset{
         if ( is_ssl() ) {
             $protocol = 'https';
         }
+        $recaptchaData = Settings::getRecaptchaData();
         $localized_array = array(
             'ajaxurl'=>admin_url('admin-ajax.php', $protocol),
             'siteurl'=>get_bloginfo('url'),
@@ -67,7 +71,9 @@ final class Asset{
             'dist_url'=>EXPERIENSA_DIST_URL,
             'agency_email' => $agency_email,
             'google_api_key' => Settings::getGoogleAPIKey(),
-            'currency' => Settings::getCurrency()
+            'currency' => Settings::getCurrency(),
+            'recaptcha_site_key' => $recaptchaData['site_key'],
+            'recaptcha_secret_key' => $recaptchaData['secret_key']
         );
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');

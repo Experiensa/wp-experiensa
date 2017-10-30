@@ -24,7 +24,7 @@ export default class Captcha extends Component{
         <Grid.Column>
           <ReCAPTCHA
           ref="recaptcha"
-          sitekey="6Lfq_Q0UAAAAACUqqMQSJ-qOhT8SHS_msHRbOdB1"
+          sitekey={experiensa_vars.recaptcha_site_key}
           onChange={this.confirmCaptcha}
           />
           <input {...captcha} type="hidden" value={this.state.value}/>

@@ -117,19 +117,19 @@ function plugins() {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
+        /*new webpack.optimize.UglifyJsPlugin({
             output: {
                 comments: false,
             },
             sourceMap: true
-        }),
+        }),*/
         new webpack.ProvidePlugin({
             $: "jquery"
         })
     ]
 }
-let devtool = 'source-map';
-// let devtool = 'hidden-sourcemap';
+// let devtool = 'source-map';
+let devtool = 'hidden-sourcemap';
 // let devtool = 'inline-source-map';
 // if(env === 'production'){ devtool = 'hidden-sourcemap' }
 const webpackConfig = {
