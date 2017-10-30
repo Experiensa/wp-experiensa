@@ -22,7 +22,7 @@ const FlightForm = props => {
   const { handleSubmit, previousPage } = props
   return (
     <Form onSubmit={handleSubmit}>
-      <Grid centered columns={2}>
+      <Grid stackable centered columns={2}>
         <Grid.Row columns={3}>
           <Field name="fclass" component={CheckboxGroup} options={fclassOptions} mainLabel="Class"/>
           <Field name="fseat" component={CheckboxGroup} options={fseatOptions} mainLabel="Seat"/>

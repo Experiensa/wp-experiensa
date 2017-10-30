@@ -40,28 +40,28 @@ class Destination extends Component {
             </div>
         </div>
         <div className="three wide field">
-            <div className="ui fluid input icon field">
+            <div className="ui fluid field">
                 <DatePicker 
                     selected={this.state.startDate} 
                     dateFormat="DD/MM/YYYY" 
                     className="rc-dp-input"
                     placeholderText="Departure date"
-                    onChange={this.handleStartChange}/>
+                    onChange={this.handleStartChange}
+                    style={{width:'inherit'}}/>
                 <input {...fields.departure.input}  type="hidden"/>
-                <i className="calendar icon"></i>
             </div>
         </div>
         <div className="three wide field">
-            <div className="ui fluid input icon field">
+            <div className="ui fluid field">
                 <DatePicker 
                     selected={this.state.endDate} 
                     dateFormat="DD/MM/YYYY" 
                     className="rc-dp-input"
                     placeholderText="Return date"
                     minDate={this.state.startDate}
-                    onChange={this.handleEndChange}/>
+                    onChange={this.handleEndChange}
+                    style={{width:'inherit'}}/>
                 <input {...fields.return.input}  type="hidden"/>
-                <i className="calendar icon"></i>
             </div>
         </div>
         <div className="three wide field">

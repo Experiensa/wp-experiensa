@@ -33,7 +33,7 @@ export default class HostingOptions extends Component {
   render() {
     const fields = this.props;
     return(
-      <Grid columns={3}>
+      <Grid stackable columns={3}>
         <Field name="hoptions" component={CheckboxGroup} options={hoptions} mainLabel="Options"/>
         <Field name="htypes" component={CheckboxGroup} options={htypes} mainLabel="Type"/>
         <Grid.Column>

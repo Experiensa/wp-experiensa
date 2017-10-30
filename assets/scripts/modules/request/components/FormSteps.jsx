@@ -11,8 +11,8 @@ export default class BreadcrumbForm extends Component {
     return(
       <Grid centered>
         <Grid.Row>
-          <Grid.Column>
-            <Step.Group>
+          <Grid.Column width={10}>
+            <Step.Group unstackable>
               <Step active={page==1?true:false}>
                 <Icon name="world"/>
                 <Step.Content>
