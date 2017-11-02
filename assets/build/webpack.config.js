@@ -117,12 +117,12 @@ function plugins() {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-        /*new webpack.optimize.UglifyJsPlugin({
+        new webpack.optimize.UglifyJsPlugin({
             output: {
                 comments: false,
             },
             sourceMap: true
-        }),*/
+        }),
         new webpack.ProvidePlugin({
             $: "jquery"
         })

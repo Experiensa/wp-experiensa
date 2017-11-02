@@ -28,7 +28,7 @@ class Destination extends Component {
     }
   render() {
     const fields = this.props;
-    console.log('destination props',fields);
+    // console.log('destination props',fields);
     return(
       <div className="fields">
         <div className="seven wide field">

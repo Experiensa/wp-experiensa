@@ -6,7 +6,7 @@ import submit from '../functions/submit';
 import validate from '../functions/validate';
 
 const ConfirmForm = props => {
-  console.log('confirm form props', props)
+  // console.log('confirm form props', props)
   const { handleSubmit, pristine, previousPage, submitting } = props
   
   return (

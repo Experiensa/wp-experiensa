@@ -1,5 +1,5 @@
 const validate = values => {
-  console.log('valores a validar',values);
+  // console.log('valores a validar',values);
   let errors = {}
   if (!values.fullname) {
     errors.fullname = 'Required'
@@ -18,7 +18,7 @@ const validate = values => {
   /*if(!values.captcha_value || values.captcha_value == ''){
     errors.captcha_value = 'Captcha validation required'
   }*/
-  console.log('validate errors', errors);
+  // console.log('validate errors', errors);
   return errors
 }
 

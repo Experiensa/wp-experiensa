@@ -16,8 +16,8 @@ export default class Captcha extends Component{
     })
   }
   render(){
-    console.log("Captcha props:", this.props);
-    console.log('experiensa_vars',experiensa_vars)
+    // console.log("Captcha props:", this.props);
+    // console.log('experiensa_vars',experiensa_vars)
     const captcha = this.props.input;
     return(
       <Grid centered columns={2}>

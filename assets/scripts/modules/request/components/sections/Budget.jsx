@@ -21,7 +21,7 @@ export default class Budget extends React.Component{
   }
   render(){
     const fields = this.props;
-    console.log('props budget',fields)
+    // console.log('props budget',fields)
     return(
       <div>
         <SliderWithTooltip

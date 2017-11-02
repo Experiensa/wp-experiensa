@@ -11,12 +11,12 @@ class Options extends Component {
         super(props)
     }
     handleChangeCompanion = (e, data) => {
-        console.log('handleChangeCompanion e',e);
-        console.log('handleChangeCompanion data',data);
+        // console.log('handleChangeCompanion e',e);
+        // console.log('handleChangeCompanion data',data);
     }
     render() {
         const fields = this.props;
-        console.log('Options fields', fields);
+        // console.log('Options fields', fields);
         return(
             <div>
                 <div className="fields">
