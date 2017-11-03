@@ -18,6 +18,13 @@ const ConfirmForm = props => {
           <p>{error}</p>
         </Message>
       }
+      {(!error && submitSucceeded && !submitting)&&
+        <Message
+        success
+        header='Success'
+        content='Request sended'
+        />
+      }
       <Button type='button' className="previous" animated onClick={previousPage} color='orange' floated='left' size='big'>      
         <Button.Content visible>Previous</Button.Content>
         <Button.Content hidden>
