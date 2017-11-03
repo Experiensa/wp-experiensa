@@ -10,7 +10,7 @@ function submit(formData){
   .post(url, qs.stringify(params))
   .then((response)=>{
     const rs = response.data
-    console.log('respuesta', response)
+    // console.log('respuesta', response)
     if (rs.error) {
       throw new SubmissionError({
         _error: rs.message

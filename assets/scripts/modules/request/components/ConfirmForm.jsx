@@ -18,7 +18,7 @@ const ConfirmForm = props => {
           <p>{error}</p>
         </Message>
       }
-      {(!error && submitSucceeded && !submitting)&&
+      {(typeof error === 'undefined' && submitSucceeded && !submitting)&&
         <Message
         success
         header='Success'
