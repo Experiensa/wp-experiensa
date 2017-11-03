@@ -25,7 +25,7 @@ class Request extends Component {
   }
   render() {
     const {onSubmit} = this.props;
-    // console.log('props de request principal', this.props)
+    console.log('props de request principal', this.props)
     const {page} = this.state;
     return (
       <div>

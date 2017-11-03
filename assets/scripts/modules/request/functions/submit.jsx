@@ -10,19 +10,12 @@ function submit(formData){
   .post(url, qs.stringify(params))
   .then((response)=>{
     const rs = response.data
-    // console.log('asdasd', response)
+    console.log('respuesta', response)
     if (rs.error) {
       throw new SubmissionError({
-        _error: rs.message,
-      });
+        _error: rs.message
+      })
     }
-  })
-  .catch((err)=>{
-    // console.log('un error', err);
-    if (e instanceof SubmissionError) throw err;
-    throw new SubmissionError({
-      _error: "Request error",
-    });
   })
 }
 export default submit;
