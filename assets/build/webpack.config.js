@@ -117,21 +117,42 @@ function plugins() {
                 NODE_ENV: JSON.stringify('production')
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            output: {
-                comments: false,
-            },
-            sourceMap: true
-        }),
         new webpack.ProvidePlugin({
             $: "jquery"
         })
     ]
 }
-// let devtool = 'source-map';
+let myPlugins = plugins();
+
 let devtool = 'hidden-sourcemap';
-// let devtool = 'inline-source-map';
-// if(env === 'production'){ devtool = 'hidden-sourcemap' }
+if(env === 'development'){    
+    let devtool = 'source-map'; 
+    myPlugins = myPlugins.concat([
+        new webpack.LoaderOptionsPlugin({
+           minimize: false,
+           debug: true
+       }),
+       new webpack.optimize.UglifyJsPlugin({
+           output: {
+               comments: true,
+           },
+           sourceMap: true
+       }),
+   ]);
+}else{
+    myPlugins = myPlugins.concat([
+         new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,
+            },
+            sourceMap: false
+        }),
+    ]);
+}
 const webpackConfig = {
     devtool: devtool,
     entry: entry(),
@@ -139,7 +160,7 @@ const webpackConfig = {
     module: {
         rules: rules()
     },
-    plugins: plugins(),
+    plugins: myPlugins,
     resolve: {
         extensions: ['.js', '.jsx'],
         modules: [

@@ -4,6 +4,7 @@ import showcase from './modules/showcase';
 import request from './modules/request';
 import catalog from './modules/catalog/index';
 import countryAutocomplete from './modules/countryAutocomplete';
+import extras from './modules/extras'
 
 jQuery(document).ajaxSuccess(function(event, xhr, settings) {
      /*console.log("An individual AJAX call has completed successfully***********");
@@ -26,8 +27,6 @@ jQuery(document).ajaxSuccess(function(event, xhr, settings) {
 });
 
 jQuery(document).ready(function(){
-    /*jQuery('#new-tag-exp_country'){
-
-    }*/
     countryAutocomplete.Autocomplete();
+    extras.AdminMenuStyle();
 });

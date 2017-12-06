@@ -21,7 +21,7 @@ export function requestCatalog(state = initialState,action){
         case REQUEST_CATALOG:
             return Object.assign({},state,action.payload)
         case FILTER_CATALOG:
-            console.log('mi nuevo catalogo contiene ',Object.assign({}, state, action.payload))
+            // console.log('mi nuevo catalogo contiene ',Object.assign({}, state, action.payload))
             return Object.assign({}, state, action.payload)
         default:
             return state

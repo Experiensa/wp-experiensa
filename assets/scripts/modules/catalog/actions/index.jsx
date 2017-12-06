@@ -86,9 +86,10 @@ function createCatalogObject(data,type=REQUEST_CATALOG){
 export function requestCatalog() {
     return(dispatch,getState)=>{
         let localApiCatalogURL = experiensa_vars.siteurl + '/wp-json/wp/v2/catalog'
-        // console.log('asdasd',localApiCatalogURL)
-        axios.get(localApiCatalogURL,{timeout: 30000})
+        // console.log('asdasd', localApiCatalogURL)
+        axios.get(localApiCatalogURL, {timeout: 30000})
         .then((response)=>{
+            // console.log('my response', response)
             let catalogResponse = createCatalogObject(response.data)
             // console.log(catalogResponse)
             dispatch(

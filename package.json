@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress --config assets/build/webpack.config.js"
+    "build": "cross-env NODE_ENV=production webpack --progress --config assets/build/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack --progress --config assets/build/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -59,6 +60,7 @@
     "redux-form": "^7.0.4",
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.2.0",
+    "searchkit": "^2.2.1-0",
     "semantic-ui-css": "^2.2.9",
     "semantic-ui-react": "^0.67.1",
     "slick-carousel": "^1.6.0",

@@ -13,6 +13,7 @@ export default class DetailsModal extends React.Component {
     }
     renderInformation(){
         let voyage = this.props.data
+        // console.log('DetailsModal', voyage)
         let price = () =>{
             let value = ""
             if(voyage.price){
@@ -30,7 +31,7 @@ export default class DetailsModal extends React.Component {
             return (voyage.country.text?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
         }
         let destination = () =>{
-            return (voyage.destination.text?"<b>Destination</b>: " + voyage.destination.text+"<br/>":"")
+            return (voyage.location.text?"<b>Destination</b>: " + voyage.location.text+"<br/>":"")
         }
         let theme = () =>{
             return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")

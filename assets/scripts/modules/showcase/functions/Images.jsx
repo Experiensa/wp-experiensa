@@ -1,5 +1,5 @@
-import imageUrl from '../../../../images/travel-no-image.jpg'
-const travelNoImage = experiensa_vars.dist_url + imageUrl
+// import imageUrl from '../../../../images/travel-no-image.jpg'
+const travelNoImage = experiensa_vars.dist_url + 'vendor/travel-no-image.jpg'
 
 export function getImageURL(data){
     if(data.hasOwnProperty('cover_image')){

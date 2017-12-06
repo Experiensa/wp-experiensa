@@ -22,7 +22,7 @@ export default class VoyageCards extends React.Component {
     render() {
         const voyage = this.props.voyage;
         const price = Info.getVoyagePrice(voyage)
-        //  console.log('soy el voyage',voyage);
+        // console.log('soy el voyage',voyage);
         //  console.log('mis show son',this.props.show);
         return(
             <div className="ui card">
@@ -32,7 +32,7 @@ export default class VoyageCards extends React.Component {
                     <DataRow show={this.props.show.price} title="Price" value={price} isTitle={false}/>
                     <DataRow show={this.props.show.duration} title="Duration" value={voyage.duration} isTitle={false}/>
                     <DataRow show={this.props.show.themes} title="Theme" value={voyage.theme.text} isTitle={false}/>
-                    <DataRow show={this.props.show.destination} title="Places" value={voyage.destination.text} isTitle={false}/>
+                    <DataRow show={this.props.show.destination} title="Places" value={voyage.location.text} isTitle={false}/>
                     <DataRow show={this.props.show.country} title="Country" value={voyage.country.text} isTitle={false}/>
                     <DataRow show={this.props.show.includes} title="Includes" value={voyage.included.text} isTitle={false}/>
                     <DataRow show={this.props.show.excludes} title="Excludes" value={voyage.excluded.text} isTitle={false}/>                    
