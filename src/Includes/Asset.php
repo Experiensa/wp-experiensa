@@ -38,6 +38,8 @@ final class Asset{
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
+        wp_enqueue_script('experiensa/extracatalog_js', EXPERIENSA_URL . 'dist/extracatalog.js', ['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_localize_script('experiensa/extracatalog_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/request.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/request_js', EXPERIENSA_URL . 'dist/request.js', ['experiensa/react_js','experiensa/common_js'],null,true);
@@ -81,6 +83,8 @@ final class Asset{
         wp_localize_script('experiensa/main_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js', ['experiensa/react_js','experiensa/vendor_js'],null,true);
         wp_localize_script('experiensa/catalog_js', 'experiensa_vars', $localized_array);
+        wp_enqueue_script('experiensa/extracatalog_js', EXPERIENSA_URL . 'dist/extracatalog.js', ['experiensa/react_js','experiensa/common_js'],null,true);
+        wp_localize_script('experiensa/extracatalog_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/showcase_js', EXPERIENSA_URL . 'dist/showcase.js', ['experiensa/react_js','experiensa/common_js'],null,true);
         wp_localize_script('experiensa/showcase_js', 'experiensa_vars', $localized_array);
         wp_enqueue_script('experiensa/admin_js', EXPERIENSA_URL . 'dist/admin.js');

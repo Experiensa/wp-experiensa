@@ -5,7 +5,6 @@ const ld = _.noConflict();
 //Action Types
 export const REQUEST_CATALOG = 'REQUEST_CATALOG'
 export const FILTER_CATALOG = 'FILTER_CATALOG'
-
 export const FILTER_CATEGORY = 'FILTER_CATEGORY'
 export const FILTER_COUNTRY = 'FILTER_COUNTRY'
 export const FILTER_DESTINATION = 'FILTER_DESTINATION'

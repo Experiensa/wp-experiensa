@@ -10,6 +10,7 @@ function entry() {
         main: paths.EXPERIENSA_ASSETS + '/scripts/main.js',
         admin: paths.EXPERIENSA_ASSETS + '/scripts/admin.js',
         catalog: paths.EXPERIENSA_ASSETS + '/scripts/modules/catalog/index.jsx',
+        extracatalog: paths.EXPERIENSA_ASSETS + '/scripts/modules/extracatalog/index.jsx',
         showcase: paths.EXPERIENSA_ASSETS + '/scripts/modules/showcase/index.jsx',
         request: paths.EXPERIENSA_ASSETS + '/scripts/modules/request/index.jsx',
         common: [
@@ -171,5 +172,5 @@ const webpackConfig = {
     }
 };
 
-// console.log(webpackConfig)
+// console.log(env)
 module.exports = webpackConfig;

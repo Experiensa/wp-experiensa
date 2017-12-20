@@ -1,4 +1,4 @@
-<?php //namespace Experiensa\Plugin\Modules\Extensions\LiveComposer\Modules;
+<?php
 
 use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Catalog as CatalogOpt;
 use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Layout;
