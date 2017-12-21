@@ -1,5 +1,6 @@
 import React from 'react'
 import { Accordion, Icon } from 'semantic-ui-react'
+import FilterCheckGroup from './FilterCheckGroup'
 
 class FilterItem extends React.Component {
   constructor(){
@@ -11,19 +12,21 @@ class FilterItem extends React.Component {
     if(typeof filters !== 'undefined' && filters.hasOwnProperty(title)){
       items = filters[title]
     }
-    return(
-      <div>
-        <Accordion.Title active={true} index={key}>
-          <Icon name='dropdown' />
-          {title}
-        </Accordion.Title>
-        <Accordion.Content active={true}>
-          <p>
-            Hola mundo {key}
-          </p>
-        </Accordion.Content>
-      </div>
-    )
+    if(items.length > 0){
+      	return(
+			<div>
+			<Accordion.Title active={true} index={key}>
+				<Icon name='dropdown' />
+				{title}
+			</Accordion.Title>
+			<Accordion.Content active={true}>
+				<FilterCheckGroup options={items} groupName={title}/>
+			</Accordion.Content>
+			</div>
+      	)
+    }else{
+		return(<div></div>)
+	}
   }
 }
 export default FilterItem;

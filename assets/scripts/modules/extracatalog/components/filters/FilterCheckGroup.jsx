@@ -6,36 +6,36 @@ export default class CheckboxGroup extends Component {
     super(props)
   }
   handleChange = (e, data) => {
-    const input = this.props.input;
+	  console.log('qqasdasda', e, data)
+    /*const input = this.props.input;
     const newValue = [...input.value];
     if(data.checked) {
       newValue.push(data.value);
     } else {
       newValue.splice(newValue.indexOf(data.value), 1);
     }
-    return this.props.input.onChange(newValue);
+    return this.props.input.onChange(newValue);*/
   }
+ 
+					/*onChange={ (e, data)=>this.handleChange(e, data) } 
+					checked={input.value.indexOf(option.value) !== -1}
+  */
   render() {
-    const options = this.props.options;
-    const input = this.props.input;
+    const { options, groupName } = this.props
     return(
-      <Grid.Column>
         <Form.Group grouped>
-          <label><strong>{this.props.mainLabel}</strong></label>
-          {options.map((option, index)=>(
-            <Form.Field key={index}>
-            <div class="ui checkbox">
-              <Checkbox type='checkbox' 
-                name={`${input.name}[${index}]`} 
-                value={option.value}
-                label={option.label}
-                checked={input.value.indexOf(option.value) !== -1}
-                onChange={(e,data)=>this.handleChange(e,data)}/>
-            </div>
-          </Form.Field>
-          ))}          
+		{options.map((option, index)=>(
+			<Form.Field key={index}>
+				<div class="ui checkbox">
+					<Checkbox type='checkbox' 
+					name={`${groupName}[${index}]`} 
+					value={option.name}
+					label={option.name}
+					onChange={ (e, data)=>this.handleChange(e, data) }/>
+				</div>
+			</Form.Field>
+		))}          
         </Form.Group>
-      </Grid.Column>
     )
   }
 }

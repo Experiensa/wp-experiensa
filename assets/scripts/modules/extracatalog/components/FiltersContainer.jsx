@@ -15,14 +15,27 @@ class FiltersContainer extends React.Component {
   renderFilterItems(){
     const { filters, values } = this.props
     return filters.map((f, i)=>{
-      const filterName = f=='country'?'countries':f
+      let filterName = '' //f =='country'?'countries':f
+      switch(f){
+        case 'category':
+          filterName = 'categories'
+          break;
+        case 'country':
+          filterName = 'countries'
+          break;
+        case 'destination':
+          filterName = 'destinations'
+          break;
+        default:
+          filterName = f
+          break;
+      }
       return(
         <FilterItem key={ i } title={ filterName } filters={ values }/>
       )
     })
   }
   render() {
-    console.log('qqqqqqqq', this.props.values)
     return(
       <Accordion fluid styled exclusive={false}>
         {this.renderFilterItems()}
