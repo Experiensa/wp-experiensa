@@ -1,3 +1,6 @@
+#dslc-content{
+  height: 100%;
+}
 #dslc-header.dslc-header-pos-fixed {
   z-index: 500 !important;
 }
