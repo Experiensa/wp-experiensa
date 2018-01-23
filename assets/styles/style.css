@@ -1,6 +1,10 @@
 #dslc-header.dslc-header-pos-fixed {
   z-index: 500 !important;
 }
+.showcase-module{
+  padding: 10px; 
+  min-height:200px;
+}
 .react-datepicker-wrapper{
   width: 100%;
 }
@@ -9,4 +13,9 @@
 }
 .rc-dp-input{
   width: 100%;
+}
+.ui.large.fluid.search .ui.icon.input{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

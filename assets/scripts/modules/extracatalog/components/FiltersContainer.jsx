@@ -35,9 +35,14 @@ class FiltersContainer extends React.Component {
       )
     })
   }
+  createFilterIndexList(){
+    const { filters } = this.props
+    return Array.from(filters, (f,i) => i)
+  }
   render() {
+    const defaults = this.createFilterIndexList();
     return(
-      <Accordion fluid styled exclusive={false}>
+      <Accordion defaultActiveIndex={defaults} fluid styled exclusive={false}>
         {this.renderFilterItems()}
       </Accordion>
     )

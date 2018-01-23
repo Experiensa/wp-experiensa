@@ -15,7 +15,6 @@ const renderExtraCatalog = function() {
   if (extra_catalog_app != null) {
       let options = JSON.parse(extra_catalog_app.dataset.options)
       let filters = JSON.parse(extra_catalog_app.dataset.filters)
-      console.log('entro alla', filters, options)
       ReactDOM.render(
         <Provider store={createStoreWithMiddleware(reducers)}>
             <Main options={options} filters={filters}/>
@@ -29,7 +28,6 @@ const renderExtraCatalog = function() {
           if (extra_catalog_app != null) {
               let options = JSON.parse(extra_catalog_app.dataset.options)
               let filters = JSON.parse(extra_catalog_app.dataset.filters)
-              console.log('entro aqui', options, filters)
               ReactDOM.render(
                 <Provider store={createStoreWithMiddleware(reducers)}>
                     <Main options={options} filters={filters}/>

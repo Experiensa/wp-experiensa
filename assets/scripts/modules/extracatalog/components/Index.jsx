@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { Grid, Image } from 'semantic-ui-react'
+import SearchContainer from './SearchContainer'
 import FiltersContainer from './FiltersContainer'
 import ResultsContainer from './ResultsContainer'
 import {requestCatalog} from '../actions'
@@ -14,7 +15,8 @@ class Index extends React.Component {
   }
   render() {
     console.log('mis props son', this.props)    
-    const { catalog, categories, includes, excludes, themes, destinations, countries } = this.props
+    const { catalog, categories, includes, excludes, themes, destinations, countries, options } = this.props
+    const { elements } = options
     const values = {
       categories,
       includes,
@@ -24,15 +26,14 @@ class Index extends React.Component {
       countries
     }
     return(
-      <Grid columns={2} divided>
-        <Grid.Row>
-          <Grid.Column>
-            <FiltersContainer filters={this.props.filters} values={values}/>
-          </Grid.Column>
-          <Grid.Column>
-            <ResultsContainer/>
-          </Grid.Column>
-        </Grid.Row>
+      <Grid stackable columns={2} divided>
+        <Grid.Column width={4}>
+          <SearchContainer/>
+          <FiltersContainer filters={this.props.filters} values={values}/>
+        </Grid.Column>
+        <Grid.Column width={12}>
+          <ResultsContainer voyages={catalog} elements={elements} options={options}/>
+        </Grid.Column>
       </Grid>
     )
   }

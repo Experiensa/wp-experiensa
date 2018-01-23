@@ -31,15 +31,11 @@ export default class CatalogLayout extends React.Component {
         })
     }
     render() {
-        // console.log('el correo de la agencia es',experiensa_vars.agency_email)
         const size = ld.size(this.props.voyages)
         if(size > 0) {
-            // console.log('los voyages',this.props.voyages)
-            // console.log('mi size es',size)
             let itemxrow = 4
             if(size < 4)
                 itemxrow = size
-            // console.log('mis voyages son', this.props.voyages)
             const type = this.props.options.type
             if (type == 'cards') {
                 return (
@@ -48,7 +44,6 @@ export default class CatalogLayout extends React.Component {
                     </Card.Group>
                 )
             }
-            // console.log('voy por newpinterestr',this.props.voyages)
             return (
                 <VoyagePinterest voyages={this.props.voyages} options={this.props.options} show={this.elementsToShow()}/>
             );

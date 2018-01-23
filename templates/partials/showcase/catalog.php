@@ -3,7 +3,7 @@
     $catalog_options = json_encode($catalog_options);
     $filters = json_encode(explode(' ',$filters));
 ?>
-<div class="showcase-module" style="padding: 10px">
+<div class="showcase-module">
     <?php if(!empty($header_opt)):?>
         <div class="catalog-title-wrapper">
             <?php if(in_array('show_title',$header_opt)):?>

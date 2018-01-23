@@ -2,7 +2,7 @@
     $query_options = json_encode($query_options);
     $component_options = json_encode($component_options);
 ?>
-<div class="showcase-module" style="padding: 10px; min-height:200px;">
+<div class="showcase-module">
 <?php if(!empty($header_opt)):?>
     <div class="showcase-title-wrapper">
     <?php if(in_array('show_title',$header_opt)):?>
