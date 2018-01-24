@@ -15,13 +15,13 @@ export const FILTER_EXCLUDE = 'FILTER_EXCLUDE'
 /**
  * Helper functions
  */
-function add_filter(value,filters){
+function add_filter(value, filters){
     if (filters.indexOf(value) === -1) {
         filters.push(value);
     }
     return filters
 }
-function delete_filter(value,filters){
+function delete_filter(value, filters){
     var index = filters.indexOf(value);
     if (index !== -1) {
         filters.splice(index, 1);
@@ -29,12 +29,11 @@ function delete_filter(value,filters){
     return filters
 }
 
-function getFilteredCatalog(catalog = [],filters = [],object_name){
+function getFilteredCatalog(catalog = [], filters = [], object_name){
     let auxList = []
     if(filters.length > 0) {
         for (var i in catalog) {
             let intersection = ld.intersection(catalog[i][object_name]['array'], filters)
-            // console.log('mi intersection',intersection)
             if (intersection.length > 0 && intersection.length == filters.length) {
                 auxList.push(catalog[i])
             }
@@ -46,12 +45,12 @@ function getFilteredCatalog(catalog = [],filters = [],object_name){
 function searchCatalog(catalog,categories,countries,excludes,includes,destinations,themes){
     let auxCatalog = []
     if(catalog.length > 0){
-        auxCatalog = getFilteredCatalog(catalog,categories,'category')
-        auxCatalog = getFilteredCatalog(auxCatalog,countries,'country')
-        auxCatalog = getFilteredCatalog(auxCatalog,excludes,'exclude')
-        auxCatalog = getFilteredCatalog(auxCatalog,includes,'include')
-        auxCatalog = getFilteredCatalog(auxCatalog,destinations,'destination')
-        auxCatalog = getFilteredCatalog(auxCatalog,themes,'theme')
+        auxCatalog = getFilteredCatalog(catalog, categories,'category')
+        auxCatalog = getFilteredCatalog(auxCatalog, countries,'country')
+        auxCatalog = getFilteredCatalog(auxCatalog, excludes,'exclude')
+        auxCatalog = getFilteredCatalog(auxCatalog, includes,'include')
+        auxCatalog = getFilteredCatalog(auxCatalog, destinations,'destination')
+        auxCatalog = getFilteredCatalog(auxCatalog, themes,'theme')
     }
     return auxCatalog
 }
@@ -85,12 +84,9 @@ function createCatalogObject(data,type=REQUEST_CATALOG){
 export function requestCatalog() {
     return(dispatch,getState)=>{
         let localApiCatalogURL = experiensa_vars.siteurl + '/wp-json/wp/v2/catalog'
-        // console.log('asdasd', localApiCatalogURL)
         axios.get(localApiCatalogURL, {timeout: 30000})
         .then((response)=>{
-            // console.log('my response', response)
             let catalogResponse = createCatalogObject(response.data)
-            // console.log(catalogResponse)
             dispatch(
                 {
                     type: REQUEST_CATALOG,
