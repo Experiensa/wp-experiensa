@@ -61,9 +61,9 @@ function searchCatalog(catalog, filters){
     if(catalog.length > 0){
         auxCatalog = getFilteredCatalog(catalog, filters.categories,'category')
         auxCatalog = getFilteredCatalog(auxCatalog, filters.countries,'country')
-        auxCatalog = getFilteredCatalog(auxCatalog, filters.excludes,'exclude')
-        auxCatalog = getFilteredCatalog(auxCatalog, filters.includes,'include')
-        auxCatalog = getFilteredCatalog(auxCatalog, filters.destinations,'destination')
+        auxCatalog = getFilteredCatalog(auxCatalog, filters.excludes,'excluded')
+        auxCatalog = getFilteredCatalog(auxCatalog, filters.includes,'included')
+        auxCatalog = getFilteredCatalog(auxCatalog, filters.destinations,'location')
         auxCatalog = getFilteredCatalog(auxCatalog, filters.themes,'theme')
         auxCatalog = filterByObject(auxCatalog, filters.input, 'title')
     }
@@ -101,7 +101,7 @@ export function requestCatalog() {
       axios.get(localApiCatalogURL, {timeout: 30000})
       .then((response)=>{
           let catalogResponse = createCatalogObject(response.data)
-          console.log('catalogo formateado', catalogResponse)
+        //   console.log('catalogo formateado', catalogResponse)
           dispatch(
               {
                   type: REQUEST_CATALOG,
@@ -116,12 +116,12 @@ export function requestCatalog() {
 }
 
 export function filterCatalog(filterType, value, active){
-    console.log('recibi', filterType, value, active)
+    // console.log('recibi', filterType, value, active)
     return(dispatch,getState)=>{
-        console.log('getState',getState())
+        // console.log('getState',getState())
         const original_state = getState().catalog
-        let {catalog, originalCatalog, categories_active, countries_active, excludes_active, includes_active, destinations_active, themes_active, input_active, input_text} = original_state
-        console.log('original', original_state)
+        let {catalog, originalCatalog, categories_active, countries_active, excludes_active, includes_active, destinations_active, themes_active, input_text} = original_state
+        // console.log('original', original_state)
         switch (filterType){
             case FILTER_CATEGORY:
                 categories_active = active?add_filter(value,categories_active):delete_filter(value,categories_active)
@@ -166,24 +166,26 @@ export function filterCatalog(filterType, value, active){
                 themes: themes_active,
                 input: input_text
             }
-            newCatalog = searchCatalog(originalCatalog, myFilters)
             // console.log('voy a buscar con estos datos:', originalCatalog, myFilters)
+            newCatalog = searchCatalog(originalCatalog, myFilters)
+            
         }
         const catalogResponse = {
             catalog: newCatalog,
-            originalCatalog: originalCatalog,
+            originalCatalog,
             themes: original_state.themes,
-            themes_active: themes_active,
+            themes_active,
             destinations: original_state.destinations,
-            destinations_active:destinations_active,
+            destinations_active,
             countries: original_state.countries,
-            countries_active: countries_active,
+            countries_active,
             categories: original_state.categories,
-            categories_active: categories_active,
+            categories_active,
             includes: original_state.includes,
-            includes_active: includes_active,
+            includes_active,
             excludes: original_state.excludes,
-            excludes_active: excludes_active,
+            excludes_active,
+            input_text
         }
         dispatch(
             {

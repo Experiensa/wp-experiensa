@@ -198,7 +198,7 @@ class Voyages{
     }
     public function get_voyage_currency( $object, $field_name, $request ) {
         $agency_options = get_option('agency_settings');
-        return $agency_options['agency_currency'];
+        return isset($agency_options['agency_currency'])?$agency_options['agency_currency']:'CHF';
     }
     public function get_voyage_website( $object, $field_name, $request ) {
         return get_bloginfo('url');

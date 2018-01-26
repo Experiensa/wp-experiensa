@@ -14,7 +14,8 @@ const initialState = {
     includes: [],
     includes_active: [],
     excludes: [],
-    excludes_active: []
+    excludes_active: [],
+    input_text: ''
 }
 export function catalog(state = initialState, action){
     switch (action.type) {

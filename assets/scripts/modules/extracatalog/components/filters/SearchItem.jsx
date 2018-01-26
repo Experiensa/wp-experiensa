@@ -22,7 +22,6 @@ class SearchItem extends React.Component {
   }
 	resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })	
 	handleSearchChange(e, value){
-		console.log('*', value)
 		this.setState({
 			isLoading: true,
 			value
@@ -37,7 +36,6 @@ class SearchItem extends React.Component {
 		this.props.filterCatalog('FILTER_INPUT',value,true)
 	}
   render() {
-		console.log('estado de SerachItem', this.state, source)
 		const {isLoading, results, value} = this.state
     return(
 			<Search 

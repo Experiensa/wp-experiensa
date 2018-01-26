@@ -8,32 +8,25 @@ use Experiensa\Plugin\Modules\Helpers;
  */
 class Http
 {
-    public static function getStandardApiResponse($apiUrl){
+    public static function getStandardApiResponse($apiUrl, $local = false){
         $options = array(
-            'blocking' => true,
-            'timeout' => 10,
-            'redirection' => 2,
-            'sslverify' => false
+            'blocking'    => true,
+            'timeout'     => 10,
+            'redirection' => 3,
+            'sslverify'   => false
         );
         $response = wp_remote_get($apiUrl, $options);
-        $response_code    = wp_remote_retrieve_response_code( $response );
-        $response_message = wp_remote_retrieve_response_message( $response );
         if ( is_wp_error( $response ) ) {
+            $response_code    = $response->get_error_code();
+            $response_message = $response->get_error_message();
             return [
                 'error' => true,
-                'code' => $response_code,
+                'code'  => $response_code,
                 'msg'   => $response_message
             ];
         }
-        if ( 200 !== $response_code ){
-            return [
-                'error' => true,
-                'code' => $response_code,
-                'msg'   => $response_message
-            ];
-        }
-
-        return wp_remote_retrieve_body( $response );
+        $response = wp_remote_retrieve_body( $response );
+        return $response;
     }
     /**
      * Make a Http request to API with multiple validations
@@ -42,7 +35,7 @@ class Http
      * @param string $lang_var_name
      * @return string
      */
-    public static function getApiResponse($apiUrl,$check_lang = false,$lang_var_name = 'lang'){
+    public static function getApiResponse($apiUrl,$check_lang = false, $lang_var_name = 'lang'){
         if ($check_lang) {
             $code = Helpers::getActiveLanguageCode();
             if ($code) {

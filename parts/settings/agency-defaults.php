@@ -8,7 +8,6 @@
 use \Experiensa\Plugin\Modules\Common;
 
 $currency_list = Common::currency_name_description_list();
-
 piklist('field',array(
     'type'      => 'select',
     'field'     => 'agency_currency',

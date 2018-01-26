@@ -126,8 +126,8 @@ function plugins() {
 let myPlugins = plugins();
 
 let devtool = 'hidden-sourcemap';
-if(env === 'development'){    
-    let devtool = 'source-map'; 
+if(env === 'development'){
+    let devtool = 'cheap-module-eval-source-map'; 
     myPlugins = myPlugins.concat([
         new webpack.LoaderOptionsPlugin({
            minimize: false,

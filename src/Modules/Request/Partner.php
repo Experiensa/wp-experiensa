@@ -5,7 +5,7 @@ class Partner
 {
     public static function getPartners(){
         $partner_api_url = EXPERIENSA_MAIN_API_URL.'/exp_partner';
-        return Http::getApiResponse($partner_api_url);
+        return Http::curlRequest($partner_api_url);
     }
     public static function getPartnersApi(){
         $apis = [];

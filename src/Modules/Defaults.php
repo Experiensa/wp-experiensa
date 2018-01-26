@@ -10,6 +10,10 @@ use Experiensa\Plugin\Modules\Helpers;
 class Defaults
 {
     public function __construct(){
+        // add_filter('block_local_requests', '__return_false');
+        // add_action('http_api_curl', array($this,'sar_custom_curl_timeout'),9999,1);
+        // add_filter('http_request_timeout', array($this,'sar_custom_http_request_timeout'), 9999);
+        // add_filter('http_request_args',array($this,'sar_custom_http_request_args'),9999,1);
         add_filter('upload_mimes', array($this,'cc_mime_types'));
         add_filter('body_class', array($this,'add_custom_body_class'));
         add_action('user_register', array($this,'set_default_admin_color_schema'));
@@ -20,6 +24,17 @@ class Defaults
         if ( class_exists( 'Jetpack' ) && \Jetpack::is_module_active( 'tiled-gallery' ) ){
             add_filter( 'tiled_gallery_content_width', array($this,'wpsites_custom_tiled_gallery_width' ));
         }
+    }
+    public function sar_custom_curl_timeout($handle){
+        \curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 30);
+        \curl_setopt($handle, CURLOPT_TIMEOUT, 30);
+    }
+    public function sar_custom_http_request_timeout($timeout_value){
+        return 30;
+    }
+    public function sar_custom_http_request_args($r){
+        $r['timeout'] = 30;
+        return $r;
     }
     /**
      *   Allow upload SVG files
