@@ -4,6 +4,7 @@ use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Catalog as Catalog
 use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Layout;
 use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Color;
 use Experiensa\Plugin\Modules\Extensions\LiveComposer\Options\Font;
+use Experiensa\Plugin\Modules\QueryBuilder;
 use Experiensa\PLugin\Includes\Requires;
 
 if ( defined( 'DS_LIVE_COMPOSER_URL' ) && !class_exists('ExtraCatalog_LC_Module') ) {
@@ -90,31 +91,6 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) && !class_exists('ExtraCatalog_LC_Module'
             Color::colorField('filter_title_text_color','Color','#000','.catalog-filter-title','styling','Filter'),
             array(
                 'id' => 'catalog_title_filter_options',
-                'type' => 'group',
-                'action' => 'close',
-                'section' => 'styling',
-                'tab' => __( 'Filter', 'experiensa' )
-            ),
-            /**
-             * Buttons - Filters Tab
-             */
-            array(
-                'label' => __( 'Buttons', 'experiensa' ),
-                'id' => 'css_filter_button_group',
-                'type' => 'group',
-                'action' => 'open',
-                'section' => 'styling',
-                'tab' => __( 'Filter', 'experiensa' )
-            ),
-            Font::fontFamily('button_font','Source Sans Pro','Filter','.filter-button'),
-            Color::colorField('button_text_color','Text Color','#000','.filter-button','styling','Filter'),
-            Color::colorField('button_bg_color','Button Color','#b7b7b7','.button.filter-button','styling','Filter','background'),
-            Color::colorField('button_bg_hover_color','Button Color - Hover','#fff','.filter-button:hover','styling','Filter','background'),
-            Color::colorField('button_bg_active_color','Button Color - Active','#fff','.ui.button.toggle.active.filter-button','styling','Filter','background'),
-            Layout::border_radius('button_border_radius','Border Radius','inherit','Filter','.filter-button','px',20),
-            Layout::box_shadow('.filter-button','Filter','button_box_shadow'),
-            array(
-                'id' => 'css_filter_button_group',
                 'type' => 'group',
                 'action' => 'close',
                 'section' => 'styling',
@@ -208,16 +184,10 @@ if ( defined( 'DS_LIVE_COMPOSER_URL' ) && !class_exists('ExtraCatalog_LC_Module'
         $subtitle_content = $options['catalog_subtitle_content'];
         set_query_var('subtitle_content',$subtitle_content);
 
-        $button_bg_color = $options['button_bg_color'];
-        $button_bg_hover_color = $options['button_bg_hover_color'];
-        $button_bg_active_color = $options['button_bg_active_color'];
         $voyage_border_radius = $options['voyage_border_radius'];
         $catalog_options = [
             'type' => $type,
             'elements' => $elements,
-            'button_bg_color' => $button_bg_color,
-            'button_bg_hover_color' => $button_bg_hover_color,
-            'button_bg_active_color' => $button_bg_active_color,
             'content_border_radius' => $voyage_border_radius
         ];
 

@@ -11,6 +11,7 @@ export const FILTER_DESTINATION = 'FILTER_DESTINATION'
 export const FILTER_THEME = 'FILTER_THEME'
 export const FILTER_INCLUDE = 'FILTER_INCLUDE'
 export const FILTER_EXCLUDE = 'FILTER_EXCLUDE'
+export const FILTER_PRICE = 'FILTER_PRICE'
 export const FILTER_INPUT = 'FILTER_INPUT'
 
 /**
@@ -56,6 +57,23 @@ function filterByObject(catalog = [], filter = '', object_name){
     }
     return catalog
 }
+function filterByPriceObject(catalog = [], filter = []){
+    let auxList = []
+    console.log('entro en filterByPriceObject', filter)
+    if(filter.length > 0) {
+        let min = filter[0];
+        let max = filter[1];
+        for(var i in catalog){
+            let price = catalog[i]['price']
+            price = price == ""?0:parseInt(price)
+            if(price >= min && price <= max){
+                auxList.push(catalog[i])
+            }
+        }
+        return auxList
+    }
+    return catalog
+}
 function searchCatalog(catalog, filters){
     let auxCatalog = []
     if(catalog.length > 0){
@@ -65,6 +83,7 @@ function searchCatalog(catalog, filters){
         auxCatalog = getFilteredCatalog(auxCatalog, filters.includes,'included')
         auxCatalog = getFilteredCatalog(auxCatalog, filters.destinations,'location')
         auxCatalog = getFilteredCatalog(auxCatalog, filters.themes,'theme')
+        auxCatalog = filterByPriceObject(auxCatalog, filters.prices)
         auxCatalog = filterByObject(auxCatalog, filters.input, 'title')
     }
     return auxCatalog
@@ -101,7 +120,7 @@ export function requestCatalog() {
       axios.get(localApiCatalogURL, {timeout: 30000})
       .then((response)=>{
           let catalogResponse = createCatalogObject(response.data)
-        //   console.log('catalogo formateado', catalogResponse)
+          console.log('catalogo formateado', catalogResponse)
           dispatch(
               {
                   type: REQUEST_CATALOG,
@@ -115,13 +134,24 @@ export function requestCatalog() {
   }
 }
 
-export function filterCatalog(filterType, value, active){
+export function filterCatalog(filterType, value, active, extra_values = []){
     // console.log('recibi', filterType, value, active)
     return(dispatch,getState)=>{
         // console.log('getState',getState())
         const original_state = getState().catalog
-        let {catalog, originalCatalog, categories_active, countries_active, excludes_active, includes_active, destinations_active, themes_active, input_text} = original_state
-        // console.log('original', original_state)
+        let {
+            catalog, 
+            originalCatalog, 
+            categories_active, 
+            countries_active, 
+            excludes_active, 
+            includes_active, 
+            destinations_active, 
+            themes_active, 
+            input_text,
+            price_values
+        } = original_state
+        console.log('original', original_state)
         switch (filterType){
             case FILTER_CATEGORY:
                 categories_active = active?add_filter(value,categories_active):delete_filter(value,categories_active)
@@ -141,6 +171,9 @@ export function filterCatalog(filterType, value, active){
             case FILTER_THEME: 
                 themes_active = active?add_filter(value,themes_active):delete_filter(value,themes_active)
                 break
+            case FILTER_PRICE:
+                price_values = extra_values
+                break
             default:
                 input_text = value
                 break
@@ -153,6 +186,7 @@ export function filterCatalog(filterType, value, active){
             && includes_active.length <1
             && destinations_active.length < 1
             && themes_active.length < 1
+            && price_values.length < 1
             && input_text.length < 1
         ){
             newCatalog =  originalCatalog
@@ -164,9 +198,10 @@ export function filterCatalog(filterType, value, active){
                 includes: includes_active,
                 destinations: destinations_active,
                 themes: themes_active,
+                prices: price_values,
                 input: input_text
             }
-            // console.log('voy a buscar con estos datos:', originalCatalog, myFilters)
+            console.log('voy a buscar con estos datos:', originalCatalog, myFilters)
             newCatalog = searchCatalog(originalCatalog, myFilters)
             
         }

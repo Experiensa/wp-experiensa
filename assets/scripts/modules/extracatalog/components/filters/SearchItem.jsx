@@ -1,16 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import faker from 'faker'
 import _ from 'lodash'
 import { Search } from 'semantic-ui-react'
 import {filterCatalog} from '../../actions'
 const ld = _.noConflict();
-const source = ld.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}))
 
 class SearchItem extends React.Component {
   constructor(props){

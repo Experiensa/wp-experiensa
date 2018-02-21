@@ -39,6 +39,7 @@ class Voyage{
             'supports'              => array('title', 'thumbnail', 'editor','excerpt', 'revisions'),
             'taxonomies'            => array( 'category', 'post_tag', 'exp_theme'),
             'hierarchical'          => false,
+            'publicly_queryable'    => true,
             'public'                => true,
             'show_ui'               => true,
             'show_in_menu'          => true,

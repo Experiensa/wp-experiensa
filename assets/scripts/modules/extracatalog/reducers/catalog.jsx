@@ -15,6 +15,7 @@ const initialState = {
     includes_active: [],
     excludes: [],
     excludes_active: [],
+    price_values: [],
     input_text: ''
 }
 export function catalog(state = initialState, action){

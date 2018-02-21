@@ -62,7 +62,7 @@ class Settings
     }
     public static function getCurrency(){
         $settings = self::getAllSettings();
-        return (isset($settings['currency'])?$settings['currency']:'USD');
+        return (isset($settings['currency'])?$settings['currency']:'CHF');
     }
     public static function getTimeZone(){
         $settings = self::getAllSettings();

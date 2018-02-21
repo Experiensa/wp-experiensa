@@ -44,6 +44,6 @@ if (!defined('EXPERIENSA_VER' )) {
     }
     add_action('plugins_loaded', 'init_experiensa');
 //    add_action('init','init_experiensa');
-    
+// var_dump(get_post_types(array( '_builtin' => true )));
     // register_activation_hook(__FILE__, 'add_exp_theme_taxonomy');
 }

@@ -69,7 +69,7 @@ class Catalog
             'section' => 'styling',
         );
     }
-    public static function filters($id = "filters",$default = "country themes"){
+    public static function filters($id = "filters", $default = "country themes"){
         return array(
             'label' => __( 'Filters to show', 'experiensa' ),
             'id' => $id,

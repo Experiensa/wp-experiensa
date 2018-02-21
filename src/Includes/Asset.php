@@ -54,7 +54,7 @@ final class Asset{
         }
     }
     /**
-    Include scripts and style files on wordpres administrator side
+    Include scripts and style files on wordpress administrator side
     */
     public function load_admin_scripts($hook) {
         $cpt = (isset($_GET['post_type'])?$_GET['post_type']:false);
