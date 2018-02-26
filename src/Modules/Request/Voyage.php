@@ -41,6 +41,7 @@ class Voyage
                 $row['cover_image'] = $info['cover_image'];
                 $row['currency'] = $info['currency'];
                 $row['price'] = $info['price'];
+                $row['offer_dates'] = $info['offer_dates'];
                 $row['duration'] = $info['duration'];
                 $row['country'] = (isset($info['country'])?$info['country']:'');
                 $row['location'] = (isset($info['location'])?$info['location']:'');

@@ -10,7 +10,15 @@ $price = array(
     'field' => 'price',
     'label' => __('Price','experiensa'),
     'attributes'    => array( 'step' => 'any' ),
-    'columns'   => 4
+    'columns'   => 3
+);
+
+$offer_start_date = array(
+    'type'      => 'datepicker',
+    'field'     => 'offer_start_date',
+    'label'     => __('Offer start date','experiensa'),
+    'options'   => array( 'dateFormat' => 'dd/mm/yy'),
+    'columns'   => 3
 );
 
 $expiry_date = array(
@@ -18,7 +26,7 @@ $expiry_date = array(
     'field'     => 'expiry_date',
     'label'     => __('Expiry date','experiensa'),
     'options'   => array( 'dateFormat' => 'dd/mm/yy'),
-    'columns'   => 4
+    'columns'   => 3
 );
 
 $from = array(
@@ -26,7 +34,7 @@ $from = array(
     'field'     => 'display_from',
     'label'     => __('Display from','experiensa'),
     'choices'   => array( 'TRUE'  => 'Yes' ),
-    'columns'   => 4
+    'columns'   => 2
 );
 
 $slogan = array(
@@ -41,6 +49,7 @@ piklist('field', array(
     'label'     => __('General info','experiensa'),
     'fields'    => array(
         $price,
+        $offer_start_date,
         $expiry_date,
         $from,
         $slogan

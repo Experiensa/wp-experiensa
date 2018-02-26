@@ -16,6 +16,7 @@ class Voyages{
         add_action( 'rest_api_init', array($this,'register_voyage_website_name' ));
         add_action( 'rest_api_init', array($this,'register_voyage_itinerary' ));
         add_action( 'rest_api_init', array($this,'register_voyage_duration' ));
+        add_action( 'rest_api_init', array($this,'register_voyage_offer_dates' ));
         add_action( 'rest_api_init', array($this,'register_voyage_country' ));
         add_action( 'rest_api_init', array($this,'register_voyage_location' ));
         add_action( 'rest_api_init', array($this,'register_voyage_theme' ));
@@ -84,6 +85,15 @@ class Voyages{
         register_rest_field( $this->cpt, 'duration',
             array(
                 'get_callback'    => array($this,'get_voyage_duration'),
+                'update_callback' => null,
+                'schema'          => null,
+            )
+        );
+    }
+    public function register_voyage_offer_dates(){
+        register_rest_field( $this->cpt, 'offer_dates',
+            array(
+                'get_callback'    => array($this,'get_voyage_offer_dates'),
                 'update_callback' => null,
                 'schema'          => null,
             )
@@ -246,6 +256,22 @@ class Voyages{
             }
         }
         return $duration;
+    }
+    public function get_voyage_offer_dates( $object, $field_name, $request ){
+        $offer_dates = [];
+        $start_date  = get_post_meta($object[ 'id' ],'offer_start_date');
+        $end_date    = get_post_meta($object[ 'id' ],'expiry_date');
+        if(!empty($start_date[0])){
+            $offer_dates['start_date'] = implode($start_date);
+        }else{
+            $offer_dates['start_date'] = '';
+        }
+        if(!empty($end_date[0])){
+            $offer_dates['end_date'] = implode($end_date);
+        }else{
+            $offer_dates['end_date'] = '';
+        }
+        return $offer_dates;
     }
     private function createTermsObject($post_id,$taxonomy){
         $row = [];
