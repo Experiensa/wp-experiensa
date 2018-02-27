@@ -20,26 +20,9 @@ use Experiensa\Plugin\Models\Taxonomy\Theme;
 /* Register custom post types and taxonomies */
 class Register{
     public static function init(){
-        Brochure::init();
-        Estimate::init();
-        Facility::init();
-        Feedback::init();
-        Host::init();
-        Partner::init();
-        Place::init();
-        Service::init();
-        Voyage::init();
-
-        Country::init();
-        Excluded::init();
-        FacilityType::init();
-        Included::init();
-        Location::init();
-        ProductType::init();
-        Theme::init();
-        register_activation_hook( EXPERIENSA_FILE, array( __CLASS__, 'register_flush_rewrite_rules') );
-    }
-    public static function register_flush_rewrite_rules(){
+        /**
+         * Post types
+         */
         Brochure::addCustomPostType();
         Estimate::addCustomPostType();
         Facility::addCustomPostType();
@@ -49,7 +32,9 @@ class Register{
         Place::addCustomPostType();
         Service::addCustomPostType();
         Voyage::addCustomPostType();
-
+        /**
+         * Taxonomies
+         */
         Country::addTaxonomy();
         Excluded::addTaxonomy();
         FacilityType::addTaxonomy();
@@ -57,6 +42,10 @@ class Register{
         Location::addTaxonomy();
         ProductType::addTaxonomy();
         Theme::addTaxonomy();
+        // register_activation_hook( EXPERIENSA_FILE, array( __CLASS__, 'register_flush_rewrite_rules') );
+    }
+    public static function register_flush_rewrite_rules(){
+        self::init();
         flush_rewrite_rules();
     }
 }

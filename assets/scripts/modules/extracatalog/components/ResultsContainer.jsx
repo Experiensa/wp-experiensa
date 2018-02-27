@@ -1,7 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
 import { Card, Image } from 'semantic-ui-react'
-import LimitedInfiniteScroll from 'react-limited-infinite-scroll'
 import VoyageCards from '../../catalog/components/themes/VoyageCards'
 const ld = _.noConflict();
 
@@ -34,14 +33,7 @@ class ResultsContainer extends React.Component {
   render() {
     return(
       <Card.Group className="stackable" itemsPerRow={4}>
-        <LimitedInfiniteScroll 
-        limit={5} 
-        spinLoader={<div className="loader">Loading...</div>}
-        mannualLoader={<span style={{fontSize: 20, lineHeight: 1.5, marginTop: 20, marginBottom: 20, display: 'inline-block'}}>Load More</span>}
-        noMore={<div className="loader">No More Items</div>}
-        >
         {this.renderVoyageCards()}
-        </LimitedInfiniteScroll>
       </Card.Group>
     )
   }

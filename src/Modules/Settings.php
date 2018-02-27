@@ -2,6 +2,7 @@
 
 use WP_Query;
 use Experiensa\Plugin\Modules\Helpers;
+use Experiensa\Plugin\Modules\QueryBuilder;
 /**
  * Define custom setting pages and methods to get setting values
  */
@@ -197,6 +198,7 @@ class Settings
         $config_data['partners'] = self::getAgencyPartners();
         $config_data['wpml_lang'] = Helpers::getActiveLanguageCode();
         $config_data['blog_language'] = Helpers::getBlogLanguageSimple();
+        $config_data['cpt'] = QueryBuilder::getPostTypes();
         return $config_data;
     }
     public static function getUnableDates(){
