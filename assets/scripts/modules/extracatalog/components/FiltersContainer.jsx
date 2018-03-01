@@ -15,13 +15,23 @@ class FiltersContainer extends React.Component {
   renderFilterItems(){
     const { filters, values } = this.props
     return filters.map((f, i)=>{
-      let filterName = '' //f =='country'?'countries':f
+      let filterName = f; //f =='country'?'countries':f
+      // console.log('voy por el filtro', filterName, values)
       switch(f){
         case 'category':
           filterName = 'categories'
           break;
         case 'country':
           filterName = 'countries'
+          break;
+        case 'theme':
+          filterName = 'themes'
+          break;
+        case 'excluded':
+          filterName = 'excludes'
+          break;
+        case 'included':
+          filterName = 'includes'
           break;
         case 'destination':
           filterName = 'destinations'
@@ -31,7 +41,7 @@ class FiltersContainer extends React.Component {
           break;
       }
       return(
-        <FilterItem key={ i } title={ filterName } filters={ values }/>
+        <FilterItem key={ i } title={ filterName } filters={ values } originalName={f}/>
       )
     })
   }

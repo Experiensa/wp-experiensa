@@ -12,11 +12,11 @@ class Index extends React.Component {
       super()
   }
   componentWillMount(){
-    this.props.requestCatalog()
+    this.props.requestCatalog(this.props.filters)
   }
   render() {
     console.log('mis props son', this.props)    
-    const { catalog, categories, includes, excludes, themes, destinations, countries, options } = this.props
+    const { catalog, categories, includes, excludes, themes, destinations, countries, options, filters } = this.props
     const { elements } = options
     const values = {
       categories,
@@ -30,7 +30,7 @@ class Index extends React.Component {
       <Grid stackable columns={2} divided>
         <Grid.Column width={4}>
           <SearchContainer/>
-          <FiltersContainer filters={this.props.filters} values={values}/>
+          <FiltersContainer filters={filters} values={values}/>
           <PriceFilter/>
         </Grid.Column>
         <Grid.Column width={12}>

@@ -3,6 +3,7 @@ import {REQUEST_CATALOG, FILTER_CATALOG} from '../actions'
 const initialState = {
     catalog: [],
     originalCatalog: [],
+    user_filter: [],
     themes: [],
     themes_active: [],
     destinations: [],

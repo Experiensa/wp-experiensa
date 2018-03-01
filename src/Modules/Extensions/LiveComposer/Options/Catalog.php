@@ -1,5 +1,6 @@
 <?php namespace Experiensa\Plugin\Modules\Extensions\LiveComposer\Options;
 
+use Experiensa\Plugin\Modules\Taxonomy;
 
 class Catalog
 {
@@ -69,13 +70,34 @@ class Catalog
             'section' => 'styling',
         );
     }
-    public static function filters($id = "filters", $default = "country themes"){
+    public static function filterOptions(){
+        $taxonomies = Taxonomy::get_custom_taxonomies_by_pt('exp_voyage');
+        $options = [];
+        if(!empty($taxonomies)){
+            foreach ($taxonomies as $tax) {
+                $value = str_replace("exp_", "", $tax);
+                $name = ucwords($value);
+                if($value == 'location'){
+                    $value = 'destination';
+                    $name = 'Destination';
+                }
+                $options[] = [
+                    'label' => __($name, 'experiensa'),
+                    'value' => $value
+                ];
+            }
+        }
+        return $options;
+    }
+    public static function filters($id = "filters", $default = "country theme"){
+        // var_dump(self::filterOptions());
         return array(
             'label' => __( 'Filters to show', 'experiensa' ),
             'id' => $id,
             'std' => $default,
             'type' => 'checkbox',
-            'choices' => array(
+            'choices' => self::filterOptions(),
+            /*'choices' => array(
                 array(
                     'label' => __( 'Category', 'experiensa' ),
                     'value' => 'category',
@@ -100,7 +122,7 @@ class Catalog
                     'label' => __( 'Excludes', 'experiensa' ),
                     'value' => 'excludes',
                 )
-            ),
+            ),*/
             'section' => 'styling',
 //            'tab' => __('Filters','experiensa')
         );

@@ -11,7 +11,7 @@ class FilterItem extends React.Component {
       super()
   }
   render() {
-    const { title, key, filters } = this.props
+    const { title, key, filters, originalName } = this.props
     let items = [];
     if(typeof filters !== 'undefined' && filters.hasOwnProperty(title)){
       items = filters[title]
@@ -25,7 +25,7 @@ class FilterItem extends React.Component {
 							{ `  ${ucTitle}` }
 						</Accordion.Title>
 						<Accordion.Content active={true}>
-							<FilterCheckGroup options={items} groupName={title}/>
+							<FilterCheckGroup options={items} groupName={title} originalName={originalName}/>
 						</Accordion.Content>
 					</div>
       	)

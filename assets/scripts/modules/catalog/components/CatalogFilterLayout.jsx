@@ -38,14 +38,15 @@ export default class CatalogFilterLayout extends React.Component {
                         values: this.props.filterOptions.destinations
                     };
                     break;
-                case 'includes':
+                case 'included':
                     filterOptions = {
                         title: 'Includes',
                         icon: 'check circle icon',
                         type: 'FILTER_INCLUDE',
                         values: this.props.filterOptions.destinations
                     };
-                    break;case 'excludes':
+                    break;
+                case 'excluded':
                     filterOptions = {
                         title: 'Excludes',
                         icon: 'remove circle icon',

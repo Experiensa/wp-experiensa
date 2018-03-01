@@ -10,7 +10,7 @@ class Taxonomy
      * @param null $excluded
      * @return array|null
      */
-    public static function get_custom_taxonomies_by_pt($post_type,$excluded = null){
+    public static function get_custom_taxonomies_by_pt($post_type, $excluded = null){
         $taxs = get_object_taxonomies( $post_type );
         $taxonomies = array();
         if(!empty($taxs)){

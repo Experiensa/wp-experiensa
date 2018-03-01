@@ -9,8 +9,8 @@ export const FILTER_CATEGORY = 'FILTER_CATEGORY'
 export const FILTER_COUNTRY = 'FILTER_COUNTRY'
 export const FILTER_DESTINATION = 'FILTER_DESTINATION'
 export const FILTER_THEME = 'FILTER_THEME'
-export const FILTER_INCLUDE = 'FILTER_INCLUDE'
-export const FILTER_EXCLUDE = 'FILTER_EXCLUDE'
+export const FILTER_INCLUDED = 'FILTER_INCLUDED'
+export const FILTER_EXCLUDED = 'FILTER_EXCLUDED'
 export const FILTER_PRICE = 'FILTER_PRICE'
 export const FILTER_INPUT = 'FILTER_INPUT'
 
@@ -57,6 +57,16 @@ function filterByObject(catalog = [], filter = '', object_name){
     }
     return catalog
 }
+function filterByTextTaxonomy(catalog = [], filter = '', taxonomies = []){
+    let auxList = []
+    if(filter.length > 0 && taxonomies.length > 0){
+        for(var i in catalog){
+
+        }
+        return auxList
+    }
+    return catalog
+}
 function filterByPriceObject(catalog = [], filter = []){
     let auxList = []
     console.log('entro en filterByPriceObject', filter)
@@ -85,16 +95,19 @@ function searchCatalog(catalog, filters){
         auxCatalog = getFilteredCatalog(auxCatalog, filters.themes,'theme')
         auxCatalog = filterByPriceObject(auxCatalog, filters.prices)
         auxCatalog = filterByObject(auxCatalog, filters.input, 'title')
+        auxCatalog = filterByObject(auxCatalog, filters.input, 'excerpt')
+        // auxCatalog = filterByTextTaxonomy(auxCatalog, filters.input, filters.user_filters)
     }
     return auxCatalog
 }
-function createCatalogObject(data,type=REQUEST_CATALOG){
+function createCatalogObject(data, type = REQUEST_CATALOG, user_filters = []){
   let response = {}
   switch (type){
       case REQUEST_CATALOG:
           response = {
               catalog: data.catalog,
               originalCatalog: data.catalog,
+              user_filters,
               themes: data.theme_filter,
               themes_active: [],
               destinations: data.destination_filter,
@@ -114,12 +127,12 @@ function createCatalogObject(data,type=REQUEST_CATALOG){
 /*
  * Action Creations
  */
-export function requestCatalog() {
+export function requestCatalog(user_filters) {
   return(dispatch,getState)=>{
       let localApiCatalogURL = experiensa_vars.siteurl + '/wp-json/wp/v2/catalog'
       axios.get(localApiCatalogURL, {timeout: 30000})
       .then((response)=>{
-          let catalogResponse = createCatalogObject(response.data)
+          let catalogResponse = createCatalogObject(response.data, REQUEST_CATALOG, user_filters)
           console.log('catalogo formateado', catalogResponse)
           dispatch(
               {
@@ -141,7 +154,8 @@ export function filterCatalog(filterType, value, active, extra_values = []){
         const original_state = getState().catalog
         let {
             catalog, 
-            originalCatalog, 
+            originalCatalog,
+            user_filters, 
             categories_active, 
             countries_active, 
             excludes_active, 
@@ -159,10 +173,10 @@ export function filterCatalog(filterType, value, active, extra_values = []){
             case FILTER_COUNTRY:
                 countries_active = active?add_filter(value,countries_active):delete_filter(value,countries_active)
                 break
-            case FILTER_EXCLUDE:
+            case FILTER_EXCLUDED:
                 excludes_active = active?add_filter(value,excludes_active):delete_filter(value,excludes_active)
                 break
-            case FILTER_INCLUDE:
+            case FILTER_INCLUDED:
                 includes_active = active?add_filter(value,includes_active):delete_filter(value,includes_active)
                 break
             case FILTER_DESTINATION:
@@ -192,6 +206,7 @@ export function filterCatalog(filterType, value, active, extra_values = []){
             newCatalog =  originalCatalog
         }else{
             const myFilters = {
+                user_filters,
                 categories: categories_active,
                 countries: countries_active,
                 excludes: excludes_active,
@@ -208,6 +223,7 @@ export function filterCatalog(filterType, value, active, extra_values = []){
         const catalogResponse = {
             catalog: newCatalog,
             originalCatalog,
+            user_filters,
             themes: original_state.themes,
             themes_active,
             destinations: original_state.destinations,

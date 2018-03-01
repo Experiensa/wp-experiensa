@@ -26,8 +26,7 @@ define('EXPERIENSA_ASSETS_URL', plugin_dir_url(__FILE__) . 'assets/');
 define('EXPERIENSA_DIST_URL', plugin_dir_url(__FILE__) . 'dist/');
 define('EXPERIENSA_MAIN_API_URL', get_bloginfo('url') . '/wp-json/wp/v2');
 define('EXPERIENSA_DIR_NAME', dirname(plugin_basename(__FILE__)));   
-function init_experiensa(){
-    
+function init_experiensa(){    
     //Include the custom autoloader
     require_once EXPERIENSA_ABS . '/autoloader.php';
     new Experiensa\Plugin\Includes\Requires();
@@ -38,12 +37,15 @@ function init_experiensa(){
     Experiensa\Plugin\Modules\Settings::addSettingPages();
     new \Experiensa\Plugin\Modules\Defaults();
     new Experiensa\Plugin\Modules\Api\RegisterApi();
+}
+add_action('init','init_experiensa');
+
+function init_livecomposer_modules(){
     // TODO: this include need to be like this because LIVEComposer modules are external 
-    // var_dump(get_post_types(array('public' => true)));
     require_once EXPERIENSA_ABS . '/src/Modules/Extensions/LiveComposer/live-composer-loader.php';
 }
-// add_action('plugins_loaded', 'init_experiensa');
-add_action('init','init_experiensa');
+add_action('plugins_loaded', 'init_livecomposer_modules');
+
 function experiensa_rewrite_flush(){
     Experiensa\Plugin\Models\Register::register_flush_rewrite_rules();
 }

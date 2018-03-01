@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {filterCatalog,FILTER_CATEGORY,FILTER_DESTINATION,FILTER_COUNTRY,FILTER_EXCLUDE,FILTER_INCLUDE,FILTER_THEME} from '../../actions'
+import {filterCatalog} from '../../actions'
 import { Grid, Form, Checkbox } from 'semantic-ui-react'
 
 class CheckboxGroup extends Component {
@@ -9,28 +9,9 @@ class CheckboxGroup extends Component {
   }
   handleChange = (e, data) => {
     const {checked,value} = data
-    const {groupName} = this.props
-    let filterType
-    switch(groupName){
-      case 'countries':
-        filterType = FILTER_COUNTRY;
-        break;
-      case 'themes':
-        filterType = FILTER_THEME;
-        break;
-      case 'destinations':
-        filterType = FILTER_DESTINATION;
-        break;
-      case 'includes':
-        filterType = FILTER_INCLUDE;
-        break;
-      case 'excludes':
-        filterType = FILTER_EXCLUDE;
-        break;
-      default:
-        filterType = FILTER_CATEGORY;
-        break;
-    }
+    const {originalName} = this.props
+    let filterType = 'FILTER_' + originalName.toUpperCase();
+    console.log('voy a buscar', filterType, value, checked)
     this.props.filterCatalog(filterType,value,checked)
   }
   render() {
