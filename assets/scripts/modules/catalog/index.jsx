@@ -13,6 +13,7 @@ import Catalog from './components/Catalog';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const renderCatalog = function() {
     let catalog_app = document.getElementById('catalogApp');
+    // console.log('pregunto por catalog_app1', catalog_app);
     if (catalog_app != null) {
         let options = JSON.parse(catalog_app.dataset.options)
         let filters = JSON.parse(catalog_app.dataset.filters)
@@ -23,9 +24,16 @@ const renderCatalog = function() {
             catalog_app);
     }else{
         let lc_preview = document.getElementById('page-builder-frame')
+        // console.log('pregunto por lc_preview', lc_preview);
         if(lc_preview != null){
-            catalog_app = window.frames['page-builder-frame'].contentDocument.getElementById('catalogApp')
+        //     console.log('frames', window.frames)
+        //     console.log('page-builder-frame',window.frames['page-builder-frame'])
+        //     console.log('frameElement',window.frames['page-builder-frame'].frameElement)
+        //     console.log('contentDocument',window.frames['page-builder-frame'].frameElement.contentDocument)
+            catalog_app = typeof window.frames['page-builder-frame'].frameElement !== "undefined" && typeof window.frames['page-builder-frame'].frameElement.contentDocument !== "undefined" ? window.frames['page-builder-frame'].frameElement.contentDocument.getElementById('catalogApp') : null;
+            // console.log('pregunto por catalog_app2', catalog_app);
             if (catalog_app != null) {
+                // console.log('voy al render ', catalog_app.dataset);
                 let options = JSON.parse(catalog_app.dataset.options)
                 let filters = JSON.parse(catalog_app.dataset.filters)
                 ReactDOM.render(

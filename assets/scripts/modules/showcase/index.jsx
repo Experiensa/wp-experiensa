@@ -23,7 +23,7 @@ const renderShowcase = function(){
     }else{
         let lc_preview = document.getElementById('page-builder-frame')
         if(lc_preview != null) {
-            showcaseComponent = window.frames['page-builder-frame'].contentDocument.getElementById('showcase-component')
+            showcaseComponent = typeof window.frames['page-builder-frame'].frameElement !== "undefined" && typeof window.frames['page-builder-frame'].frameElement.contentDocument !== "undefined" ? window.frames['page-builder-frame'].frameElement.contentDocument.getElementById('showcase-component') : null;
             if (showcaseComponent != null) {
                 let options = JSON.parse(showcaseComponent.dataset.options)
                 let query = JSON.parse(showcaseComponent.dataset.query)

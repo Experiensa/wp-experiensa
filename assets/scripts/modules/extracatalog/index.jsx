@@ -24,8 +24,8 @@ const renderExtraCatalog = function() {
       
       let lc_preview = document.getElementById('page-builder-frame')
       if(lc_preview != null){
-        extra_catalog_app = window.frames['page-builder-frame'].contentDocument.getElementById('extracatalogApp')
-          if (extra_catalog_app != null) {
+        extra_catalog_app = typeof window.frames['page-builder-frame'].frameElement !== "undefined" && typeof window.frames['page-builder-frame'].frameElement.contentDocument !== "undefined" ? window.frames['page-builder-frame'].frameElement.contentDocument.getElementById('extracatalogApp') : null;
+        if (extra_catalog_app != null) {
               let options = JSON.parse(extra_catalog_app.dataset.options)
               let filters = JSON.parse(extra_catalog_app.dataset.filters)
               ReactDOM.render(
@@ -33,7 +33,7 @@ const renderExtraCatalog = function() {
                     <Main options={options} filters={filters}/>
                 </Provider>,
                 extra_catalog_app);
-          }
+        }
       }
   }
 }

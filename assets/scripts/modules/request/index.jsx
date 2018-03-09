@@ -24,7 +24,7 @@ const renderRequest = function() {
   }else{
       let lc_preview = document.getElementById('page-builder-frame')
       if(lc_preview != null){
-        requestComponent = window.frames['page-builder-frame'].contentDocument.getElementById('requestComponent')
+        requestComponent = typeof window.frames['page-builder-frame'].frameElement !== "undefined" && typeof window.frames['page-builder-frame'].frameElement.contentDocument !== "undefined" ? window.frames['page-builder-frame'].frameElement.contentDocument.getElementById('requestComponent') : null;
         if (requestComponent != null) {
           ReactDOM.render(
             <Provider store={store}>

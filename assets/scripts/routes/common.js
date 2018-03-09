@@ -4,6 +4,7 @@ import catalog from '../modules/catalog/index';
 import extracatalog from '../modules/extracatalog';
 export default {
     init() {
+        // console.log('voy por common');
         // JavaScript to be fired on all pages
         showcase.renderShowcase();
         catalog.renderCatalog();
