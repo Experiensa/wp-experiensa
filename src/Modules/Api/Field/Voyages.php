@@ -173,7 +173,7 @@ class Voyages{
             $images['feature_image'] = false;
         }
         $gallery = array();
-        $images_list = get_post_meta($object['id'],'gallery');
+        $images_list = get_post_meta($object['id'],'photo_gallery');
         //Get images from gallery
         if(!empty($images_list[0])){
             foreach($images_list as $img_id){

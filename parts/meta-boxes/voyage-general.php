@@ -111,7 +111,7 @@ piklist('field', array(
 
 piklist('field', array(
     'type'          => 'file',
-    'field'         => 'gallery',
+    'field'         => 'photo_gallery',
     'description'   => __('Photos should be 1920x1080 pixels','experiensa'),
     'label'         => __('Photo Gallery','experiensa')
 ));
