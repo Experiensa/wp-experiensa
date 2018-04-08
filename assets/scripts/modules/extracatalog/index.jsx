@@ -6,6 +6,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 require('es6-symbol/implement');
 import 'semantic-ui-css/semantic.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Main from './components';
 import reducers from './reducers';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);

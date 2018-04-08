@@ -7,6 +7,8 @@ import thunk from 'redux-thunk';
 require('es6-symbol/implement');
 
 import 'semantic-ui-css/semantic.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import reducers from './reducers';
 import Catalog from './components/Catalog';
 

@@ -1,8 +1,6 @@
 import React from 'react'
 import { Button, Header, Image, Modal, Icon, Grid, Menu, Segment, Container } from 'semantic-ui-react'
 import Slider from 'react-slick'
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
 import imageUrl from '../../../../../../images/travel-no-image.jpg'
 import { getVoyageImage } from '../../common/Info'
 const travelNoImage = experiensa_vars.dist_url + imageUrl
