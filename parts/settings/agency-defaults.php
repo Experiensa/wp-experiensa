@@ -24,7 +24,6 @@ $timezone_list = Common::get_timezone_array();
 piklist('field', array(
     'type' => 'select',
     'field' => 'agency_timezone',
-    'scope' => 'post_meta',
     'label' => __('Timezone'),
     'attributes' => array(
         'class' => 'text'

@@ -82,7 +82,6 @@ piklist('field',array(
 piklist('field', array(
     'type'      => 'file',
     'field'     => 'agency_logo',
-    'scope'     => 'post_meta',
     'label'     => __('Logo','experiensa'),
     'options'   => array(
         'modal_title'   => __('Add Logo','experiensa'),
@@ -102,7 +101,6 @@ piklist('field', array(
 piklist('field', array(
     'type'      => 'textarea',
     'field'     => 'agency_description',
-    'scope'     => 'post_meta',
     'label'     => __('Agency Description','experiensa'),
     'attributes' => array(
         'rows' => 5,
@@ -115,7 +113,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'agency_address',
-    'scope' => 'post_meta',
     'label' => __('Address','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -126,7 +123,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'agency_postal_code',
-    'scope' => 'post_meta',
     'label' => __('Postal Code'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -137,7 +133,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'agency_city',
-    'scope' => 'post_meta',
     'label' => __('City'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -148,7 +143,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'agency_country',
-    'scope' => 'post_meta',
     'label' => __('Country'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -159,7 +153,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'agency_email',
-    'scope' => 'post_meta',
     'label' => __('Email'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -170,7 +163,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'tel',
     'field' => 'agency_phone',
-    'scope' => 'post_meta',
     'label' => __('Phone'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -181,7 +173,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'tel',
     'field' => 'agency_fax',
-    'scope' => 'post_meta',
     'label' => __('Fax','experiensa'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -192,7 +183,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'textarea',
     'field' => 'agency_schedule',
-    'scope' => 'post_meta',
     'label' => __('Schedule','experiensa'),
     'attributes' => array(
         'rows' => 5,
@@ -205,7 +195,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'textarea',
     'field' => 'agency_google_map',
-    'scope' => 'post_meta',
     'columns'=> 12,
     'label' => __('Agency Map','experiensa'),
 ));

@@ -47,6 +47,7 @@ function init_livecomposer_modules(){
 add_action('plugins_loaded', 'init_livecomposer_modules');
 
 function experiensa_rewrite_flush(){
+    require_once EXPERIENSA_ABS . '/autoloader.php';
     Experiensa\Plugin\Models\Register::register_flush_rewrite_rules();
 }
 register_activation_hook(EXPERIENSA_FILE, 'experiensa_rewrite_flush');

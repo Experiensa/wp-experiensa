@@ -34,6 +34,8 @@ final class Asset{
         );
         wp_enqueue_style('experiensa-style',EXPERIENSA_URL . 'dist/main.css', []);
         wp_enqueue_style('experiensa-css',EXPERIENSA_URL . 'assets/styles/style.css', []);
+        wp_enqueue_style('slick-css',EXPERIENSA_URL . 'assets/styles/slick/slick.css', []);
+        wp_enqueue_style('slick-theme',EXPERIENSA_URL . 'assets/styles/slick/slick-theme.css', []);
         wp_enqueue_script('experiensa/react_js', EXPERIENSA_URL . 'dist/react.js');
         wp_enqueue_script('experiensa/common_js', EXPERIENSA_URL . 'dist/common.js');
         wp_enqueue_script('experiensa/catalog_js', EXPERIENSA_URL . 'dist/catalog.js', ['experiensa/react_js','experiensa/common_js'],null,true);

@@ -9,7 +9,6 @@
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_facebook',
-    'scope' => 'post_meta',
     'label' => __('Facebook'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -25,7 +24,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_twitter',
-    'scope' => 'post_meta',
     'label' => __('Twitter'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -41,7 +39,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_pinterest',
-    'scope' => 'post_meta',
     'label' => __('Pinterest'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -57,7 +54,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_linkedin',
-    'scope' => 'post_meta',
     'label' => __('LinkedIn'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -73,7 +69,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_gplus',
-    'scope' => 'post_meta',
     'label' => __('Google Plus'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -89,7 +84,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_skype',
-    'scope' => 'post_meta',
     'label' => __('Skype'),
     'attributes' => array(
         'class' => 'regular-text',
@@ -105,7 +99,6 @@ piklist('field', array(
 piklist('field', array(
     'type' => 'text',
     'field' => 'social_instagram',
-    'scope' => 'post_meta',
     'label' => __('Instagram'),
     'attributes' => array(
         'class' => 'regular-text',

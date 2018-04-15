@@ -58,7 +58,6 @@ piklist('field', array(
 
 piklist('field', array(
     'type' => 'group',
-    'scope' => 'post_meta',
     'label' => __('Number of Days'),
     'fields' => array(
         array(
@@ -75,7 +74,7 @@ piklist('field', array(
         ),
     ),
 ));
-
+/*
 piklist('field', array(
     'type'      => 'group',
     'label'     => __('Resell to other agencies?','experiensa'),
@@ -102,7 +101,7 @@ piklist('field', array(
         ),
     ),
 ));
-
+*/
 piklist('field', array(
     'type'  => 'editor',
     'field' => 'information_conditions',
@@ -112,6 +111,11 @@ piklist('field', array(
 piklist('field', array(
     'type'          => 'file',
     'field'         => 'photo_gallery',
+    'scope'         => 'post_meta',
     'description'   => __('Photos should be 1920x1080 pixels','experiensa'),
-    'label'         => __('Photo Gallery','experiensa')
+    'label'         => __('Photo Gallery','experiensa'),
+    'options' => array(
+        'modal_title' => 'Add File(s)',
+        'button' => 'Add Photos'
+    )
 ));
