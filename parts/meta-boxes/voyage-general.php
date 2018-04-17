@@ -110,12 +110,9 @@ piklist('field', array(
 
 piklist('field', array(
     'type'          => 'file',
-    'field'         => 'photo_gallery',
+    'field'         => 'voyage_gallery',
     'scope'         => 'post_meta',
+    'basic'         => true,
     'description'   => __('Photos should be 1920x1080 pixels','experiensa'),
-    'label'         => __('Photo Gallery','experiensa'),
-    'options' => array(
-        'modal_title' => 'Add File(s)',
-        'button' => 'Add Photos'
-    )
+    'label'         => __('Photo Gallery','experiensa')
 ));
