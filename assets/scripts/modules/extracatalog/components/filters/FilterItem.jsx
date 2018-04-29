@@ -17,18 +17,36 @@ class FilterItem extends React.Component {
       items = filters[title]
     }
     if(items.length > 0){
-			let ucTitle = jsUcfirst(title);
-      	return(
-					<div>
-						<Accordion.Title active={true} index={key}>
-							<Icon name='dropdown' />
-							{ `  ${ucTitle}` }
-						</Accordion.Title>
-						<Accordion.Content active={true}>
-							<FilterCheckGroup options={items} groupName={title} originalName={originalName}/>
-						</Accordion.Content>
-					</div>
-      	)
+			let mainTitle = '';
+			switch(title){
+				case 'countries': 
+					mainTitle = 'pays';
+					break;
+				case 'themes': 
+					mainTitle = 'thèmes';
+					break;
+				case 'excludes': 
+					mainTitle = 'exclut';
+					break;
+				case 'includes': 
+					mainTitle = 'inclut';
+					break;
+				default: 
+					mainTitle = title;
+					break;
+			}
+			let ucTitle = jsUcfirst(mainTitle);
+			return(
+				<div>
+					<Accordion.Title active={true} index={key}>
+						<Icon name='dropdown' />
+						{ `  ${ucTitle}` }
+					</Accordion.Title>
+					<Accordion.Content active={true}>
+						<FilterCheckGroup options={items} groupName={title} originalName={originalName}/>
+					</Accordion.Content>
+				</div>
+			)
     }else{
 		return(<div></div>)
 	}
