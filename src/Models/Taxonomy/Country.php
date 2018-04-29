@@ -3,7 +3,6 @@
 class Country{
     public static function init(){
         add_action( 'init' , array(__CLASS__,'addTaxonomy'), 0 );
-//        add_action( 'after_switch_theme', 'flush_rewrite_rules' );
     }
     public static function addTaxonomy(){
         $labels = array(

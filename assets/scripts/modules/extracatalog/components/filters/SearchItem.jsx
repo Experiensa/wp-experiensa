@@ -35,7 +35,7 @@ class SearchItem extends React.Component {
 			loading={isLoading}
 			size='large'
 			input='text'
-			placeholder='Search here'
+			placeholder='Cherche ici'
 			fluid
 			showNoResults={false}
 			onSearchChange={this.handleSearchChange}/>

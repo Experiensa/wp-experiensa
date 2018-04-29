@@ -5,10 +5,10 @@ export function getVoyagePrice(data){
     let currency = "USD";
     if(data.currency!=null)
         currency = data.currency
-    let price = "No Available"
+    let price = "Non disponible"
     if(data.price != '')
         price = data.price
-    if(price != "No Available")
+    if(price != "Non disponible")
         price = currency+' '+price
     return price
 }

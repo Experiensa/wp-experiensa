@@ -16,7 +16,7 @@ export default class CatalogFilterLayout extends React.Component {
             switch(filter){
                 case 'category':
                     filterOptions = {
-                        title: 'Categories',
+                        title: 'Catégories',
                         icon: 'tags icon',
                         type: 'FILTER_CATEGORY',
                         values: this.props.filterOptions.categories
@@ -24,7 +24,7 @@ export default class CatalogFilterLayout extends React.Component {
                     break;
                 case 'country':
                     filterOptions = {
-                        title: 'Countries',
+                        title: 'Pays',
                         icon: 'world icon',
                         type: 'FILTER_COUNTRY',
                         values: this.props.filterOptions.countries
@@ -40,7 +40,7 @@ export default class CatalogFilterLayout extends React.Component {
                     break;
                 case 'included':
                     filterOptions = {
-                        title: 'Includes',
+                        title: 'Comprend',
                         icon: 'check circle icon',
                         type: 'FILTER_INCLUDE',
                         values: this.props.filterOptions.destinations
@@ -48,7 +48,7 @@ export default class CatalogFilterLayout extends React.Component {
                     break;
                 case 'excluded':
                     filterOptions = {
-                        title: 'Excludes',
+                        title: 'Exclut',
                         icon: 'remove circle icon',
                         type: 'FILTER_EXCLUDE',
                         values: this.props.filterOptions.destinations
@@ -56,7 +56,7 @@ export default class CatalogFilterLayout extends React.Component {
                     break;
                 default:
                     filterOptions = {
-                        title: 'Themes',
+                        title: 'Thèmes',
                         icon: 'soccer icon',
                         type: 'FILTER_THEME',
                         values: this.props.filterOptions.themes

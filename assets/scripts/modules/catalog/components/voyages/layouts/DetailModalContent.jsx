@@ -15,7 +15,7 @@ export default class DetailsModal extends React.Component {
         let price = () =>{
             let value = ""
             if(voyage.price){
-                value = "<b>Price</b>: "+ voyage.price+" "
+                value = "<b>Prix</b>: "+ voyage.price+" "
                 if(voyage.currency)
                     value += voyage.currency
                 value += "<br/>"
@@ -23,22 +23,22 @@ export default class DetailsModal extends React.Component {
             return value
         }
         let duration = () =>{
-            return (voyage.duration.text?"<b>Duration</b>: " + voyage.duration.text+"<br/>":"")
+            return (voyage.duration.text?"<b>Durée</b>: " + voyage.duration.text+"<br/>":"")
         }
         let country = () =>{
-            return (voyage.country.text?"<b>Country</b>: " + voyage.country.text+"<br/>":"")
+            return (voyage.country.text?"<b>Pays</b>: " + voyage.country.text+"<br/>":"")
         }
         let destination = () =>{
             return (voyage.location.text?"<b>Destination</b>: " + voyage.location.text+"<br/>":"")
         }
         let theme = () =>{
-            return (voyage.theme.text?"<b>Theme</b>: " + voyage.theme.text+"<br/>":"")
+            return (voyage.theme.text?"<b>Thème</b>: " + voyage.theme.text+"<br/>":"")
         }
         let includes = () =>{
-            return (voyage.included.text?"<b>Includes</b>: " + voyage.included.text+"<br/>":"")
+            return (voyage.included.text?"<b>Comprend</b>: " + voyage.included.text+"<br/>":"")
         }
         let excludes = () =>{
-            return (voyage.excluded.text?"<b>Excludes</b>: " + voyage.excluded.text+"<br/>":"")
+            return (voyage.excluded.text?"<b>Exclut</b>: " + voyage.excluded.text+"<br/>":"")
         }
         return(
             <Grid stackable columns={2}>

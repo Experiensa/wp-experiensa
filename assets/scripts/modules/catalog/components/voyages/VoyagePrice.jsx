@@ -9,7 +9,7 @@ export default class VoyagePrice extends React.Component {
         if(this.props.price) {
             price = this.props.price
         }else{
-            price = 'Not available'
+            price = 'Indisponible'
         }
         return (
             <div className="ui blue ribbon label">

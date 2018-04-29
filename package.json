@@ -1,6 +1,6 @@
 {
   "name": "wp-experiensa",
-  "version": "0.8.4",
+  "version": "0.9.4",
   "description": "WP plugin to add tourist information to your website",
   "main": "main.js",
   "scripts": {

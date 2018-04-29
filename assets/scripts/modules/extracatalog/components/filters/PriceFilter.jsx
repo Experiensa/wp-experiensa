@@ -26,7 +26,7 @@ class PriceFilter extends React.Component{
     return(
       <Accordion fluid styled exclusive={false}>
         <Accordion.Title active={true} index={0}>
-          Price
+          Prix
         </Accordion.Title>
         <Accordion.Content active={true}>
           <SliderWithTooltip

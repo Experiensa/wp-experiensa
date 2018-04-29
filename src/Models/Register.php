@@ -11,6 +11,7 @@ use Experiensa\Plugin\Models\PostType\Service;
 use Experiensa\Plugin\Models\PostType\Voyage;
 /* Taxonomies */
 use Experiensa\Plugin\Models\Taxonomy\Country;
+use Experiensa\Plugin\Models\Taxonomy\Region;
 use Experiensa\Plugin\Models\Taxonomy\Excluded;
 use Experiensa\Plugin\Models\Taxonomy\FacilityType;
 use Experiensa\Plugin\Models\Taxonomy\Included;
@@ -36,6 +37,7 @@ class Register{
          * Taxonomies
          */
         Country::addTaxonomy();
+        Region::addTaxonomy();
         Excluded::addTaxonomy();
         FacilityType::addTaxonomy();
         Included::addTaxonomy();

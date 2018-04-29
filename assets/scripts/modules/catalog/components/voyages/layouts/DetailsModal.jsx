@@ -29,7 +29,7 @@ export default class DetailsModal extends React.Component {
         this.setState({ activeItem: name })
     }
     createButtonAction(){
-        if(this.props.options.price != "No Available"){
+        if(this.props.options.price != "Non disponible"){
             return(
                 <div className="content">
                     <Button id="modal-card-details" className="catalog-detail-button" onClick={this.handleOpen} fluid>{this.props.price}</Button>
@@ -118,9 +118,9 @@ export default class DetailsModal extends React.Component {
                     <DetailModalContent context={activeItem} data={voyage}/>
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button color="black" onClick={this.handleClose}>Close</Button>
+                    <Button color="black" onClick={this.handleClose}>Fermer</Button>
                     <a className="ui positive right labeled icon button" href={mailto}>
-                        Contact us
+                        Nous contacter
                         <Icon name='checkmark'/>
                     </a>
                 </Modal.Actions>
