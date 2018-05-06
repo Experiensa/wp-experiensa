@@ -30,7 +30,7 @@ export default class VoyageCards extends React.Component {
                     <DataRow show={this.props.show.price} title="Prix" value={price} isTitle={false}/>
                     <DataRow show={this.props.show.duration} title="Durée" value={voyage.duration} isTitle={false}/>
                     <DataRow show={this.props.show.themes} title="Thème" value={voyage.theme.text} isTitle={false}/>
-                    <DataRow show={this.props.show.destination} title="Des endroits" value={voyage.location.text} isTitle={false}/>
+                    <DataRow show={this.props.show.destination} title="Lieux" value={voyage.location.text} isTitle={false}/>
                     <DataRow show={this.props.show.country} title="Pays" value={voyage.country.text} isTitle={false}/>
                     <DataRow show={this.props.show.includes} title="Comprend" value={voyage.included.text} isTitle={false}/>
                     <DataRow show={this.props.show.excludes} title="Exclut" value={voyage.excluded.text} isTitle={false}/>                    

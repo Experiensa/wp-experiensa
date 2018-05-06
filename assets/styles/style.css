@@ -19,3 +19,10 @@
   display: -ms-flexbox;
   display: flex;
 }
+/*
+Fix modal position bug
+https://github.com/Semantic-Org/Semantic-UI-React/issues/2558
+*/
+.ui.page.modals.transition.visible {
+  display: flex !important;
+}
