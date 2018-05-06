@@ -26,3 +26,6 @@ https://github.com/Semantic-Org/Semantic-UI-React/issues/2558
 .ui.page.modals.transition.visible {
   display: flex !important;
 }
+.ui.scrolling.modal.transition.visible.active{
+  margin-top: 0 !important;
+}
