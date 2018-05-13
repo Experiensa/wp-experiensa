@@ -5,13 +5,21 @@ import FilterCheckGroup from './FilterCheckGroup'
 function jsUcfirst(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
 class FilterItem extends React.Component {
   constructor(){
-      super()
+		super();
+		this.state = { isActive: true };
+		this.handleClick = this.handleClick.bind(this);	
+	}
+	handleClick = (e, titleProps) => {
+		const { isActive } = this.state;
+		this.setState({
+			isActive: !isActive
+		})
   }
   render() {
-    const { title, key, filters, originalName } = this.props
+		const { title, key, filters, originalName } = this.props;
+		const { isActive } = this.state;
     let items = [];
     if(typeof filters !== 'undefined' && filters.hasOwnProperty(title)){
       items = filters[title]
@@ -38,12 +46,20 @@ class FilterItem extends React.Component {
 			let ucTitle = jsUcfirst(mainTitle);
 			return(
 				<div>
-					<Accordion.Title active={true} index={key}>
+					<Accordion.Title 
+						active={isActive} 
+						index={key}
+						onClick={(e, titleProps) => this.handleClick(e, titleProps)}
+					>
 						<Icon name='dropdown' />
 						{ `  ${ucTitle}` }
 					</Accordion.Title>
-					<Accordion.Content active={true}>
-						<FilterCheckGroup options={items} groupName={title} originalName={originalName}/>
+					<Accordion.Content active={isActive}>
+						<FilterCheckGroup 
+							options={items} 
+							groupName={title} 
+							originalName={originalName}
+						/>
 					</Accordion.Content>
 				</div>
 			)

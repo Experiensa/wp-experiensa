@@ -29,3 +29,6 @@ https://github.com/Semantic-Org/Semantic-UI-React/issues/2558
 .ui.scrolling.modal.transition.visible.active{
   margin-top: 0 !important;
 }
+.rc-slider-mark-text{
+  font-size: x-small;
+}

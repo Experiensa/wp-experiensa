@@ -6,9 +6,9 @@ class Region{
     }
     public static function addTaxonomy(){
         $labels = array(
-            'name'                       => _x( 'Regions', 'Taxonomy General Name', 'experiensa' ),
-            'singular_name'              => _x( 'Region', 'Taxonomy Singular Name', 'experiensa' ),
-            'menu_name'                  => __( 'Regions', 'experiensa' ),
+            'name'                       => _x( 'World Regions', 'Taxonomy General Name', 'experiensa' ),
+            'singular_name'              => _x( 'World Region', 'Taxonomy Singular Name', 'experiensa' ),
+            'menu_name'                  => __( 'World Regions', 'experiensa' ),
             'all_items'                  => __( 'All Regions', 'experiensa' ),
             'parent_item'                => __( 'Parent Region', 'experiensa' ),
             'parent_item_colon'          => __( 'Parent Region:', 'experiensa' ),

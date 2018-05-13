@@ -11,7 +11,10 @@ const Range = Slider.Range
 function moneyFormatter(v) {
   return `${v} ${experiensa_vars.currency}`;
 }
-
+const marks = {
+  0: `0 ${experiensa_vars.currency}`,
+  9999: `9999 ${experiensa_vars.currency}`
+};
 const SliderWithTooltip = createSliderWithTooltip(Range);
 
 class PriceFilter extends React.Component{
@@ -30,11 +33,12 @@ class PriceFilter extends React.Component{
         </Accordion.Title>
         <Accordion.Content active={true}>
           <SliderWithTooltip
-          tipFormatter={moneyFormatter}
-          tipProps={{ overlayClassName: 'foo' }}
-          defaultValue={[0, 9999]}
-          min={0} max={9999}
-          onChange={this.onSliderChange} 
+            tipFormatter={moneyFormatter}
+            marks={marks}
+            tipProps={{ overlayClassName: 'foo' }}
+            defaultValue={[0, 9999]}
+            min={0} max={9999}
+            onChange={this.onSliderChange} 
           />
         </Accordion.Content>
       </Accordion>

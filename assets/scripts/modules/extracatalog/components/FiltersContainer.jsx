@@ -4,19 +4,12 @@ import FilterItem from './filters/FilterItem'
 
 class FiltersContainer extends React.Component {
   constructor(){
-      super()
+      super();
   }
-  /*handleClick = (e, titleProps) => {
-    const { index } = titleProps
-    const { activeIndex } = this.state
-    const newIndex = activeIndex === index ? -1 : index
-    this.setState({ activeIndex: newIndex })
-  }*/
   renderFilterItems(){
     const { filters, values } = this.props
     return filters.map((f, i)=>{
-      let filterName = f; //f =='country'?'countries':f
-      // console.log('voy por el filtro', filterName, values)
+      let filterName = f; 
       switch(f){
         case 'category':
           filterName = 'categories'
@@ -41,7 +34,7 @@ class FiltersContainer extends React.Component {
           break;
       }
       return(
-        <FilterItem key={ i } title={ filterName } filters={ values } originalName={f}/>
+        <FilterItem key={ i } index={ i } title={ filterName } filters={ values } originalName={f}/>
       )
     })
   }
@@ -52,7 +45,11 @@ class FiltersContainer extends React.Component {
   render() {
     const defaults = this.createFilterIndexList();
     return(
-      <Accordion defaultActiveIndex={defaults} fluid styled exclusive={false}>
+      <Accordion 
+        defaultActiveIndex={defaults} 
+        fluid 
+        styled 
+        exclusive={false}>
         {this.renderFilterItems()}
       </Accordion>
     )
