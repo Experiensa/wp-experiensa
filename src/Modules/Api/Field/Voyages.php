@@ -157,7 +157,7 @@ class Voyages{
     //  GET META-FIELD SECTION
     //////////////////////////
     public function get_voyage_price( $object, $field_name, $request ) {
-        return get_post_meta( $object[ 'id' ], $field_name, true );
+        return get_post_meta( $object[ 'id' ], 'exp_voyage_price', true );
     }
     public function get_voyage_cover_image( $object, $field_name, $request ) {
         $images = array();
@@ -173,7 +173,7 @@ class Voyages{
             $images['feature_image'] = false;
         }
         $gallery = array();
-        $images_list = get_post_meta($object['id'],'voyage_gallery');
+        $images_list = get_post_meta($object['id'],'exp_voyage_gallery');
         //Get images from gallery
         if(!empty($images_list[0])){
             foreach($images_list as $img_id){
@@ -243,8 +243,8 @@ class Voyages{
     }
     public function get_voyage_duration( $object, $field_name, $request ) {
         $duration = "";
-        $days            = get_post_meta($object[ 'id' ],'days');
-        $nights          = get_post_meta($object[ 'id' ],'nights');
+        $days            = get_post_meta($object[ 'id' ],'exp_voyage_number_days');
+        $nights          = get_post_meta($object[ 'id' ],'exp_voyage_number_nights');
         if(!empty($days[0])){
             $duration.= implode($days) .' '.__('Days', 'experiensa');
             if(!empty($nights[0])){
@@ -259,8 +259,8 @@ class Voyages{
     }
     public function get_voyage_offer_dates( $object, $field_name, $request ){
         $offer_dates = [];
-        $start_date  = get_post_meta($object[ 'id' ],'offer_start_date');
-        $end_date    = get_post_meta($object[ 'id' ],'expiry_date');
+        $start_date  = get_post_meta($object[ 'id' ],'exp_voyage_start_date');
+        $end_date    = get_post_meta($object[ 'id' ],'exp_voyage_end_date');
         if(!empty($start_date[0])){
             $offer_dates['start_date'] = implode($start_date);
         }else{

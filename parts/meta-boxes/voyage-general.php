@@ -7,7 +7,7 @@ Meta box: true
 
 $price = array(
     'type'  => 'number',
-    'field' => 'price',
+    'field' => 'exp_voyage_price',
     'label' => __('Price','experiensa'),
     'attributes'    => array( 'step' => 'any' ),
     'columns'   => 3
@@ -15,23 +15,23 @@ $price = array(
 
 $offer_start_date = array(
     'type'      => 'datepicker',
-    'field'     => 'offer_start_date',
-    'label'     => __('Offer start date','experiensa'),
+    'field'     => 'exp_voyage_start_date',
+    'label'     => __('Start date','experiensa'),
     'options'   => array( 'dateFormat' => 'dd/mm/yy'),
     'columns'   => 3
 );
 
 $expiry_date = array(
     'type'      => 'datepicker',
-    'field'     => 'expiry_date',
-    'label'     => __('Expiry date','experiensa'),
+    'field'     => 'exp_voyage_end_date',
+    'label'     => __('End date','experiensa'),
     'options'   => array( 'dateFormat' => 'dd/mm/yy'),
     'columns'   => 3
 );
 
 $from = array(
     'type'      => 'checkbox',
-    'field'     => 'display_from',
+    'field'     => 'exp_voyage_display_from',
     'label'     => __('Display from','experiensa'),
     'choices'   => array( 'TRUE'  => 'Yes' ),
     'columns'   => 2
@@ -39,7 +39,7 @@ $from = array(
 
 $slogan = array(
     'type'      => 'text',
-    'field'     => 'slogan',
+    'field'     => 'exp_voyage_slogan',
     'columns'   => 12,
     'label'     => __('Voyage slogan','experiensa')
 );
@@ -62,13 +62,13 @@ piklist('field', array(
     'fields' => array(
         array(
             'type'          => 'number',
-            'field'         => 'days',
+            'field'         => 'exp_voyage_number_days',
             'columns'       => 2,
             'attributes'    => ['placeholder' => __('Days','experiensa')],
         ),
         array(
             'type'          => 'number',
-            'field'         => 'nights',
+            'field'         => 'exp_voyage_number_nights',
             'columns'       => 2,
             'attributes' => array( 'placeholder' => __('Nights')),
         ),
@@ -104,13 +104,13 @@ piklist('field', array(
 */
 piklist('field', array(
     'type'  => 'editor',
-    'field' => 'information_conditions',
+    'field' => 'exp_voyage_information_conditions',
     'label' => __('Additional information & Conditions','experiensa')
 ));
 
 piklist('field', array(
     'type'          => 'file',
-    'field'         => 'voyage_gallery',
+    'field'         => 'exp_voyage_gallery',
     'scope'         => 'post_meta',
     'description'   => __('Photos should be 1920x1080 pixels','experiensa'),
     'label'         => __('Photo Gallery','experiensa'),

@@ -87,7 +87,7 @@ $voyage_host_gallery = array(
     'field'     => 'establishment_gallery',
     'label'     => __('Photo Gallery','experiensa'),
 );
-
+/* 
 piklist('field', array(
     'type'      => 'group',
     'template'  => 'field',
@@ -105,3 +105,4 @@ piklist('field', array(
         $voyage_host_gallery
     )
 ));
+*/

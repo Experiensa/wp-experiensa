@@ -79,7 +79,7 @@ $flight_arrival_time = array(
     'columns'   => 3,
     'label'     => __('Arrival time','experiensa')
 );
-
+/*
 piklist('field', array(
     'type'      => 'group',
     'field'     => 'flight_options',
@@ -97,3 +97,4 @@ piklist('field', array(
         $flight_arrival_time
     )
 ));
+*/

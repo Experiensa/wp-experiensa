@@ -42,7 +42,7 @@ $voyage_itinerary_gallery = array(
     'field'     => 'itinerary_gallery',
     'label'     => __('Gallery','experiensa'),
 );
-
+/*
 piklist('field', array(
     'type'      => 'group',
     'field'     => 'itinerary_options',
@@ -56,3 +56,4 @@ piklist('field', array(
         $voyage_itinerary_gallery
     )
 ));
+*/
