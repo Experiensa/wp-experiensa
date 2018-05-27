@@ -1,10 +1,10 @@
 import 'rc-slider/assets/index.css';
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import ReactDOM from 'react-dom';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
-import { Accordion, Icon } from 'semantic-ui-react'
-import {filterCatalog} from '../../actions'
+import { Accordion, Icon } from 'semantic-ui-react';
+import {filterCatalog} from '../../actions';
 
 const Range = Slider.Range
 
@@ -20,18 +20,34 @@ const SliderWithTooltip = createSliderWithTooltip(Range);
 class PriceFilter extends React.Component{
   constructor(props) {
     super(props);
+    this.state = { isActive: false };
+		this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick = (e) => {
+    const { isActive } = this.state;
+    console.log('is active', isActive);
+		this.setState({
+			isActive: !isActive
+		})
   }
   onSliderChange = (value) => {
     this.props.filterCatalog('FILTER_PRICE', this.props.input_text, true, value)
   }
   render(){
-    const fields = this.props;
+    const {keyVal} = this.props;
+    const { isActive } = this.state;
+    // console.log('keyVal', keyVal)
+    // console.log('is active1', isActive)
     return(
-      <Accordion fluid styled exclusive={false}>
-        <Accordion.Title active={true} index={0}>
+      <div>
+        <Accordion.Title
+          active={isActive} 
+          index={keyVal}
+          onClick={(e) => this.handleClick(e)}
+        >
           Prix
         </Accordion.Title>
-        <Accordion.Content active={true}>
+        <Accordion.Content active={isActive}>
           <SliderWithTooltip
             tipFormatter={moneyFormatter}
             marks={marks}
@@ -41,7 +57,7 @@ class PriceFilter extends React.Component{
             onChange={this.onSliderChange} 
           />
         </Accordion.Content>
-      </Accordion>
+      </div>
     )
   }
 }

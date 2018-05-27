@@ -1,11 +1,10 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import { Grid, Image } from 'semantic-ui-react'
-import SearchContainer from './SearchContainer'
-import FiltersContainer from './FiltersContainer'
-import ResultsContainer from './ResultsContainer'
-import PriceFilter from './filters/PriceFilter'
-import {requestCatalog} from '../actions'
+import React from 'react';
+import {connect} from 'react-redux';
+import { Grid, Image } from 'semantic-ui-react';
+import SearchContainer from './SearchContainer';
+import FiltersContainer from './FiltersContainer';
+import ResultsContainer from './ResultsContainer';
+import {requestCatalog} from '../actions';
 
 class Index extends React.Component {
   constructor(){
@@ -31,7 +30,6 @@ class Index extends React.Component {
         <Grid.Column width={4}>
           <SearchContainer/>
           <FiltersContainer filters={filters} values={values}/>
-          <PriceFilter/>
         </Grid.Column>
         <Grid.Column width={12}>
           <ResultsContainer voyages={catalog} elements={elements} options={options}/>

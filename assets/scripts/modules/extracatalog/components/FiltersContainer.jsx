@@ -1,6 +1,7 @@
-import React from 'react'
-import { Accordion, Icon } from 'semantic-ui-react'
-import FilterItem from './filters/FilterItem'
+import React from 'react';
+import { Accordion, Icon } from 'semantic-ui-react';
+import FilterItem from './filters/FilterItem';
+import PriceFilter from './filters/PriceFilter';
 
 class FiltersContainer extends React.Component {
   constructor(){
@@ -40,10 +41,13 @@ class FiltersContainer extends React.Component {
   }
   createFilterIndexList(){
     const { filters } = this.props
-    return Array.from(filters, (f,i) => i)
+    let defaults = Array.from(filters, (f,i) => i)
+    defaults.push(defaults.length);
+    return defaults
   }
   render() {
     const defaults = this.createFilterIndexList();
+    // console.log('key para price', defaults.length - 1)
     return(
       <Accordion 
         defaultActiveIndex={defaults} 
@@ -51,6 +55,9 @@ class FiltersContainer extends React.Component {
         styled 
         exclusive={false}>
         {this.renderFilterItems()}
+        <PriceFilter 
+          keyVal={defaults.length - 1}
+        />
       </Accordion>
     )
   }

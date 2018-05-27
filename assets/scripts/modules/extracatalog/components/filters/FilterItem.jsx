@@ -1,6 +1,6 @@
-import React from 'react'
-import { Accordion, Icon } from 'semantic-ui-react'
-import FilterCheckGroup from './FilterCheckGroup'
+import React from 'react';
+import { Accordion, Icon } from 'semantic-ui-react';
+import FilterCheckGroup from './FilterCheckGroup';
 
 function jsUcfirst(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
