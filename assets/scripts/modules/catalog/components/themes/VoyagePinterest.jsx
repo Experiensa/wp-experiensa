@@ -1,7 +1,7 @@
 import React from 'react'
 import StackGrid, { transitions } from "react-stack-grid";
 import VoyagePinterestElement from './VoyageCards'
-const { scaleDown } = transitions;
+// const { scaleDown } = transitions;
 
 export default class VoyagePinterestLayout extends React.Component {
     constructor(){

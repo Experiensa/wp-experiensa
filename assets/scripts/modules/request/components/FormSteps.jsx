@@ -15,7 +15,7 @@ class FormSteps extends Component {
       return(
         <Grid centered>
           <Grid.Row>
-            <Grid.Column width={10}>
+            <Grid.Column className="center aligned">
               <Step.Group unstackable>
                 <Step active={page==1?true:false}>
                   <Icon name="world"/>
